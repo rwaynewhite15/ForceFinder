@@ -27,8 +27,22 @@
   const US_MIL_HEX_MIN = 0xadf7c8, US_MIL_HEX_MAX = 0xafffff;
   const ADSB_ENDPOINTS = ["https://api.adsb.lol/v2/mil", "https://api.airplanes.live/v2/mil"];
 
+  const EVENT_TYPES = {
+    strike: { label: "Strike / airstrike", color: "#e5383b" },
+    missile: { label: "Missile attack", color: "#ff7b00" },
+    drone: { label: "Drone attack", color: "#b15cff" },
+    naval: { label: "Naval incident", color: "#00a6d6" },
+    ground: { label: "Ground fighting / troops", color: "#5f9e1a" },
+    exercise: { label: "Military exercise", color: "#d4a800" },
+    diplomacy: { label: "Diplomacy / talks", color: "#7d8794" },
+  };
+  // Events this close to the newest event in the data get a pulsing ring.
+  const PULSE_DAYS = 3;
+  const DAY_MS = 86400000;
+
   const BASES = window.FF_BASES || [];
   const NAVAL = window.FF_NAVAL || [];
+  const EVENTS = window.FF_EVENTS || [];
 
   // ---------------------------------------------------------------- icons
   const iconCache = new Map();
@@ -132,6 +146,70 @@
     });
   }
 
+  function eventGlyph(g, type, m) {
+    g.fillStyle = g.strokeStyle = "#fff";
+    g.lineWidth = 1.8;
+    g.lineCap = g.lineJoin = "round";
+    g.beginPath();
+    switch (type) {
+      case "strike": // starburst
+        for (let i = 0; i < 16; i++) {
+          const a = (i * Math.PI) / 8, r = i % 2 ? 3 : 7.5;
+          g.lineTo(m + r * Math.cos(a), m + r * Math.sin(a));
+        }
+        g.closePath(); g.fill();
+        break;
+      case "missile": // rocket pointing up-right
+        g.save(); g.translate(m, m); g.rotate(Math.PI / 4);
+        g.moveTo(0, -8); g.lineTo(2.5, -4); g.lineTo(2.5, 4); g.lineTo(5, 7.5); g.lineTo(-5, 7.5);
+        g.lineTo(-2.5, 4); g.lineTo(-2.5, -4); g.closePath(); g.fill();
+        g.restore();
+        break;
+      case "drone": // quadcopter
+        g.moveTo(m - 5, m - 5); g.lineTo(m + 5, m + 5); g.moveTo(m + 5, m - 5); g.lineTo(m - 5, m + 5); g.stroke();
+        for (const [dx, dy] of [[-5, -5], [5, -5], [-5, 5], [5, 5]]) {
+          g.beginPath(); g.arc(m + dx, m + dy, 2.6, 0, Math.PI * 2); g.stroke();
+        }
+        break;
+      case "naval": // hull and mast
+        g.moveTo(m - 8, m + 1); g.lineTo(m + 8, m + 1); g.lineTo(m + 5, m + 6); g.lineTo(m - 5, m + 6); g.closePath(); g.fill();
+        g.beginPath(); g.moveTo(m, m + 1); g.lineTo(m, m - 7); g.lineTo(m + 5, m - 2); g.lineTo(m, m - 2); g.fill(); g.stroke();
+        break;
+      case "ground": // double chevron
+        g.moveTo(m - 6, m + 1); g.lineTo(m, m - 5); g.lineTo(m + 6, m + 1);
+        g.moveTo(m - 6, m + 6); g.lineTo(m, m); g.lineTo(m + 6, m + 6);
+        g.lineWidth = 2.4; g.stroke();
+        break;
+      case "exercise": // target
+        g.arc(m, m, 7, 0, Math.PI * 2); g.stroke();
+        g.beginPath(); g.arc(m, m, 3.5, 0, Math.PI * 2); g.stroke();
+        g.beginPath(); g.arc(m, m, 1.2, 0, Math.PI * 2); g.fill();
+        break;
+      default: // diplomacy: speech bubble
+        g.moveTo(m - 7, m - 6); g.lineTo(m + 7, m - 6); g.lineTo(m + 7, m + 3); g.lineTo(m - 1, m + 3);
+        g.lineTo(m - 5, m + 7); g.lineTo(m - 4, m + 3); g.lineTo(m - 7, m + 3); g.closePath(); g.fill();
+    }
+  }
+
+  function eventIcon(type, size = 26) {
+    return canvasIcon(`e|${type}|${size}`, size, (g, s) => {
+      g.save();
+      g.scale(s / 26, s / 26); // glyphs are drawn on a 26px grid
+      g.beginPath(); g.arc(13, 13, 11.5, 0, Math.PI * 2);
+      g.fillStyle = EVENT_TYPES[type].color; g.fill();
+      g.lineWidth = 2; g.strokeStyle = "#fff"; g.stroke();
+      eventGlyph(g, type, 13);
+      g.restore();
+    });
+  }
+
+  function ringIcon(type) {
+    return canvasIcon(`r|${type}`, 40, (g, s) => {
+      g.beginPath(); g.arc(s / 2, s / 2, s / 2 - 2, 0, Math.PI * 2);
+      g.lineWidth = 3; g.strokeStyle = EVENT_TYPES[type].color; g.stroke();
+    });
+  }
+
   function clusterIcon(n) {
     const size = n < 10 ? 28 : n < 50 ? 34 : 40;
     return canvasIcon(`c|${n}`, size, (g, s) => {
@@ -228,6 +306,7 @@
   const baseDS = new Cesium.CustomDataSource("bases");
   const navalDS = new Cesium.CustomDataSource("naval");
   const airDS = new Cesium.CustomDataSource("aircraft");
+  const eventDS = new Cesium.CustomDataSource("events");
 
   BASES.forEach((rec, i) => {
     rec.id = `base-${i}`;
@@ -267,7 +346,71 @@
 
   viewer.dataSources.add(baseDS);
   viewer.dataSources.add(navalDS);
+  viewer.dataSources.add(eventDS);
   viewer.dataSources.add(airDS);
+
+  // ---------------------------------------------------------------- conflict events
+  const eventTime = (rec) => Date.parse(`${rec.date}T12:00:00Z`);
+  const EVENTS_AS_OF = window.FF_EVENTS_AS_OF ? Date.parse(`${window.FF_EVENTS_AS_OF}T12:00:00Z`)
+    : Math.max(0, ...EVENTS.map(eventTime));
+  const eventEntities = new Map(); // event id -> entities (marker, pulse ring, arc)
+
+  // Arc raised above the surface between launch area and target, like a trajectory.
+  function arcPositions(from, to) {
+    const a = Cesium.Cartographic.fromDegrees(from[1], from[0]);
+    const b = Cesium.Cartographic.fromDegrees(to[1], to[0]);
+    const geo = new Cesium.EllipsoidGeodesic(a, b);
+    const peak = geo.surfaceDistance * 0.15;
+    const pts = [];
+    for (let i = 0; i <= 48; i++) {
+      const f = i / 48;
+      const c = geo.interpolateUsingFraction(f);
+      pts.push(Cesium.Cartesian3.fromRadians(c.longitude, c.latitude, Math.sin(Math.PI * f) * peak));
+    }
+    return pts;
+  }
+
+  const pulseStart = Date.now();
+  const pulsePhase = () => ((Date.now() - pulseStart) % 1800) / 1800;
+
+  EVENTS.forEach((rec, i) => {
+    rec.id = `event-${i}`;
+    rec.n = rec.title;
+    const ff = { kind: "event", rec };
+    const color = Cesium.Color.fromCssColorString(EVENT_TYPES[rec.type].color);
+    const position = Cesium.Cartesian3.fromDegrees(rec.lon, rec.lat);
+    const list = [];
+    const marker = eventDS.entities.add({
+      id: rec.id,
+      name: rec.title,
+      position,
+      billboard: { ...icon(eventIcon(rec.type)), verticalOrigin: Cesium.VerticalOrigin.CENTER },
+      label: labelStyle(rec.title, 1.2e6, color.brighten(0.5, new Cesium.Color())),
+    });
+    list.push(marker);
+    if (EVENTS_AS_OF - eventTime(rec) <= PULSE_DAYS * DAY_MS) {
+      list.push(eventDS.entities.add({
+        position,
+        billboard: {
+          ...icon(ringIcon(rec.type)),
+          verticalOrigin: Cesium.VerticalOrigin.CENTER,
+          scale: new Cesium.CallbackProperty(() => 0.6 + pulsePhase() * 1.2, false),
+          color: new Cesium.CallbackProperty(() => Cesium.Color.WHITE.withAlpha(1 - pulsePhase()), false),
+        },
+      }));
+    }
+    if (rec.from) {
+      list.push(eventDS.entities.add({
+        polyline: {
+          positions: arcPositions(rec.from, [rec.lat, rec.lon]),
+          width: 2.5,
+          material: new Cesium.PolylineDashMaterialProperty({ color: color.withAlpha(0.9), dashLength: 14 }),
+        },
+      }));
+    }
+    for (const e of list) e.ff = ff;
+    eventEntities.set(rec.id, list);
+  });
 
   // Clustering keeps the global view readable; clusters split apart as you zoom in.
   baseDS.clustering.pixelRange = 28;
@@ -294,11 +437,15 @@
     branches: new Set(Object.keys(BRANCH_COLORS)),
     showBases: true,
     showNaval: true,
+    showEvents: true,
+    eventDays: 0, // 0 = all
+    conflicts: new Set(EVENTS.map((e) => e.conflict)),
   };
 
   function matches(rec, q) {
     if (!q) return true;
-    const hay = [rec.n, rec.b, rec.cc, rec.d, rec.area, rec.status, CATEGORY_LABELS[rec.c]]
+    const hay = [rec.n, rec.b, rec.cc, rec.d, rec.area, rec.status, CATEGORY_LABELS[rec.c], rec.conflict,
+      rec.type && EVENT_TYPES[rec.type].label, rec.date]
       .filter(Boolean).join(" ").toLowerCase();
     return q.split(/\s+/).every((w) => hay.includes(w));
   }
@@ -348,6 +495,27 @@
         el("span", { class: `conf ${rec.conf}`, title: "Location confidence" }, rec.conf)));
     }
     $("count-naval").textContent = `${shownNaval}/${NAVAL.length}`;
+
+    const eventList = $("event-list");
+    eventList.replaceChildren();
+    const visibleEvents = [];
+    for (const rec of EVENTS) {
+      const inWindow = !state.eventDays || EVENTS_AS_OF - eventTime(rec) <= state.eventDays * DAY_MS;
+      const show = state.showEvents && inWindow && state.conflicts.has(rec.conflict) && matches(rec, q);
+      for (const e of eventEntities.get(rec.id)) e.show = show;
+      if (show) visibleEvents.push(rec);
+    }
+    visibleEvents.sort((a, b) => b.date.localeCompare(a.date));
+    for (const rec of visibleEvents) {
+      eventList.append(el("li", { onclick: () => focusRecord("event", rec) },
+        el("img", { src: eventIcon(rec.type, 16), width: 16, height: 16, alt: "" }),
+        el("div", {}, rec.title, el("div", { class: "meta" }, `${fmtDate(rec.date)} · ${rec.conflict}`))));
+    }
+    $("count-events").textContent = `${visibleEvents.length}/${EVENTS.length}`;
+  }
+
+  function fmtDate(iso) {
+    return new Date(`${iso}T12:00:00Z`).toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" });
   }
 
   function buildControls() {
@@ -372,6 +540,25 @@
     legend.append(el("div", { class: "row" }, el("img", { src: shipIcon("carrier"), width: 14, height: 14, alt: "" }), "Aircraft carrier"));
     legend.append(el("div", { class: "row" }, el("img", { src: shipIcon("amphib"), width: 14, height: 14, alt: "" }), "Amphibious assault ship / ARG"));
     legend.append(el("div", { class: "row" }, el("img", { src: aircraftIcon(), width: 14, height: 14, alt: "" }), "Military aircraft (live ADS-B)"));
+    for (const [type, t] of Object.entries(EVENT_TYPES)) {
+      legend.append(el("div", { class: "row" }, el("img", { src: eventIcon(type, 16), width: 16, height: 16, alt: "" }), t.label));
+    }
+    legend.append(el("div", { class: "row" }, el("span", { class: "dash" }), "Approximate attack direction"));
+
+    const conflictWrap = $("conflict-filters");
+    const conflictCounts = {};
+    for (const e of EVENTS) conflictCounts[e.conflict] = (conflictCounts[e.conflict] || 0) + 1;
+    for (const conflict of Object.keys(conflictCounts).sort()) {
+      const cb = el("input", { type: "checkbox", checked: "" });
+      cb.addEventListener("change", () => {
+        cb.checked ? state.conflicts.add(conflict) : state.conflicts.delete(conflict);
+        applyFilters();
+      });
+      conflictWrap.append(el("label", { class: "row" }, cb, conflict, el("span", { class: "count" }, String(conflictCounts[conflict]))));
+    }
+    $("event-window").addEventListener("change", (e) => { state.eventDays = Number(e.target.value); applyFilters(); });
+    $("layer-events").addEventListener("change", (e) => { state.showEvents = e.target.checked; applyFilters(); });
+    $("events-asof").textContent = window.FF_EVENTS_AS_OF ? `as of ${window.FF_EVENTS_AS_OF}` : "";
 
     $("search").addEventListener("input", (e) => { state.query = e.target.value; applyFilters(); });
     $("layer-bases").addEventListener("change", (e) => { state.showBases = e.target.checked; applyFilters(); });
@@ -387,6 +574,7 @@
     for (const s of window.FF_NAVAL_SOURCES || []) {
       $("sources").append(el("li", {}, el("a", { href: s.url, target: "_blank", rel: "noopener" }, s.label)));
     }
+    $("sources").append(el("li", {}, "Conflict events: linked news reports (see each event)"));
     $("sources").append(el("li", {}, "Installations: DoD Base Structure Report, service websites, Wikipedia"));
     $("sources").append(el("li", {}, "Photos: ", el("a", { href: "https://en.wikipedia.org", target: "_blank", rel: "noopener" }, "Wikipedia"),
       " (bases, ships) / ", el("a", { href: "https://www.planespotters.net", target: "_blank", rel: "noopener" }, "Planespotters.net"), " (aircraft)"));
@@ -500,9 +688,23 @@
       rows.push(["Type", rec.t || "—"], ["Registration", rec.r || "—"], ["ICAO hex", rec.hex.toUpperCase()], ["Altitude", alt],
         ["Ground speed", rec.gs != null ? `${Math.round(rec.gs)} kt` : "—"], ["Track", rec.track != null ? `${Math.round(rec.track)}°` : "—"],
         ["Position", fmtCoord(rec.lat, rec.lon)]);
+    } else if (kind === "event") {
+      title = rec.title;
+      sub = `${EVENT_TYPES[rec.type].label} · ${rec.conflict}`;
+      const ago = Math.round((EVENTS_AS_OF - eventTime(rec)) / DAY_MS);
+      rows.push(["Date", `${fmtDate(rec.date)}${ago > 0 ? ` (${ago}d before update)` : ""}`],
+        ["Location", fmtCoord(rec.lat, rec.lon) + " (approx.)"], ["Summary", rec.d]);
     }
     const dl = el("dl");
     for (const [k, v] of rows) dl.append(el("dt", {}, k), el("dd", {}, v == null ? "—" : String(v)));
+    if (kind === "event") {
+      const links = el("dd", { class: "sources" });
+      for (const s of rec.src || []) links.append(el("a", { href: s.url, target: "_blank", rel: "noopener" }, `${s.label} ↗`));
+      dl.append(el("dt", {}, "Sources"), links);
+      body.replaceChildren(el("h3", {}, title), el("div", { class: "meta" }, sub), dl);
+      $("details").hidden = false;
+      return;
+    }
     const photo = el("figure", { class: "photo loading" }, el("div", { class: "photo-msg" }, "Loading photo…"));
     body.replaceChildren(el("h3", {}, title), el("div", { class: "meta" }, sub), photo, dl);
     $("details").hidden = false;
@@ -515,9 +717,9 @@
   }
 
   function focusRecord(kind, rec) {
-    const ds = kind === "base" ? baseDS : navalDS;
+    const ds = { base: baseDS, naval: navalDS, event: eventDS }[kind];
     viewer.selectedEntity = ds.entities.getById(rec.id);
-    const height = kind === "base" ? 25000 : CONF_RADIUS[rec.conf] * 6 + 200000;
+    const height = kind === "base" ? 25000 : kind === "event" ? 700000 : CONF_RADIUS[rec.conf] * 6 + 200000;
     viewer.camera.flyTo({ destination: Cesium.Cartesian3.fromDegrees(rec.lon, rec.lat, height), duration: 2 });
     showDetails(kind, rec);
     if (window.innerWidth < 700) document.body.classList.add("panel-hidden");
@@ -541,7 +743,7 @@
     if (Array.isArray(picked.id)) { flyToCluster(picked.id); return; }
     const e = picked.id;
     if (e && e.ff) {
-      viewer.selectedEntity = e;
+      viewer.selectedEntity = e.ff.kind === "event" ? eventDS.entities.getById(e.ff.rec.id) : e;
       showDetails(e.ff.kind, e.ff.rec);
     }
   }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
@@ -554,7 +756,8 @@
       if (Array.isArray(picked.id)) text = `${picked.id.length} installations — click to zoom`;
       else if (picked.id && picked.id.ff) {
         const { kind, rec } = picked.id.ff;
-        text = kind === "aircraft" ? `${rec.flight || rec.hex.toUpperCase()} · ${rec.t || "unknown type"}` : rec.n;
+        text = kind === "aircraft" ? `${rec.flight || rec.hex.toUpperCase()} · ${rec.t || "unknown type"}`
+          : kind === "event" ? `${rec.title} · ${fmtDate(rec.date)}` : rec.n;
       }
     }
     if (text) {
@@ -642,5 +845,5 @@
   // ---------------------------------------------------------------- go
   buildControls();
   applyFilters();
-  window.ForceFinder = { viewer, baseDS, navalDS, airDS, state, applyFilters, refreshAircraft };
+  window.ForceFinder = { viewer, baseDS, navalDS, airDS, eventDS, state, applyFilters, refreshAircraft };
 })();
