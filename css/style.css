@@ -62,6 +62,13 @@ section.foot { border-bottom: 0; }
   background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 14px; z-index: 3;
 }
 #details h3 { margin: 0 24px 4px 0; font-size: 16px; }
+#details .photo { margin: 10px 0 0; }
+#details .photo img { display: block; width: 100%; max-height: 220px; object-fit: cover; border-radius: 6px; background: #1b222c; }
+#details .photo figcaption { margin-top: 4px; color: var(--muted); font-size: 11px; }
+#details .photo-msg { height: 60px; display: flex; align-items: center; justify-content: center; border-radius: 6px;
+  background: rgba(255,255,255,.05); color: var(--muted); font-size: 12px; }
+#details .photo.loading .photo-msg { height: 160px; }
+#details { max-height: calc(100vh - 70px); overflow-y: auto; }
 #details dl { margin: 8px 0 0; display: grid; grid-template-columns: auto 1fr; gap: 3px 10px; }
 #details dt { color: var(--muted); }
 #details dd { margin: 0; }
