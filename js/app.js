@@ -388,8 +388,93 @@
       $("sources").append(el("li", {}, el("a", { href: s.url, target: "_blank", rel: "noopener" }, s.label)));
     }
     $("sources").append(el("li", {}, "Installations: DoD Base Structure Report, service websites, Wikipedia"));
+    $("sources").append(el("li", {}, "Photos: ", el("a", { href: "https://en.wikipedia.org", target: "_blank", rel: "noopener" }, "Wikipedia"),
+      " (bases, ships) / ", el("a", { href: "https://www.planespotters.net", target: "_blank", rel: "noopener" }, "Planespotters.net"), " (aircraft)"));
     $("sources").append(el("li", {}, "Live aircraft: ", el("a", { href: "https://adsb.lol", target: "_blank", rel: "noopener" }, "adsb.lol"),
       " / ", el("a", { href: "https://airplanes.live", target: "_blank", rel: "noopener" }, "airplanes.live")));
+  }
+
+  // ---------------------------------------------------------------- photos
+  // Bases and ships: lead image of the matching Wikipedia article.
+  // Live aircraft: photo of that exact airframe (by ICAO hex) from Planespotters.net.
+  const WIKI_REST = "https://en.wikipedia.org/api/rest_v1/page/summary/";
+  const WIKI_API = "https://en.wikipedia.org/w/api.php";
+  const PLANESPOTTERS = "https://api.planespotters.net/pub/photos/hex/";
+  const ABBREVIATIONS = [
+    [/\bAFB\b/, "Air Force Base"], [/\bAB\b/, "Air Base"], [/\bSFB\b/, "Space Force Base"],
+    [/\bSFS\b/, "Space Force Station"], [/\bNAS\b/, "Naval Air Station"], [/\bNAF\b/, "Naval Air Facility"],
+    [/\bNAWS\b/, "Naval Air Weapons Station"], [/\bNSA\b/, "Naval Support Activity"],
+    [/\bMCAS\b/, "Marine Corps Air Station"], [/\bMCB\b/, "Marine Corps Base"],
+    [/\bMCRD\b/, "Marine Corps Recruit Depot"], [/\bMCAGCC\b/, "Marine Corps Air Ground Combat Center"],
+    [/\bUSAG\b/, "United States Army Garrison"],
+  ];
+  const photoCache = new Map();
+  let photoToken = 0;
+
+  async function getJSON(url) {
+    const ctrl = new AbortController();
+    const t = setTimeout(() => ctrl.abort(), 10000);
+    try {
+      const res = await fetch(url, { signal: ctrl.signal });
+      return res.ok ? await res.json() : null;
+    } catch (_) {
+      return null;
+    } finally {
+      clearTimeout(t);
+    }
+  }
+
+  async function wikiByTitle(title) {
+    const data = await getJSON(WIKI_REST + encodeURIComponent(title.replace(/ /g, "_")));
+    if (!data || data.type === "disambiguation" || !data.thumbnail) return null;
+    return { src: data.thumbnail.source, link: data.content_urls?.desktop?.page, credit: `Wikipedia: ${data.title}` };
+  }
+
+  async function wikiBySearch(query) {
+    const params = new URLSearchParams({
+      action: "query", format: "json", origin: "*", generator: "search", gsrsearch: query, gsrlimit: "1",
+      prop: "pageimages|info", piprop: "thumbnail", pithumbsize: "640", inprop: "url",
+    });
+    const data = await getJSON(`${WIKI_API}?${params}`);
+    const page = data && data.query && Object.values(data.query.pages)[0];
+    if (!page || !page.thumbnail) return null;
+    return { src: page.thumbnail.source, link: page.fullurl, credit: `Wikipedia: ${page.title}` };
+  }
+
+  function wikiTitleForBase(rec) {
+    let name = rec.w || rec.n.replace(/\s*\(.*?\)\s*/g, " ").trim();
+    for (const [re, full] of ABBREVIATIONS) name = name.replace(re, full);
+    return name;
+  }
+
+  async function findPhoto(kind, rec) {
+    if (kind === "aircraft") {
+      const data = await getJSON(PLANESPOTTERS + encodeURIComponent(rec.hex));
+      const p = data && data.photos && data.photos[0];
+      if (!p) return null;
+      return { src: (p.thumbnail_large || p.thumbnail).src, link: p.link, credit: `© ${p.photographer} / Planespotters.net` };
+    }
+    if (kind === "naval") return (await wikiByTitle(rec.w || rec.n)) || wikiBySearch(rec.w || rec.n);
+    const title = wikiTitleForBase(rec);
+    return (await wikiByTitle(title)) || wikiBySearch(`${title} ${rec.cc.split(",")[0]}`);
+  }
+
+  async function loadPhoto(fig, kind, rec) {
+    const token = ++photoToken;
+    const key = kind === "aircraft" ? `ac-${rec.hex}` : rec.id;
+    if (!photoCache.has(key)) photoCache.set(key, findPhoto(kind, rec).catch(() => null));
+    const photo = await photoCache.get(key);
+    if (token !== photoToken) return; // another asset was opened meanwhile
+    fig.classList.remove("loading");
+    if (!photo) {
+      photoCache.delete(key); // allow a retry next time (e.g. transient network error)
+      fig.replaceChildren(el("div", { class: "photo-msg" }, "No photo available"));
+      return;
+    }
+    const img = el("img", { src: photo.src, alt: rec.n || rec.flight || rec.hex, loading: "lazy" });
+    img.addEventListener("error", () => fig.replaceChildren(el("div", { class: "photo-msg" }, "Photo failed to load")));
+    const link = el("a", { href: photo.link || photo.src, target: "_blank", rel: "noopener" }, img);
+    fig.replaceChildren(link, el("figcaption", {}, photo.credit));
   }
 
   // ---------------------------------------------------------------- details & navigation
@@ -418,8 +503,10 @@
     }
     const dl = el("dl");
     for (const [k, v] of rows) dl.append(el("dt", {}, k), el("dd", {}, v == null ? "—" : String(v)));
-    body.replaceChildren(el("h3", {}, title), el("div", { class: "meta" }, sub), dl);
+    const photo = el("figure", { class: "photo loading" }, el("div", { class: "photo-msg" }, "Loading photo…"));
+    body.replaceChildren(el("h3", {}, title), el("div", { class: "meta" }, sub), photo, dl);
     $("details").hidden = false;
+    loadPhoto(photo, kind, rec);
   }
 
   function hideDetails() {
