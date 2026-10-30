@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ForceFinder — US Military Posture Globe</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cesium@1.121.0/Build/Cesium/Widgets/widgets.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script>window.CESIUM_BASE_URL = "https://cdn.jsdelivr.net/npm/cesium@1.121.0/Build/Cesium/";</script>
+  <script src="https://cdn.jsdelivr.net/npm/cesium@1.121.0/Build/Cesium/Cesium.js"></script>
+</head>
+<body>
+  <div id="globe"></div>
+
+  <button id="panel-toggle" aria-label="Toggle panel" title="Toggle panel">☰</button>
+
+  <aside id="panel">
+    <header>
+      <h1>ForceFinder</h1>
+      <p class="sub">Approximate locations of US military installations and naval assets, from open sources.</p>
+    </header>
+
+    <section>
+      <input id="search" type="search" placeholder="Search bases, ships, countries…" autocomplete="off">
+    </section>
+
+    <section>
+      <h2>Layers</h2>
+      <label class="row"><input type="checkbox" id="layer-bases" checked> Installations <span class="count" id="count-bases"></span></label>
+      <label class="row"><input type="checkbox" id="layer-naval" checked> Carriers &amp; amphibs <span class="count" id="count-naval"></span></label>
+      <label class="row"><input type="checkbox" id="layer-air"> Live military aircraft (ADS-B) <span class="count" id="count-air"></span></label>
+      <label class="row"><input type="checkbox" id="layer-cluster" checked> Cluster nearby markers</label>
+      <label class="row">Basemap
+        <select id="basemap">
+          <option value="satellite">Satellite</option>
+          <option value="dark">Dark</option>
+          <option value="light">Light</option>
+        </select>
+      </label>
+    </section>
+
+    <section>
+      <h2>Branch</h2>
+      <div id="branch-filters"></div>
+    </section>
+
+    <section>
+      <h2>Symbols</h2>
+      <div id="legend"></div>
+    </section>
+
+    <section>
+      <h2>Naval assets <span class="asof" id="naval-asof"></span></h2>
+      <ul id="naval-list" class="list"></ul>
+    </section>
+
+    <section>
+      <h2>Installations</h2>
+      <ul id="base-list" class="list"></ul>
+    </section>
+
+    <section class="foot">
+      <h2>Sources</h2>
+      <ul id="sources"></ul>
+      <p class="disclaimer">All data is drawn from publicly available reporting and is approximate. Ship positions at sea
+        are representative points in the reported area, often days old. Not for operational use.</p>
+    </section>
+  </aside>
+
+  <div id="details" hidden>
+    <button id="details-close" aria-label="Close">×</button>
+    <div id="details-body"></div>
+  </div>
+
+  <div id="tooltip" hidden></div>
+
+  <script src="data/bases.js"></script>
+  <script src="data/naval.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
