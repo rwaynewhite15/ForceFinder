@@ -53,6 +53,10 @@ section.foot { border-bottom: 0; }
 .conf { font-size: 10px; padding: 0 5px; border-radius: 8px; margin-left: auto; white-space: nowrap; }
 .conf.high { background: #1f6f3a; } .conf.medium { background: #8a6d12; } .conf.low { background: #7a2b2b; }
 
+.dash { width: 16px; height: 0; border-top: 2px dashed #e5383b; display: inline-block; }
+#conflict-filters { margin: 4px 0 6px; }
+#details dd.sources { display: flex; flex-direction: column; gap: 3px; }
+#details dd.sources a { color: var(--accent); }
 #sources { margin: 0; padding-left: 16px; }
 #sources a { color: var(--accent); }
 .disclaimer { color: var(--muted); font-size: 11px; }

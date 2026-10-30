@@ -13,6 +13,11 @@ Built with [CesiumJS](https://cesium.com/platform/cesiumjs/). It has no build st
   uncertainty ring (±15 km in port, up to ±500 km when only the ocean area is known).
 - **Live military aircraft** (optional) from public ADS-B feeds (adsb.lol, then airplanes.live as backup),
   filtered to the US military ICAO address block. This only shows aircraft that are broadcasting a transponder.
+- **Recent conflict events** (Iran war / Strait of Hormuz, Russia–Ukraine, Israel–Gaza/Lebanon, Sudan,
+  South China Sea, China–Taiwan), each with an icon for its type (strike, missile, drone, naval incident,
+  ground fighting, exercise, diplomacy) and links to the news reports it comes from. Events from the last
+  few days pulse, dashed arcs show approximate attack direction for long-range strikes, and you can filter
+  by conflict and time window.
 - **Photos** in the details panel when you click an asset. Bases and ships use the lead image of
   the matching Wikipedia article. Live aircraft use a photo of that exact airframe (looked up by its
   transponder ID) from Planespotters.net. Each photo is credited and links to its source.
@@ -34,12 +39,16 @@ To host it for free, enable GitHub Pages on this repo (Settings → Pages → de
 | File | Contents |
 |------|----------|
 | `data/bases.js` | Installations (`n` name, optional `w` Wikipedia title for the photo, `b` branch, `c` category, `cc` location, `lat`/`lon`, `d` notes) |
+| `data/events.js` | Conflict events (`date`, `title`, `type`, `conflict`, `lat`/`lon`, `d` summary, `src` links, optional `from` launch area) and `FF_EVENTS_AS_OF` |
 | `data/naval.js` | Ship positions (`w` = Wikipedia article title for the photo), `FF_NAVAL_AS_OF` date, and source links |
 
 Ship positions change weekly. To refresh them, use the
 [USNI News Fleet & Marine Tracker](https://news.usni.org/category/fleet-tracker) (published on Mondays)
 or TWZ's "Where Are The Aircraft Carriers?" series. Update each ship's `lat`/`lon`, `status`, `area`,
 `conf`, and `FF_NAVAL_AS_OF`.
+
+To add conflict events, append entries to `data/events.js` with at least one source link, then bump
+`FF_EVENTS_AS_OF`. The time filter and pulsing rings are measured from that date.
 
 ## Disclaimer
 

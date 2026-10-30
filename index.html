@@ -17,7 +17,7 @@
   <aside id="panel">
     <header>
       <h1>ForceFinder</h1>
-      <p class="sub">Approximate locations of US military installations and naval assets, from open sources.</p>
+      <p class="sub">Approximate locations of US military installations, naval assets and recent conflict events, from open sources.</p>
     </header>
 
     <section>
@@ -28,6 +28,7 @@
       <h2>Layers</h2>
       <label class="row"><input type="checkbox" id="layer-bases" checked> Installations <span class="count" id="count-bases"></span></label>
       <label class="row"><input type="checkbox" id="layer-naval" checked> Carriers &amp; amphibs <span class="count" id="count-naval"></span></label>
+      <label class="row"><input type="checkbox" id="layer-events" checked> Recent conflict events <span class="count" id="count-events"></span></label>
       <label class="row"><input type="checkbox" id="layer-air"> Live military aircraft (ADS-B) <span class="count" id="count-air"></span></label>
       <label class="row"><input type="checkbox" id="layer-cluster" checked> Cluster nearby markers</label>
       <label class="row">Basemap
@@ -47,6 +48,20 @@
     <section>
       <h2>Symbols</h2>
       <div id="legend"></div>
+    </section>
+
+    <section>
+      <h2>Conflict events <span class="asof" id="events-asof"></span></h2>
+      <label class="row">Show
+        <select id="event-window">
+          <option value="0">All events</option>
+          <option value="3">Last 3 days</option>
+          <option value="7">Last 7 days</option>
+          <option value="14">Last 14 days</option>
+        </select>
+      </label>
+      <div id="conflict-filters"></div>
+      <ul id="event-list" class="list"></ul>
     </section>
 
     <section>
@@ -76,6 +91,7 @@
 
   <script src="data/bases.js"></script>
   <script src="data/naval.js"></script>
+  <script src="data/events.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>
