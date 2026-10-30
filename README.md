@@ -32,7 +32,7 @@ python3 -m http.server 8000
 # then visit http://localhost:8000
 ```
 
-It is hosted on GitHub Pages by the `update-and-deploy` workflow. See the setup steps under Automatic daily updates below.
+To host it for free, enable GitHub Pages on this repo (Settings → Pages → deploy from `main`, root).
 
 ## Updating the data
 
@@ -42,44 +42,13 @@ It is hosted on GitHub Pages by the `update-and-deploy` workflow. See the setup 
 | `data/events.js` | Conflict events (`date`, `title`, `type`, `conflict`, `lat`/`lon`, `d` summary, `src` links, optional `from` launch area) and `FF_EVENTS_AS_OF` |
 | `data/naval.js` | Ship positions (`w` = Wikipedia article title for the photo), `FF_NAVAL_AS_OF` date, and source links |
 
-### Automatic daily updates
+Ship positions change weekly. To refresh them, use the
+[USNI News Fleet & Marine Tracker](https://news.usni.org/category/fleet-tracker) (published on Mondays)
+or TWZ's "Where Are The Aircraft Carriers?" series. Update each ship's `lat`/`lon`, `status`, `area`,
+`conf`, and `FF_NAVAL_AS_OF`.
 
-`data/events.js` and `data/naval.js` are refreshed every day by the
-[`update-and-deploy`](.github/workflows/update-and-deploy.yml) GitHub Action, which then redeploys the site.
-It runs [`scripts/update-data/update.mjs`](scripts/update-data/update.mjs), which uses the Claude API in two steps:
-
-1. **Research:** Claude searches the web (news, USNI's Fleet & Marine Tracker, TWZ and others) and writes
-   notes with a source URL for every fact.
-2. **Extract:** a second call turns the notes into JSON that matches a strict schema.
-
-The script then checks the result in code before writing anything:
-
-- Every source URL must have appeared in that run's search or fetch results, or in the existing data.
-  Events with no verifiable link are dropped.
-- Dates can't be in the future, and events older than 21 days age out.
-- Coordinates must be valid. A ship with a bad update keeps its previous entry.
-- If fewer than 5 events survive, nothing is written.
-
-**Setup (once):**
-
-1. Repo **Settings → Secrets and variables → Actions → New repository secret**: name `ANTHROPIC_API_KEY`,
-   value your key from [console.anthropic.com](https://console.anthropic.com).
-2. Repo **Settings → Pages → Build and deployment → Source: GitHub Actions**.
-3. Run it once by hand: **Actions → Update data and deploy site → Run workflow**.
-
-**Cost:** each run makes up to 23 web searches ($10 per 1,000) plus four Claude calls on Claude Opus 5.5
-($4 / $20 per million input/output tokens). Expect roughly $0.50–$2 per run, so about $15–$60 a month
-for daily runs. To spend less, set the repository variable `FF_MODEL` to `claude-sonnet-5-5`
-(about half the token price), or change the `cron` line to run less often. The token use of each call is
-printed in the Action log.
-
-To run it locally: `cd scripts/update-data && npm ci && ANTHROPIC_API_KEY=... node update.mjs`
-(add `--dry-run` to see what would change without writing files).
-
-### Manual edits
-
-You can still edit the files by hand. The next automatic run passes the current events to Claude and
-keeps those from the last 21 days, so manual additions carry forward if they have a source link.
+To add conflict events, append entries to `data/events.js` with at least one source link, then bump
+`FF_EVENTS_AS_OF`. The time filter and pulsing rings are measured from that date.
 
 ## Disclaimer
 
