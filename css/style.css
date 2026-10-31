@@ -55,6 +55,14 @@ section.foot { border-bottom: 0; }
 
 .dash { width: 16px; height: 0; border-top: 2px dashed #e5383b; display: inline-block; }
 #conflict-filters { margin: 4px 0 6px; }
+.info-btn { background: none; border: 0; color: var(--accent); cursor: pointer; font-size: 14px; padding: 0 2px; line-height: 1; }
+.link-btn { display: block; margin-top: 12px; background: none; border: 0; padding: 0; color: var(--accent); cursor: pointer; font: inherit; text-align: left; }
+#details .summary { margin: 10px 0 4px; }
+#details .fact { margin-top: 10px; }
+#details .fact h4 { margin: 0 0 2px; font-size: 12px; text-transform: uppercase; letter-spacing: .5px; color: var(--muted); }
+#details .fact p { margin: 0; }
+#details .fact-src { display: flex; flex-wrap: wrap; gap: 4px 10px; margin-top: 3px; font-size: 12px; }
+#details .fact-src a { color: var(--accent); }
 #details dd.sources { display: flex; flex-direction: column; gap: 3px; }
 #details dd.sources a { color: var(--accent); }
 #sources { margin: 0; padding-left: 16px; }

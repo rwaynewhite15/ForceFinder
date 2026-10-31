@@ -43,6 +43,7 @@
   const BASES = window.FF_BASES || [];
   const NAVAL = window.FF_NAVAL || [];
   const EVENTS = window.FF_EVENTS || [];
+  const CONFLICTS = window.FF_CONFLICTS || {};
 
   // ---------------------------------------------------------------- icons
   const iconCache = new Map();
@@ -554,7 +555,11 @@
         cb.checked ? state.conflicts.add(conflict) : state.conflicts.delete(conflict);
         applyFilters();
       });
-      conflictWrap.append(el("label", { class: "row" }, cb, conflict, el("span", { class: "count" }, String(conflictCounts[conflict]))));
+      const info = CONFLICTS[conflict] ? el("button", {
+        class: "info-btn", type: "button", title: `About ${conflict}`, "aria-label": `About ${conflict}`,
+        onclick: (e) => { e.preventDefault(); e.stopPropagation(); showConflict(conflict, true); },
+      }, "ⓘ") : null;
+      conflictWrap.append(el("label", { class: "row", "data-conflict": conflict }, cb, conflict, info, el("span", { class: "count" }, String(conflictCounts[conflict]))));
     }
     $("event-window").addEventListener("change", (e) => { state.eventDays = Number(e.target.value); applyFilters(); });
     $("layer-events").addEventListener("change", (e) => { state.showEvents = e.target.checked; applyFilters(); });
@@ -701,7 +706,10 @@
       const links = el("dd", { class: "sources" });
       for (const s of rec.src || []) links.append(el("a", { href: s.url, target: "_blank", rel: "noopener" }, `${s.label} ↗`));
       dl.append(el("dt", {}, "Sources"), links);
-      body.replaceChildren(el("h3", {}, title), el("div", { class: "meta" }, sub), dl);
+      const about = CONFLICTS[rec.conflict]
+        ? el("button", { class: "link-btn", type: "button", onclick: () => showConflict(rec.conflict, false) }, `About the ${rec.conflict} war →`)
+        : null;
+      body.replaceChildren(el("h3", {}, title), el("div", { class: "meta" }, sub), dl, about);
       $("details").hidden = false;
       return;
     }
@@ -709,6 +717,41 @@
     body.replaceChildren(el("h3", {}, title), el("div", { class: "meta" }, sub), photo, dl);
     $("details").hidden = false;
     loadPhoto(photo, kind, rec);
+  }
+
+  // Overview card for a conflict (data/conflicts.js): summary, key facts with sources, further reading.
+  function showConflict(name, fly) {
+    const c = CONFLICTS[name];
+    if (!c) return;
+    const linkList = (src) => el("div", { class: "fact-src" },
+      ...(src || []).map((s) => el("a", { href: s.url, target: "_blank", rel: "noopener" }, `${s.label} ↗`)));
+    const facts = (c.facts || []).map((f) => el("div", { class: "fact" },
+      el("h4", {}, f.label), el("p", {}, f.text), linkList(f.src)));
+    const reading = c.reading && c.reading.length
+      ? el("div", { class: "fact" }, el("h4", {}, "Further reading"), linkList(c.reading))
+      : null;
+    const only = el("button", { class: "link-btn", type: "button", onclick: () => focusConflict(name) }, `Show only ${name} events`);
+    $("details-body").replaceChildren(
+      el("h3", {}, name),
+      el("div", { class: "meta" }, `Conflict overview${c.asOf ? ` · as of ${fmtDate(c.asOf)}` : ""}`),
+      el("p", { class: "summary" }, c.summary),
+      ...facts, reading, only);
+    $("details").hidden = false;
+    $("details").scrollTop = 0;
+    viewer.selectedEntity = undefined;
+    if (fly && c.view) {
+      viewer.camera.flyTo({ destination: Cesium.Cartesian3.fromDegrees(c.view.lon, c.view.lat, c.view.height), duration: 2 });
+    }
+  }
+
+  function focusConflict(name) {
+    state.conflicts = new Set([name]);
+    for (const label of $("conflict-filters").querySelectorAll("label")) {
+      label.querySelector("input").checked = label.dataset.conflict === name;
+    }
+    applyFilters();
+    const c = CONFLICTS[name];
+    if (c && c.view) viewer.camera.flyTo({ destination: Cesium.Cartesian3.fromDegrees(c.view.lon, c.view.lat, c.view.height), duration: 2 });
   }
 
   function hideDetails() {

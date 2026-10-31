@@ -18,6 +18,8 @@ Built with [CesiumJS](https://cesium.com/platform/cesiumjs/). It has no build st
   ground fighting, exercise, diplomacy) and links to the news reports it comes from. Events from the last
   few days pulse, dashed arcs show approximate attack direction for long-range strikes, and you can filter
   by conflict and time window.
+- **Conflict overviews:** click the ⓘ next to a conflict (currently Russia–Ukraine) for a sourced briefing
+  on the battlefield, each side's strike campaign and diplomacy, with links for further reading.
 - **Photos** in the details panel when you click an asset. Bases and ships use the lead image of
   the matching Wikipedia article. Live aircraft use a photo of that exact airframe (looked up by its
   transponder ID) from Planespotters.net. Each photo is credited and links to its source.
@@ -40,6 +42,7 @@ To host it for free, enable GitHub Pages on this repo (Settings → Pages → de
 |------|----------|
 | `data/bases.js` | Installations (`n` name, optional `w` Wikipedia title for the photo, `b` branch, `c` category, `cc` location, `lat`/`lon`, `d` notes) |
 | `data/events.js` | Conflict events (`date`, `title`, `type`, `conflict`, `lat`/`lon`, `d` summary, `src` links, optional `from` launch area) and `FF_EVENTS_AS_OF` |
+| `data/conflicts.js` | Conflict overviews keyed by conflict name (`summary`, `facts` with sources, `reading` links, camera `view`, `asOf`) |
 | `data/naval.js` | Ship positions (`w` = Wikipedia article title for the photo), `FF_NAVAL_AS_OF` date, and source links |
 
 Ship positions change weekly. To refresh them, use the
