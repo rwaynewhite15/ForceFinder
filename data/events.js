@@ -151,9 +151,14 @@ window.FF_EVENTS = [
     lat: 55.75, lon: 37.62, from: [51.5, 32.0],
     d: "Hundreds of Ukrainian drones targeted Moscow and St. Petersburg despite pressure from President Trump.",
     src: [{ label: "CNN", url: "https://www.cnn.com/2026/10/18/europe/ukraine-russia-drone-attack-trump-intl" }] },
-  { date: "2026-10-15", title: "Ukraine resumes refinery strikes after brief truce", type: "drone", conflict: "Russia–Ukraine",
-    lat: 54.5, lon: 38.5,
-    d: "Ukrainian officials said long-range attacks on Russian oil refineries resumed. Point shows western Russia generally.",
+  { date: "2026-10-21", title: "Kremlin ready to resume trilateral talks", type: "diplomacy", conflict: "Russia–Ukraine",
+    lat: 55.752, lon: 37.60,
+    d: "After meeting US envoy Steve Witkoff, the Kremlin said Russia is willing in principle to resume technical-level talks with Ukraine and the US in mid-November, possibly in Abu Dhabi. The fate of Ukrainian-held Donbas remains the main dispute.",
+    src: [{ label: "UNI", url: "https://www.uniindia.com/world/russia-putin-peace-talks/221385" },
+          { label: "APA", url: "https://en.apa.az/cis-countries/kremlin-ready-to-resume-trilateral-talks-on-ukraine-531434" }] },
+  { date: "2026-10-15", title: "Ukraine resumes refinery strikes on Ryazan after brief truce", type: "drone", conflict: "Russia–Ukraine",
+    lat: 54.58, lon: 39.73,
+    d: "Ukrainian drones attacked a refinery in Russia's Ryazan region hours after Zelenskyy said a brief truce spurned by Moscow was over.",
     src: [{ label: "NPR", url: "https://www.npr.org/2026/10/15/g-s1-148194/russia-ukraine-war" }] },
 
   // ---------------- Israel – Gaza / Lebanon ----------------
