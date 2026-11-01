@@ -29,6 +29,7 @@
       <label class="row"><input type="checkbox" id="layer-bases" checked> Installations <span class="count" id="count-bases"></span></label>
       <label class="row"><input type="checkbox" id="layer-naval" checked> Carriers &amp; amphibs <span class="count" id="count-naval"></span></label>
       <label class="row"><input type="checkbox" id="layer-events" checked> Recent conflict events <span class="count" id="count-events"></span></label>
+      <label class="row"><input type="checkbox" id="layer-groups" checked> Armed groups (US-designated) <span class="count" id="count-groups"></span></label>
       <label class="row"><input type="checkbox" id="layer-air"> Live military aircraft (ADS-B) <span class="count" id="count-air"></span></label>
       <label class="row"><input type="checkbox" id="layer-cluster" checked> Cluster nearby markers</label>
       <label class="row">Basemap
@@ -65,6 +66,13 @@
     </section>
 
     <section>
+      <h2>Armed groups <span class="asof" id="groups-asof"></span></h2>
+      <p class="disclaimer">Areas where groups the US designates as Foreign Terrorist Organizations are based or hold sway, from public reporting. Broad areas, not facility locations.</p>
+      <div id="group-filters"></div>
+      <ul id="group-list" class="list"></ul>
+    </section>
+
+    <section>
       <h2>Naval assets <span class="asof" id="naval-asof"></span></h2>
       <ul id="naval-list" class="list"></ul>
     </section>
@@ -93,6 +101,7 @@
   <script src="data/naval.js"></script>
   <script src="data/events.js"></script>
   <script src="data/conflicts.js"></script>
+  <script src="data/groups.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>

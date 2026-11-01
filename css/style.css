@@ -52,6 +52,8 @@ section.foot { border-bottom: 0; }
 .list .meta { color: var(--muted); font-size: 11px; }
 .conf { font-size: 10px; padding: 0 5px; border-radius: 8px; margin-left: auto; white-space: nowrap; }
 .conf.high { background: #1f6f3a; } .conf.medium { background: #8a6d12; } .conf.low { background: #7a2b2b; }
+.conf.stronghold { background: #7a2b2b; } .conf.contested { background: #8a6d12; } .conf.degraded { background: #3a4250; }
+#group-filters { margin: 4px 0 6px; }
 
 .dash { width: 16px; height: 0; border-top: 2px dashed #e5383b; display: inline-block; }
 #conflict-filters { margin: 4px 0 6px; }
