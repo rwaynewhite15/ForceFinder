@@ -10,6 +10,11 @@ window.FF_EVENTS_AS_OF = "2026-11-01";
 
 window.FF_EVENTS = [
   // ---------------- Iran war / Strait of Hormuz ----------------
+  { date: "2026-11-01", title: "Araghchi: no breakthrough yet on two-day Hormuz reopening plan", type: "diplomacy", conflict: "Iran war",
+    lat: 25.29, lon: 51.53,
+    d: "Iran's foreign minister said Tehran and Qatari mediators are discussing a plan to reopen the strait within two days, but the outcome depends on Washington's response. Reports conflict on whether a US delegation is joining direct talks in Doha.",
+    src: [{ label: "Al Jazeera live blog", url: "https://www.aljazeera.com/news/liveblog/2026/11/1/iran-war-live-araghchi-says-talks-under-way-on-2-day-plan-to-reopen-hormuz?update=5105950" },
+          { label: "The Tribune", url: "https://www.tribuneindia.com/news/world/iran-araghchi-says-doha-consultations-outcome-depends-on-us-response-no-breakthrough-in-2-day-hormuz-reopening-plan" }] },
   { date: "2026-10-31", title: "Oman rescues 25 from burning tanker", type: "naval", conflict: "Iran war",
     lat: 25.60, lon: 57.00,
     d: "Oman said it rescued 25 sailors from a merchant ship set ablaze in an attack; UKMTO said the crew of the vessel was reported safe. Iran separately said it halted tankers in the strait.",
@@ -272,6 +277,10 @@ window.FF_EVENTS = [
     lat: 24.71, lon: 46.68,
     d: "Coalition spokesman Turki al-Malki said a hostile drone was destroyed in the Riyadh region; debris fell without injuries. He did not say who launched it.",
     src: [{ label: "Al Arabiya", url: "https://english.alarabiya.net/News/saudi-arabia/2026/10/31/saudi-coalition-intercepts-hostile-drone-in-riyadh-region" }] },
+  { date: "2026-10-30", title: "Coalition airstrikes in al-Jawf, Marib and Taiz", type: "strike", conflict: "Yemen–Saudi Arabia",
+    lat: 16.60, lon: 45.30,
+    d: "Houthi-affiliated media reported Saudi-led coalition air strikes across al-Jawf, Marib and Taiz governorates; Houthi health officials said a strike on a market in northern Yemen killed 14. Not independently verified.",
+    src: [{ label: "CFR Global Conflict Tracker", url: "https://www.cfr.org/global-conflict-tracker/conflict/war-yemen" }] },
   { date: "2026-10-30", title: "Houthi missiles target Aden palace and airport", type: "missile", conflict: "Yemen–Saudi Arabia",
     lat: 12.78, lon: 45.04,
     d: "Yemen's government said the Houthis fired ballistic missiles at the Maashiq presidential palace and Aden airport; a security official said missiles struck near the palace. Casualties and damage were not disclosed.",
