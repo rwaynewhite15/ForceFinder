@@ -36,6 +36,23 @@
     exercise: { label: "Military exercise", color: "#d4a800" },
     diplomacy: { label: "Diplomacy / talks", color: "#7d8794" },
   };
+  // Armed-group areas (data/groups.js), one colour per group.
+  const GROUP_COLORS = {
+    "Hezbollah": "#f5d90a",
+    "Hamas": "#2fbf71",
+    "Palestinian Islamic Jihad": "#9be15d",
+    "Houthis": "#ff5d73",
+    "Kataib Hezbollah": "#ff9f43",
+    "IRGC": "#d7263d",
+    "ISIS": "#c4c4c4",
+    "al-Shabaab": "#33d1c4",
+    "AQAP": "#a77bff",
+  };
+  const GROUP_STATUS = {
+    stronghold: { label: "Stronghold", alpha: 0.22 },
+    contested: { label: "Contested", alpha: 0.14 },
+    degraded: { label: "Degraded / residual", alpha: 0.08 },
+  };
   // Events this close to the newest event in the data get a pulsing ring.
   const PULSE_DAYS = 3;
   const DAY_MS = 86400000;
@@ -44,6 +61,9 @@
   const NAVAL = window.FF_NAVAL || [];
   const EVENTS = window.FF_EVENTS || [];
   const CONFLICTS = window.FF_CONFLICTS || {};
+  const GROUPS = window.FF_GROUPS || [];
+  const GROUP_INFO = window.FF_GROUP_INFO || {};
+  const groupColor = (g) => GROUP_COLORS[g] || "#e6e9ef";
 
   // ---------------------------------------------------------------- icons
   const iconCache = new Map();
@@ -204,6 +224,24 @@
     });
   }
 
+  // Armed-group area: hexagon in the group's colour with a dark exclamation mark.
+  function groupIcon(group, size = 20) {
+    return canvasIcon(`g|${group}|${size}`, size, (g, s) => {
+      const m = s / 2, r = s / 2 - 1.5;
+      g.beginPath();
+      for (let i = 0; i < 6; i++) {
+        const a = Math.PI / 6 + (i * Math.PI) / 3;
+        g.lineTo(m + r * Math.cos(a), m + r * Math.sin(a));
+      }
+      g.closePath();
+      g.fillStyle = groupColor(group); g.fill();
+      g.lineWidth = 1.5; g.strokeStyle = "#0b0e12"; g.stroke();
+      g.fillStyle = "#0b0e12";
+      g.fillRect(m - s * 0.06, m - s * 0.28, s * 0.12, s * 0.33);
+      g.beginPath(); g.arc(m, m + s * 0.2, s * 0.07, 0, Math.PI * 2); g.fill();
+    });
+  }
+
   function ringIcon(type) {
     return canvasIcon(`r|${type}`, 40, (g, s) => {
       g.beginPath(); g.arc(s / 2, s / 2, s / 2 - 2, 0, Math.PI * 2);
@@ -308,6 +346,35 @@
   const navalDS = new Cesium.CustomDataSource("naval");
   const airDS = new Cesium.CustomDataSource("aircraft");
   const eventDS = new Cesium.CustomDataSource("events");
+  const groupDS = new Cesium.CustomDataSource("groups");
+
+  GROUPS.forEach((rec, i) => {
+    rec.id = `group-${i}`;
+    const color = Cesium.Color.fromCssColorString(groupColor(rec.g));
+    const st = GROUP_STATUS[rec.status] || GROUP_STATUS.stronghold;
+    const e = groupDS.entities.add({
+      id: rec.id,
+      name: rec.n,
+      position: Cesium.Cartesian3.fromDegrees(rec.lon, rec.lat),
+      billboard: { ...icon(groupIcon(rec.g)), verticalOrigin: Cesium.VerticalOrigin.CENTER },
+      label: { ...labelStyle(`${rec.n} · ${rec.g}`, 2.0e6, color.brighten(0.3, new Cesium.Color())),
+        verticalOrigin: Cesium.VerticalOrigin.TOP, pixelOffset: new Cesium.Cartesian2(0, 14) },
+      ellipse: {
+        semiMajorAxis: rec.r * 1000,
+        semiMinorAxis: rec.r * 1000,
+        height: 0,
+        material: new Cesium.StripeMaterialProperty({
+          evenColor: color.withAlpha(st.alpha),
+          oddColor: color.withAlpha(st.alpha * 0.35),
+          repeat: Math.max(4, Math.round(rec.r / 3)),
+          orientation: Cesium.StripeOrientation.VERTICAL,
+        }),
+        outline: true,
+        outlineColor: color.withAlpha(0.75),
+      },
+    });
+    e.ff = { kind: "group", rec };
+  });
 
   BASES.forEach((rec, i) => {
     rec.id = `base-${i}`;
@@ -347,6 +414,7 @@
 
   viewer.dataSources.add(baseDS);
   viewer.dataSources.add(navalDS);
+  viewer.dataSources.add(groupDS);
   viewer.dataSources.add(eventDS);
   viewer.dataSources.add(airDS);
 
@@ -439,6 +507,8 @@
     showBases: true,
     showNaval: true,
     showEvents: true,
+    showGroups: true,
+    groups: new Set(GROUPS.map((g) => g.g)),
     eventDays: 0, // 0 = all
     conflicts: new Set(EVENTS.map((e) => e.conflict)),
   };
@@ -446,7 +516,8 @@
   function matches(rec, q) {
     if (!q) return true;
     const hay = [rec.n, rec.b, rec.cc, rec.d, rec.area, rec.status, CATEGORY_LABELS[rec.c], rec.conflict,
-      rec.type && EVENT_TYPES[rec.type].label, rec.date]
+      rec.type && EVENT_TYPES[rec.type].label, rec.date,
+      rec.g, rec.g && GROUP_INFO[rec.g] && GROUP_INFO[rec.g].full, rec.status]
       .filter(Boolean).join(" ").toLowerCase();
     return q.split(/\s+/).every((w) => hay.includes(w));
   }
@@ -513,6 +584,21 @@
         el("div", {}, rec.title, el("div", { class: "meta" }, `${fmtDate(rec.date)} · ${rec.conflict}`))));
     }
     $("count-events").textContent = `${visibleEvents.length}/${EVENTS.length}`;
+
+    const groupList = $("group-list");
+    groupList.replaceChildren();
+    let shownGroups = 0;
+    for (const rec of GROUPS) {
+      const show = state.showGroups && state.groups.has(rec.g) && matches(rec, q);
+      groupDS.entities.getById(rec.id).show = show;
+      if (!show) continue;
+      shownGroups++;
+      groupList.append(el("li", { onclick: () => focusRecord("group", rec) },
+        el("img", { src: groupIcon(rec.g, 14), width: 14, height: 14, alt: "" }),
+        el("div", {}, rec.n, el("div", { class: "meta" }, `${rec.g} · ${rec.cc}`)),
+        el("span", { class: `conf ${rec.status}`, title: "Status" }, (GROUP_STATUS[rec.status] || {}).label || rec.status)));
+    }
+    $("count-groups").textContent = `${shownGroups}/${GROUPS.length}`;
   }
 
   function fmtDate(iso) {
@@ -545,6 +631,25 @@
       legend.append(el("div", { class: "row" }, el("img", { src: eventIcon(type, 16), width: 16, height: 16, alt: "" }), t.label));
     }
     legend.append(el("div", { class: "row" }, el("span", { class: "dash" }), "Approximate attack direction"));
+    legend.append(el("div", { class: "row" }, el("img", { src: groupIcon("ISIS", 14), width: 14, height: 14, alt: "" }),
+      "Armed-group area (striped ring = approx. extent)"));
+
+    const groupWrap = $("group-filters");
+    const groupCounts = {};
+    for (const r of GROUPS) groupCounts[r.g] = (groupCounts[r.g] || 0) + 1;
+    for (const group of Object.keys(groupCounts)) {
+      const cb = el("input", { type: "checkbox", checked: "" });
+      cb.addEventListener("change", () => {
+        cb.checked ? state.groups.add(group) : state.groups.delete(group);
+        applyFilters();
+      });
+      const info = GROUP_INFO[group];
+      groupWrap.append(el("label", { class: "row", title: info ? `${info.full} — ${info.fto}` : group },
+        cb, el("img", { src: groupIcon(group, 14), width: 14, height: 14, alt: "" }), group,
+        el("span", { class: "count" }, String(groupCounts[group]))));
+    }
+    $("layer-groups").addEventListener("change", (e) => { state.showGroups = e.target.checked; applyFilters(); });
+    $("groups-asof").textContent = window.FF_GROUPS_AS_OF ? `as of ${window.FF_GROUPS_AS_OF}` : "";
 
     const conflictWrap = $("conflict-filters");
     const conflictCounts = {};
@@ -580,6 +685,7 @@
       $("sources").append(el("li", {}, el("a", { href: s.url, target: "_blank", rel: "noopener" }, s.label)));
     }
     $("sources").append(el("li", {}, "Conflict events: linked news reports (see each event)"));
+    $("sources").append(el("li", {}, "Armed-group areas: linked public reporting (see each area)"));
     $("sources").append(el("li", {}, "Installations: DoD Base Structure Report, service websites, Wikipedia"));
     $("sources").append(el("li", {}, "Photos: ", el("a", { href: "https://en.wikipedia.org", target: "_blank", rel: "noopener" }, "Wikipedia"),
       " (bases, ships) / ", el("a", { href: "https://www.planespotters.net", target: "_blank", rel: "noopener" }, "Planespotters.net"), " (aircraft)"));
@@ -693,6 +799,11 @@
       rows.push(["Type", rec.t || "—"], ["Registration", rec.r || "—"], ["ICAO hex", rec.hex.toUpperCase()], ["Altitude", alt],
         ["Ground speed", rec.gs != null ? `${Math.round(rec.gs)} kt` : "—"], ["Track", rec.track != null ? `${Math.round(rec.track)}°` : "—"],
         ["Position", fmtCoord(rec.lat, rec.lon)]);
+    } else if (kind === "group") {
+      const info = GROUP_INFO[rec.g] || {};
+      sub = `${info.full || rec.g} · ${rec.cc}`;
+      rows.push(["Status", (GROUP_STATUS[rec.status] || {}).label || rec.status], ["Designation", info.fto],
+        ["Area", `${fmtCoord(rec.lat, rec.lon)} (approx.), ring ±${rec.r} km`], ["As of", window.FF_GROUPS_AS_OF], ["Notes", rec.d]);
     } else if (kind === "event") {
       title = rec.title;
       sub = `${EVENT_TYPES[rec.type].label} · ${rec.conflict}`;
@@ -702,6 +813,17 @@
     }
     const dl = el("dl");
     for (const [k, v] of rows) dl.append(el("dt", {}, k), el("dd", {}, v == null ? "—" : String(v)));
+    if (kind === "group") {
+      const links = el("dd", { class: "sources" });
+      for (const s of [...(rec.src || []), ...((GROUP_INFO[rec.g] || {}).src || [])]) {
+        links.append(el("a", { href: s.url, target: "_blank", rel: "noopener" }, `${s.label} ↗`));
+      }
+      dl.append(el("dt", {}, "Sources"), links);
+      body.replaceChildren(el("h3", {}, title), el("div", { class: "meta" }, sub), dl,
+        el("p", { class: "disclaimer" }, "Broad area of influence from public reporting, not a facility location. Control changes; check the sources."));
+      $("details").hidden = false;
+      return;
+    }
     if (kind === "event") {
       const links = el("dd", { class: "sources" });
       for (const s of rec.src || []) links.append(el("a", { href: s.url, target: "_blank", rel: "noopener" }, `${s.label} ↗`));
@@ -760,9 +882,10 @@
   }
 
   function focusRecord(kind, rec) {
-    const ds = { base: baseDS, naval: navalDS, event: eventDS }[kind];
+    const ds = { base: baseDS, naval: navalDS, event: eventDS, group: groupDS }[kind];
     viewer.selectedEntity = ds.entities.getById(rec.id);
-    const height = kind === "base" ? 25000 : kind === "event" ? 700000 : CONF_RADIUS[rec.conf] * 6 + 200000;
+    const height = kind === "base" ? 25000 : kind === "event" ? 700000
+      : kind === "group" ? Math.max(60000, rec.r * 1000 * 6) : CONF_RADIUS[rec.conf] * 6 + 200000;
     viewer.camera.flyTo({ destination: Cesium.Cartesian3.fromDegrees(rec.lon, rec.lat, height), duration: 2 });
     showDetails(kind, rec);
     if (window.innerWidth < 700) document.body.classList.add("panel-hidden");
@@ -800,7 +923,8 @@
       else if (picked.id && picked.id.ff) {
         const { kind, rec } = picked.id.ff;
         text = kind === "aircraft" ? `${rec.flight || rec.hex.toUpperCase()} · ${rec.t || "unknown type"}`
-          : kind === "event" ? `${rec.title} · ${fmtDate(rec.date)}` : rec.n;
+          : kind === "event" ? `${rec.title} · ${fmtDate(rec.date)}`
+          : kind === "group" ? `${rec.n} · ${rec.g}` : rec.n;
       }
     }
     if (text) {
