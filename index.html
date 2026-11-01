@@ -30,6 +30,7 @@
       <label class="row"><input type="checkbox" id="layer-naval" checked> Carriers &amp; amphibs <span class="count" id="count-naval"></span></label>
       <label class="row"><input type="checkbox" id="layer-events" checked> Recent conflict events <span class="count" id="count-events"></span></label>
       <label class="row"><input type="checkbox" id="layer-groups" checked> Armed groups (US-designated) <span class="count" id="count-groups"></span></label>
+      <label class="row"><input type="checkbox" id="layer-state" checked> State militaries (RU, CN, NK, IR) <span class="count" id="count-state"></span></label>
       <label class="row"><input type="checkbox" id="layer-air"> Live military aircraft (ADS-B) <span class="count" id="count-air"></span></label>
       <label class="row"><input type="checkbox" id="layer-cluster" checked> Cluster nearby markers</label>
       <label class="row">Basemap
@@ -73,6 +74,13 @@
     </section>
 
     <section>
+      <h2>State militaries <span class="asof" id="state-asof"></span></h2>
+      <p class="disclaimer">Major publicly documented facilities of Russia, China, North Korea and Iran: fleet headquarters, main naval and air bases, overseas bases and well-known nuclear and missile sites.</p>
+      <div id="state-filters"></div>
+      <ul id="state-list" class="list"></ul>
+    </section>
+
+    <section>
       <h2>Naval assets <span class="asof" id="naval-asof"></span></h2>
       <ul id="naval-list" class="list"></ul>
     </section>
@@ -102,6 +110,7 @@
   <script src="data/events.js"></script>
   <script src="data/conflicts.js"></script>
   <script src="data/groups.js"></script>
+  <script src="data/state_forces.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>
