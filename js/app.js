@@ -53,6 +53,15 @@
     contested: { label: "Contested", alpha: 0.14 },
     degraded: { label: "Degraded / residual", alpha: 0.08 },
   };
+  // State militaries layer (data/state_forces.js): one colour per country.
+  const STATE_COLORS = { "Russia": "#ff4d4d", "China": "#ffcc00", "North Korea": "#c77dff", "Iran": "#00d68f" };
+  const STATE_CATS = {
+    naval: { label: "Naval base / fleet", shape: "naval" },
+    air: { label: "Air base / airfield", shape: "air" },
+    nuclear: { label: "Nuclear / missile / submarine site", shape: "space" },
+    hq: { label: "Command headquarters", shape: "hq" },
+    overseas: { label: "Overseas base", shape: "access" },
+  };
   // Events this close to the newest event in the data get a pulsing ring.
   const PULSE_DAYS = 3;
   const DAY_MS = 86400000;
@@ -62,6 +71,7 @@
   const EVENTS = window.FF_EVENTS || [];
   const CONFLICTS = window.FF_CONFLICTS || {};
   const GROUPS = window.FF_GROUPS || [];
+  const STATE_FORCES = window.FF_STATE_FORCES || [];
   const GROUP_INFO = window.FF_GROUP_INFO || {};
   const groupColor = (g) => GROUP_COLORS[g] || "#e6e9ef";
 
@@ -224,6 +234,23 @@
     });
   }
 
+  // State-military site: same shapes as US bases, in the country's colour with a red-black border
+  // so they read as non-US at a glance.
+  function stateIcon(country, cat, size = 18) {
+    return canvasIcon(`st|${country}|${cat}|${size}`, size, (g, s) => {
+      const shape = (STATE_CATS[cat] || STATE_CATS.naval).shape;
+      const color = STATE_COLORS[country] || "#e6e9ef";
+      shapePath(g, shape, s);
+      if (shape === "access") {
+        g.lineWidth = 3.5; g.strokeStyle = "#5a0000"; g.stroke();
+        g.lineWidth = 2; g.strokeStyle = color; g.stroke();
+      } else {
+        g.fillStyle = color; g.fill();
+        g.lineWidth = 2; g.strokeStyle = "#5a0000"; g.stroke();
+      }
+    });
+  }
+
   // Armed-group area: hexagon in the group's colour with a dark exclamation mark.
   function groupIcon(group, size = 20) {
     return canvasIcon(`g|${group}|${size}`, size, (g, s) => {
@@ -347,6 +374,20 @@
   const airDS = new Cesium.CustomDataSource("aircraft");
   const eventDS = new Cesium.CustomDataSource("events");
   const groupDS = new Cesium.CustomDataSource("groups");
+  const stateDS = new Cesium.CustomDataSource("state-forces");
+
+  STATE_FORCES.forEach((rec, i) => {
+    rec.id = `state-${i}`;
+    const color = Cesium.Color.fromCssColorString(STATE_COLORS[rec.c] || "#e6e9ef");
+    const e = stateDS.entities.add({
+      id: rec.id,
+      name: rec.n,
+      position: Cesium.Cartesian3.fromDegrees(rec.lon, rec.lat),
+      billboard: { ...icon(stateIcon(rec.c, rec.cat)), verticalOrigin: Cesium.VerticalOrigin.CENTER },
+      label: labelStyle(rec.n, 2.5e6, color.brighten(0.3, new Cesium.Color())),
+    });
+    e.ff = { kind: "state", rec };
+  });
 
   GROUPS.forEach((rec, i) => {
     rec.id = `group-${i}`;
@@ -415,6 +456,7 @@
   viewer.dataSources.add(baseDS);
   viewer.dataSources.add(navalDS);
   viewer.dataSources.add(groupDS);
+  viewer.dataSources.add(stateDS);
   viewer.dataSources.add(eventDS);
   viewer.dataSources.add(airDS);
 
@@ -508,6 +550,8 @@
     showNaval: true,
     showEvents: true,
     showGroups: true,
+    showState: true,
+    states: new Set(STATE_FORCES.map((r) => r.c)),
     groups: new Set(GROUPS.map((g) => g.g)),
     eventDays: 0, // 0 = all
     conflicts: new Set(EVENTS.map((e) => e.conflict)),
@@ -517,7 +561,8 @@
     if (!q) return true;
     const hay = [rec.n, rec.b, rec.cc, rec.d, rec.area, rec.status, CATEGORY_LABELS[rec.c], rec.conflict,
       rec.type && EVENT_TYPES[rec.type].label, rec.date,
-      rec.g, rec.g && GROUP_INFO[rec.g] && GROUP_INFO[rec.g].full, rec.status]
+      rec.g, rec.g && GROUP_INFO[rec.g] && GROUP_INFO[rec.g].full, rec.status,
+      rec.c, rec.cat && STATE_CATS[rec.cat] && STATE_CATS[rec.cat].label]
       .filter(Boolean).join(" ").toLowerCase();
     return q.split(/\s+/).every((w) => hay.includes(w));
   }
@@ -599,6 +644,20 @@
         el("span", { class: `conf ${rec.status}`, title: "Status" }, (GROUP_STATUS[rec.status] || {}).label || rec.status)));
     }
     $("count-groups").textContent = `${shownGroups}/${GROUPS.length}`;
+
+    const stateList = $("state-list");
+    stateList.replaceChildren();
+    let shownState = 0;
+    for (const rec of STATE_FORCES) {
+      const show = state.showState && state.states.has(rec.c) && matches(rec, q);
+      stateDS.entities.getById(rec.id).show = show;
+      if (!show) continue;
+      shownState++;
+      stateList.append(el("li", { onclick: () => focusRecord("state", rec) },
+        el("img", { src: stateIcon(rec.c, rec.cat, 14), width: 14, height: 14, alt: "" }),
+        el("div", {}, rec.n, el("div", { class: "meta" }, `${rec.c} · ${rec.cc}`))));
+    }
+    $("count-state").textContent = `${shownState}/${STATE_FORCES.length}`;
   }
 
   function fmtDate(iso) {
@@ -648,6 +707,25 @@
         cb, el("img", { src: groupIcon(group, 14), width: 14, height: 14, alt: "" }), group,
         el("span", { class: "count" }, String(groupCounts[group]))));
     }
+    for (const [cat, c] of Object.entries(STATE_CATS)) {
+      legend.append(el("div", { class: "row" }, el("img", { src: stateIcon("Russia", cat, 14), width: 14, height: 14, alt: "" }),
+        `Foreign military: ${c.label.toLowerCase()}`));
+    }
+    const stateWrap = $("state-filters");
+    const stateCounts = {};
+    for (const r of STATE_FORCES) stateCounts[r.c] = (stateCounts[r.c] || 0) + 1;
+    for (const country of Object.keys(stateCounts)) {
+      const cb = el("input", { type: "checkbox", checked: "" });
+      cb.addEventListener("change", () => {
+        cb.checked ? state.states.add(country) : state.states.delete(country);
+        applyFilters();
+      });
+      const sw = el("span", { class: "swatch" });
+      sw.style.background = STATE_COLORS[country];
+      stateWrap.append(el("label", { class: "row" }, cb, sw, country, el("span", { class: "count" }, String(stateCounts[country]))));
+    }
+    $("layer-state").addEventListener("change", (e) => { state.showState = e.target.checked; applyFilters(); });
+    $("state-asof").textContent = window.FF_STATE_FORCES_AS_OF ? `as of ${window.FF_STATE_FORCES_AS_OF}` : "";
     $("layer-groups").addEventListener("change", (e) => { state.showGroups = e.target.checked; applyFilters(); });
     $("groups-asof").textContent = window.FF_GROUPS_AS_OF ? `as of ${window.FF_GROUPS_AS_OF}` : "";
 
@@ -686,6 +764,7 @@
     }
     $("sources").append(el("li", {}, "Conflict events: linked news reports (see each event)"));
     $("sources").append(el("li", {}, "Armed-group areas: linked public reporting (see each area)"));
+    $("sources").append(el("li", {}, "Foreign military sites: Wikipedia, think tanks and news (see each site)"));
     $("sources").append(el("li", {}, "Installations: DoD Base Structure Report, service websites, Wikipedia"));
     $("sources").append(el("li", {}, "Photos: ", el("a", { href: "https://en.wikipedia.org", target: "_blank", rel: "noopener" }, "Wikipedia"),
       " (bases, ships) / ", el("a", { href: "https://www.planespotters.net", target: "_blank", rel: "noopener" }, "Planespotters.net"), " (aircraft)"));
@@ -799,6 +878,10 @@
       rows.push(["Type", rec.t || "—"], ["Registration", rec.r || "—"], ["ICAO hex", rec.hex.toUpperCase()], ["Altitude", alt],
         ["Ground speed", rec.gs != null ? `${Math.round(rec.gs)} kt` : "—"], ["Track", rec.track != null ? `${Math.round(rec.track)}°` : "—"],
         ["Position", fmtCoord(rec.lat, rec.lon)]);
+    } else if (kind === "state") {
+      sub = `${rec.c} · ${(STATE_CATS[rec.cat] || {}).label || rec.cat}`;
+      rows.push(["Location", rec.cc], ["Coords", fmtCoord(rec.lat, rec.lon) + " (approx.)"],
+        ["As of", window.FF_STATE_FORCES_AS_OF], ["Notes", rec.d]);
     } else if (kind === "group") {
       const info = GROUP_INFO[rec.g] || {};
       sub = `${info.full || rec.g} · ${rec.cc}`;
@@ -813,6 +896,14 @@
     }
     const dl = el("dl");
     for (const [k, v] of rows) dl.append(el("dt", {}, k), el("dd", {}, v == null ? "—" : String(v)));
+    if (kind === "state") {
+      const links = el("dd", { class: "sources" });
+      for (const s of rec.src || []) links.append(el("a", { href: s.url, target: "_blank", rel: "noopener" }, `${s.label} ↗`));
+      dl.append(el("dt", {}, "Sources"), links);
+      body.replaceChildren(el("h3", {}, title), el("div", { class: "meta" }, sub), dl);
+      $("details").hidden = false;
+      return;
+    }
     if (kind === "group") {
       const links = el("dd", { class: "sources" });
       for (const s of [...(rec.src || []), ...((GROUP_INFO[rec.g] || {}).src || [])]) {
@@ -882,9 +973,9 @@
   }
 
   function focusRecord(kind, rec) {
-    const ds = { base: baseDS, naval: navalDS, event: eventDS, group: groupDS }[kind];
+    const ds = { base: baseDS, naval: navalDS, event: eventDS, group: groupDS, state: stateDS }[kind];
     viewer.selectedEntity = ds.entities.getById(rec.id);
-    const height = kind === "base" ? 25000 : kind === "event" ? 700000
+    const height = kind === "base" || kind === "state" ? 25000 : kind === "event" ? 700000
       : kind === "group" ? Math.max(60000, rec.r * 1000 * 6) : CONF_RADIUS[rec.conf] * 6 + 200000;
     viewer.camera.flyTo({ destination: Cesium.Cartesian3.fromDegrees(rec.lon, rec.lat, height), duration: 2 });
     showDetails(kind, rec);
@@ -924,7 +1015,8 @@
         const { kind, rec } = picked.id.ff;
         text = kind === "aircraft" ? `${rec.flight || rec.hex.toUpperCase()} · ${rec.t || "unknown type"}`
           : kind === "event" ? `${rec.title} · ${fmtDate(rec.date)}`
-          : kind === "group" ? `${rec.n} · ${rec.g}` : rec.n;
+          : kind === "group" ? `${rec.n} · ${rec.g}`
+          : kind === "state" ? `${rec.n} · ${rec.c}` : rec.n;
       }
     }
     if (text) {
