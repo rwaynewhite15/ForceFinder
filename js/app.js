@@ -788,6 +788,7 @@
       $("briefing-title").textContent = ep.title;
       $("briefing-meta").textContent = `${fmtDate(ep.date)} · ${fmtDur(ep.duration)}`;
       audio.src = ep.audio;
+      audio.preload = "auto";
       if (autoplay) audio.play().catch(() => {});
       const box = $("briefing-transcript");
       box.replaceChildren(el("p", { class: "summary" }, ep.summary));
@@ -807,8 +808,27 @@
       list.append(el("li", { "data-date": ep.date, onclick: () => play(ep, true) },
         el("div", {}, ep.title, el("div", { class: "meta" }, `${fmtDate(ep.date)} · ${fmtDur(ep.duration)}`))));
     }
-    play(episodes[0], false);
+    await play(episodes[0], false);
     $("briefing").hidden = false;
+    // Auto-start the newest episode. Browsers block audible autoplay until the visitor interacts with
+    // the page, so if the first attempt is refused, start on the first click, tap or key press instead.
+    // Visitors who pause it once aren't auto-played again (remembered per browser).
+    let optOut = false;
+    try { optOut = localStorage.getItem("ff-briefing-autoplay") === "off"; } catch { /* storage blocked */ }
+    audio.addEventListener("pause", () => {
+      if (!audio.ended) try { localStorage.setItem("ff-briefing-autoplay", "off"); } catch { /* ignore */ }
+    });
+    audio.addEventListener("play", () => { try { localStorage.removeItem("ff-briefing-autoplay"); } catch { /* ignore */ } });
+    if (optOut) return;
+    const startOnGesture = () => {
+      for (const t of ["pointerdown", "keydown"]) document.removeEventListener(t, startOnGesture, true);
+      if (audio.paused && !audio.currentTime) audio.play().catch(() => {});
+    };
+    try {
+      await audio.play();
+    } catch {
+      for (const t of ["pointerdown", "keydown"]) document.addEventListener(t, startOnGesture, true);
+    }
   }
 
   // ---------------------------------------------------------------- photos
