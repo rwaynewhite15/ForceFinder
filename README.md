@@ -53,6 +53,25 @@ or TWZ's "Where Are The Aircraft Carriers?" series. Update each ship's `lat`/`lo
 To add conflict events, append entries to `data/events.js` with at least one source link, then bump
 `FF_EVENTS_AS_OF`. The time filter and pulsing rings are measured from that date.
 
+## Daily briefing podcast
+
+Each data update can include a short two-host audio episode (Avery and Cole) that walks through the day's
+changes. It plays in the "Daily briefing" section of the sidebar and is published as a podcast feed at
+`podcast/feed.xml`, which you can add to any podcast app using your GitHub Pages URL.
+
+- `podcast/scripts/YYYY-MM-DD.json`: the episode script (two speakers, plus sources).
+- `podcast/make_episode.py`: renders the script to `podcast/episodes/YYYY-MM-DD.mp3` with
+  [Kokoro](https://github.com/thewh1teagle/kokoro-onnx) (open-weight local text-to-speech), then updates
+  `podcast/episodes.json` and `podcast/feed.xml`. Only the newest 14 episodes keep audio in the repo.
+
+```sh
+pip install kokoro-onnx soundfile   # ffmpeg is also required
+python3 podcast/make_episode.py podcast/scripts/2026-11-01.json
+```
+
+If your Pages URL isn't `https://rwaynewhite15.github.io/ForceFinder/`, change `SITE_URL` in
+`podcast/make_episode.py` so the feed links resolve.
+
 ## Disclaimer
 
 All data comes from publicly available reporting and is approximate. Ships at sea are placed at
