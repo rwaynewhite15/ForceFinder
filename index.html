@@ -20,6 +20,19 @@
       <p class="sub">Approximate locations of US military installations, naval assets and recent conflict events, from open sources.</p>
     </header>
 
+    <section id="briefing" hidden>
+      <h2>Daily briefing <a class="asof" id="briefing-feed" href="podcast/feed.xml" target="_blank" rel="noopener">RSS feed</a></h2>
+      <div id="briefing-title" class="briefing-title"></div>
+      <div id="briefing-meta" class="meta"></div>
+      <audio id="briefing-audio" controls preload="none"></audio>
+      <details id="briefing-more">
+        <summary>Transcript &amp; past episodes</summary>
+        <div id="briefing-transcript" class="transcript"></div>
+        <ul id="briefing-list" class="list"></ul>
+      </details>
+      <p class="disclaimer">AI-generated audio summary of the map's open-source reporting. Check the linked sources.</p>
+    </section>
+
     <section>
       <input id="search" type="search" placeholder="Search bases, ships, countries…" autocomplete="off">
     </section>

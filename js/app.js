@@ -772,6 +772,65 @@
       " / ", el("a", { href: "https://airplanes.live", target: "_blank", rel: "noopener" }, "airplanes.live")));
   }
 
+  // ---------------------------------------------------------------- daily briefing podcast
+  // podcast/episodes.json is written by podcast/make_episode.py (newest first).
+  async function loadBriefing() {
+    let episodes;
+    try {
+      const res = await fetch("podcast/episodes.json", { cache: "no-cache" });
+      if (!res.ok) return;
+      episodes = (await res.json()).filter((e) => e.audio);
+    } catch { return; } // e.g. opened from file://
+    if (!episodes.length) return;
+    const fmtDur = (s) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`;
+    const audio = $("briefing-audio");
+    const play = async (ep, autoplay) => {
+      $("briefing-title").textContent = ep.title;
+      $("briefing-meta").textContent = `${fmtDate(ep.date)} · ${fmtDur(ep.duration)}`;
+      audio.src = ep.audio;
+      audio.preload = "auto";
+      if (autoplay) audio.play().catch(() => {});
+      const box = $("briefing-transcript");
+      box.replaceChildren(el("p", { class: "summary" }, ep.summary));
+      try {
+        const script = await (await fetch(ep.script)).json();
+        for (const seg of script.segments) box.append(el("p", {}, el("b", {}, `${seg.speaker}: `), seg.text));
+      } catch { /* transcript optional */ }
+      if (ep.sources && ep.sources.length) {
+        const links = el("div", { class: "fact-src" },
+          ...ep.sources.map((s) => el("a", { href: s.url, target: "_blank", rel: "noopener" }, `${s.label} ↗`)));
+        box.append(el("h4", {}, "Sources"), links);
+      }
+      for (const li of $("briefing-list").children) li.classList.toggle("active", li.dataset.date === ep.date);
+    };
+    const list = $("briefing-list");
+    for (const ep of episodes) {
+      list.append(el("li", { "data-date": ep.date, onclick: () => play(ep, true) },
+        el("div", {}, ep.title, el("div", { class: "meta" }, `${fmtDate(ep.date)} · ${fmtDur(ep.duration)}`))));
+    }
+    await play(episodes[0], false);
+    $("briefing").hidden = false;
+    // Auto-start the newest episode. Browsers block audible autoplay until the visitor interacts with
+    // the page, so if the first attempt is refused, start on the first click, tap or key press instead.
+    // Visitors who pause it once aren't auto-played again (remembered per browser).
+    let optOut = false;
+    try { optOut = localStorage.getItem("ff-briefing-autoplay") === "off"; } catch { /* storage blocked */ }
+    audio.addEventListener("pause", () => {
+      if (!audio.ended) try { localStorage.setItem("ff-briefing-autoplay", "off"); } catch { /* ignore */ }
+    });
+    audio.addEventListener("play", () => { try { localStorage.removeItem("ff-briefing-autoplay"); } catch { /* ignore */ } });
+    if (optOut) return;
+    const startOnGesture = () => {
+      for (const t of ["pointerdown", "keydown"]) document.removeEventListener(t, startOnGesture, true);
+      if (audio.paused && !audio.currentTime) audio.play().catch(() => {});
+    };
+    try {
+      await audio.play();
+    } catch {
+      for (const t of ["pointerdown", "keydown"]) document.addEventListener(t, startOnGesture, true);
+    }
+  }
+
   // ---------------------------------------------------------------- photos
   // Bases and ships: lead image of the matching Wikipedia article.
   // Live aircraft: photo of that exact airframe (by ICAO hex) from Planespotters.net.
@@ -1103,6 +1162,7 @@
 
   // ---------------------------------------------------------------- go
   buildControls();
+  loadBriefing();
   applyFilters();
   window.ForceFinder = { viewer, baseDS, navalDS, airDS, eventDS, state, applyFilters, refreshAircraft };
 })();
