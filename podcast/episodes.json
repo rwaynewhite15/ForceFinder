@@ -1,5 +1,72 @@
 [
   {
+    "date": "2026-11-02",
+    "title": "Iran's two-day offer, a busy night at sea, and Ukraine's oil campaign widens",
+    "summary": "Iran offers to reopen Hormuz within two days on its terms as three more vessels are hit around the Gulf, Ukraine strikes a major Russian oil hub after three refineries, Russia's overnight drone attacks, Sudan's power grid under fire, and China's coast guard patrols east of Taiwan.",
+    "audio": "podcast/episodes/2026-11-02.mp3",
+    "script": "podcast/scripts/2026-11-02.json",
+    "duration": 430,
+    "bytes": 2583601,
+    "sources": [
+      {
+        "label": "RTÉ: Iran's conditions for reopening Hormuz",
+        "url": "https://www.rte.ie/news/2026/1102/1597573-iran-strikes/"
+      },
+      {
+        "label": "Al Jazeera live: Nov 2",
+        "url": "https://www.aljazeera.com/news/liveblog/2026/11/2/iran-war-live-tankers-hit-in-hormuz-trump-again-says-conflict-to-end-soon"
+      },
+      {
+        "label": "CBS News: Trump on ending the war",
+        "url": "https://www.cbsnews.com/live-updates/iran-war-us-trump-diplomacy-threat-resume-attacks/"
+      },
+      {
+        "label": "Seatrade Maritime: tanker and tug hit",
+        "url": "https://www.seatrade-maritime.com/security/tanker-hit-off-saudi-and-offshore-tug-struck-in-hormuz"
+      },
+      {
+        "label": "Arab Times: UKMTO Lavan Island report",
+        "url": "https://www.arabtimesonline.com/news/tensions-rise-in-strait-of-hormuz-as-ukmto-reports-vessel-hit-iran-claims-two-tankers-hit-mines/"
+      },
+      {
+        "label": "Jerusalem Post: IRGC mine claims",
+        "url": "https://www.jpost.com/middle-east/iran-news/article-913514"
+      },
+      {
+        "label": "The Moscow Times: Samara oil hub",
+        "url": "https://themoscowtimes.com/2026/11/02/ukrainian-drones-hit-major-oil-transport-hub-in-samara-region-a94149"
+      },
+      {
+        "label": "Kyiv Post: overnight Russian attacks",
+        "url": "https://www.kyivpost.com/post/88850"
+      },
+      {
+        "label": "Kyiv Independent: outages in 10 regions",
+        "url": "https://kyivindependent.com/russian-attacks-kill-2-injure-over-30-across-ukraine-over-past-day-as-10-regions-face-power-outages/"
+      },
+      {
+        "label": "Ukrinform: 205 clashes",
+        "url": "https://www.ukrinform.net/rubric-ato/4180385-war-update-205-clashes-on-front-lines-over-past-day-pokrovsk-sector-hottest.html"
+      },
+      {
+        "label": "Al Jazeera: alert app cyberattacks",
+        "url": "https://www.aljazeera.com/news/2026/11/2/ukraine-blames-russia-after-air-alert-app-sends-out-false-warnings"
+      },
+      {
+        "label": "L'Orient Today: south Lebanon strikes",
+        "url": "https://today.lorientlejour.com/article/1552941/intense-israeli-strikes-artillery-fire-hit-south-lebanon-monday-morning.html"
+      },
+      {
+        "label": "Sudan Tribune: power stations hit",
+        "url": "https://sudantribune.com/article/320764"
+      },
+      {
+        "label": "Taipei Times: China Coast Guard east of Taiwan",
+        "url": "https://www.taipeitimes.com/News/front/archives/2026/11/02/2003866989"
+      }
+    ]
+  },
+  {
     "date": "2026-11-01",
     "title": "Three refineries in three nights, and a fight over mines in Hormuz",
     "summary": "Ukraine's renewed refinery campaign, Russia's strikes on Dnipro and the power grid, the US–Iran standoff over Hormuz mine claims ahead of the midterms, Houthi attacks on Aden, and why a third US carrier may be heading to the Middle East.",
