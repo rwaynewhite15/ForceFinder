@@ -1,0 +1,61 @@
+[
+  {
+    "date": "2026-11-01",
+    "title": "Three refineries in three nights, and a fight over mines in Hormuz",
+    "summary": "Ukraine's renewed refinery campaign, Russia's strikes on Dnipro and the power grid, the US–Iran standoff over Hormuz mine claims ahead of the midterms, Houthi attacks on Aden, and why a third US carrier may be heading to the Middle East.",
+    "audio": "podcast/episodes/2026-11-01.mp3",
+    "script": "podcast/scripts/2026-11-01.json",
+    "duration": 470,
+    "bytes": 2821767,
+    "sources": [
+      {
+        "label": "UNITED24 Media: three refineries in 72 hours",
+        "url": "https://united24media.com/war-in-ukraine/ukraine-hits-10-of-russias-oil-refining-capacity-in-just-72-hours-23988"
+      },
+      {
+        "label": "Kyiv Post: Kstovo refinery strike",
+        "url": "https://kyivpost.com/post/88777"
+      },
+      {
+        "label": "CNN: Dnipro train station strike",
+        "url": "https://www.cnn.com/2026/10/29/europe/russia-ukraine-strikes-dnipro-train-station-intl"
+      },
+      {
+        "label": "UNN: Zelensky on strikes in four regions",
+        "url": "https://unn.ua/en/news/zelenskyy-russia-struck-the-energy-infrastructure-of-four-regions-hundreds-of-thousands-of-families-are-without-electricity"
+      },
+      {
+        "label": "VOA: Oleshky ceasefire",
+        "url": "https://www.voanews.com/a/ceasefire-holds-near-ukraine-s-occupied-oleshky-as-humanitarian-aid-and-evacuation-effort-begin/8216528.html"
+      },
+      {
+        "label": "Arab News: IRGC mine claims",
+        "url": "https://www.arabnews.com/middle-east/iran-guards-say-three-tankers-hit-mines-crossing-hormuz-strait-3007404"
+      },
+      {
+        "label": "Washington Times: Adm. Cooper on Hormuz",
+        "url": "https://www.washingtontimes.com/news/2026/oct/30/oil-flowing-hormuz-says-centcoms-adm-brad-cooper/"
+      },
+      {
+        "label": "Arab News: Trump on remaining Iran targets",
+        "url": "https://arabnews.com/middle-east/trump-says-us-still-has-to-take-care-of-one-or-two-targets-in-iran-3009207"
+      },
+      {
+        "label": "Al Jazeera live: two-day Hormuz plan",
+        "url": "https://www.aljazeera.com/news/liveblog/2026/11/1/iran-war-live-araghchi-says-talks-under-way-on-2-day-plan-to-reopen-hormuz?update=5105950"
+      },
+      {
+        "label": "TWZ: Where Are The Aircraft Carriers? (Oct 27)",
+        "url": "https://www.twz.com/sea/where-are-the-aircraft-carriers-october-27-2026"
+      },
+      {
+        "label": "Arab News: Houthi missiles on Aden",
+        "url": "https://www.arabnews.com/middle-east/houthis-target-aden-airport-and-maashiq-presidential-palace-with-ballistic-missiles-3009041"
+      },
+      {
+        "label": "Xinhua: Gaza strikes Nov 1",
+        "url": "https://english.news.cn/20261101/ae3815dbcc474e80a7ab6b525cb63843/c.html"
+      }
+    ]
+  }
+]
