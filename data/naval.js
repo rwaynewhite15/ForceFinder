@@ -8,8 +8,9 @@
 //             low    = not covered by recent reporting; shown at homeport/yard
 // The uncertainty ring drawn on the globe scales with confidence.
 // w = Wikipedia article title, used to fetch the ship's photo.
-window.FF_NAVAL_AS_OF = "2026-10-27";
+window.FF_NAVAL_AS_OF = "2026-11-02";
 window.FF_NAVAL_SOURCES = [
+  { label: "USNI News Fleet & Marine Tracker (Nov. 2, 2026)", url: "https://news.usni.org/2026/11/02/usni-news-fleet-and-marine-tracker-nov-2-2026" },
   { label: "USNI News Fleet & Marine Tracker (Oct. 26, 2026)", url: "https://news.usni.org/2026/10/26/usni-news-fleet-and-marine-tracker-oct-26-2026" },
   { label: "TWZ: Where Are The Aircraft Carriers? (Oct. 27, 2026)", url: "https://www.twz.com/sea/where-are-the-aircraft-carriers-october-27-2026" },
   { label: "US Navy: Makin Island ARG / 13th MEU arrive in Yokosuka (Oct. 26, 2026)", url: "https://www.navy.mil/Press-Office/News-Stories/display-news/Article/4633316/makin-island-amphibious-ready-group-13th-marine-expeditionary-unit-arrive-in-yo/" },
@@ -27,12 +28,12 @@ window.FF_NAVAL = [
     d: "Departed Naval Station Norfolk Oct. 24 for pre-deployment work-ups." },
   { n: "USS Carl Vinson (CVN-70)", w: "USS Carl Vinson", t: "carrier", lat: 32.699, lon: -117.215, conf: "low", status: "Not in recent reporting", area: "Homeport: NAS North Island, San Diego",
     d: "Shown at homeport; no current location found in recent public reporting." },
-  { n: "USS Theodore Roosevelt (CVN-71)", w: "USS Theodore Roosevelt (CVN-71)", t: "carrier", lat: 25.0, lon: 133.0, conf: "medium", status: "Deployed — exercise Keen Sword 27", area: "Philippine Sea",
-    d: "Westward deployment; port call at Yokosuka mid-October, then multilateral exercise Keen Sword 27 in the Philippine Sea (Oct. 21). Fox News reported, citing US officials, that the group is bound for the Middle East." },
+  { n: "USS Theodore Roosevelt (CVN-71)", w: "USS Theodore Roosevelt (CVN-71)", t: "carrier", lat: 14.0, lon: 114.0, conf: "medium", status: "Deployed — transiting", area: "South China Sea",
+    d: "Underway in the South China Sea after exercise Keen Sword 27, with Carrier Air Wing 11 and USS Chosin (CG-65), per the Nov. 2 USNI tracker. Fox News reported, citing US officials, that the group is bound for the Middle East." },
   { n: "USS Abraham Lincoln (CVN-72)", w: "USS Abraham Lincoln (CVN-72)", t: "carrier", lat: 32.699, lon: -117.215, conf: "high", status: "In port — post-deployment", area: "San Diego, CA",
     d: "Returned Oct. 8 from a 321-day deployment. Expected homeport shift to Bremerton, WA, for overhaul." },
   { n: "USS George Washington (CVN-73)", w: "USS George Washington (CVN-73)", t: "carrier", lat: 19.5, lon: 62.5, conf: "medium", status: "Deployed — Middle East operations", area: "Arabian Sea",
-    d: "Forward-deployed (Yokosuka) carrier reported operating in the Arabian Sea with Carrier Air Wing 5 and USS Shoup (DDG-86)." },
+    d: "Forward-deployed (Yokosuka) carrier with Carrier Air Wing 5, still reported in the Arabian Sea supporting Middle East operations (Nov. 2 USNI tracker, via secondary coverage)." },
   { n: "USS John C. Stennis (CVN-74)", w: "USS John C. Stennis", t: "carrier", lat: 36.985, lon: -76.443, conf: "medium", status: "Refueling and complex overhaul", area: "Newport News Shipbuilding, VA",
     d: "Mid-life refueling and complex overhaul (RCOH)." },
   { n: "USS Harry S. Truman (CVN-75)", w: "USS Harry S. Truman", t: "carrier", lat: 36.990, lon: -76.450, conf: "high", status: "Refueling and complex overhaul", area: "Newport News Shipbuilding, VA",
@@ -40,13 +41,13 @@ window.FF_NAVAL = [
   { n: "USS Ronald Reagan (CVN-76)", w: "USS Ronald Reagan", t: "carrier", lat: 32.705, lon: -117.205, conf: "medium", status: "Carrier qualifications / in port", area: "San Diego, CA",
     d: "Completed Fleet Replacement Squadron carrier qualifications off Southern California; moored at NAS North Island Oct. 27." },
   { n: "USS George H.W. Bush (CVN-77)", w: "USS George H.W. Bush", t: "carrier", lat: 22.5, lon: 60.8, conf: "medium", status: "Deployed — Middle East operations", area: "Arabian Sea / Gulf of Oman",
-    d: "Reported operating in the Arabian Sea as one of two carriers supporting operations against Iran." },
+    d: "Still reported in the Arabian Sea as one of two carriers supporting operations against Iran (Nov. 2 USNI tracker, via secondary coverage)." },
   { n: "USS Gerald R. Ford (CVN-78)", w: "USS Gerald R. Ford", t: "carrier", lat: 36.815, lon: -76.295, conf: "high", status: "Planned incremental availability", area: "Norfolk Naval Shipyard, Portsmouth, VA",
     d: "In a planned maintenance period at Norfolk Naval Shipyard since July, after a 326-day deployment that ended in May." },
 
   // ---------------- Amphibious assault ships ----------------
   { n: "USS Tripoli (LHA-7)", w: "USS Tripoli (LHA-7)", t: "amphib", lat: 33.160, lon: 129.716, conf: "medium", status: "Forward-deployed — in port", area: "Sasebo, Japan",
     d: "Forward-deployed amphibious assault ship; reported in port in Sasebo (Oct. 5 tracker)." },
-  { n: "USS Makin Island (LHD-8) ARG / 13th MEU", w: "USS Makin Island", t: "amphib", lat: 35.290, lon: 139.670, conf: "high", status: "Deployed — port visit", area: "Yokosuka, Japan",
-    d: "Arrived at Fleet Activities Yokosuka Oct. 26 for maintenance and resupply with USS Anchorage (LPD-23), USS John P. Murtha (LPD-26) and the 13th MEU. Fox News reported, citing US officials, that the group is bound for the Middle East." },
+  { n: "USS Makin Island (LHD-8) ARG / 13th MEU", w: "USS Makin Island", t: "amphib", lat: 35.290, lon: 139.670, conf: "low", status: "Deployed — position unconfirmed", area: "Last reported: Yokosuka, Japan",
+    d: "Last confirmed position: arrived at Fleet Activities Yokosuka Oct. 26 for maintenance and resupply with USS Anchorage (LPD-23), USS John P. Murtha (LPD-26) and the 13th MEU. Fox News reported, citing US officials, that the group is bound for the Middle East. The Nov. 2 USNI tracker lists the ARG, but its current position wasn't available." },
 ];
