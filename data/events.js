@@ -6,10 +6,30 @@
 //         src = [{ label, url }], from = optional [lat, lon] approximate launch
 //         direction drawn as an arc.
 // Types: strike, missile, drone, naval, ground, exercise, diplomacy
-window.FF_EVENTS_AS_OF = "2026-11-03";
+window.FF_EVENTS_AS_OF = "2026-11-04";
 
 window.FF_EVENTS = [
   // ---------------- Iran war / Strait of Hormuz ----------------
+  { date: "2026-11-04", title: "Iran calls US reply 'unconvincing' as Doha talks stall", type: "diplomacy", conflict: "Iran war",
+    lat: 25.29, lon: 51.53,
+    d: "Iran said the US response to its conditions for reopening Hormuz was 'unconvincing', and indirect talks in Doha ended without a breakthrough; Qatar said both sides remain committed to negotiating. Trump confirmed the Qeshm strikes.",
+    src: [{ label: "Al Jazeera", url: "https://www.aljazeera.com/news/2026/11/4/iran-says-us-reply-to-hormuz-plan-unconvincing-trump-confirms-strikes" },
+          { label: "Yahoo News", url: "https://www.yahoo.com/news/us/articles/iran-says-us-reply-hormuz-043931688.html" }] },
+  { date: "2026-11-04", title: "Iran says US voters said 'no to war'; Trump disagrees", type: "diplomacy", conflict: "Iran war",
+    lat: 35.69, lon: 51.39,
+    d: "As projections showed Democrats taking both houses of Congress, Iran's speaker and chief negotiator Ghalibaf said Americans voted 'no to war'. Trump said the result was about gasoline prices and that the war 'will end when I say it ends'.",
+    src: [{ label: "CNBC", url: "https://www.cnbc.com/2026/11/04/us-midterm-elections-iran-war-speaker.html" },
+          { label: "Gulf News", url: "https://gulfnews.com/world/mena/middle-east-conflict-trump-warns-of-heavy-hit-as-iran-says-americans-voted-no-to-war-1.500735100" }] },
+  { date: "2026-11-04", title: "IRGC claims four tankers destroyed by mines, two detained", type: "naval", conflict: "Iran war",
+    lat: 26.20, lon: 56.70,
+    d: "The IRGC said four tankers were destroyed by mines in a prohibited lane south of the strait and two other vessels were detained; it could not be verified whether these were linked to UKMTO-reported incidents.",
+    src: [{ label: "IranWire", url: "https://iranwire.com/en/news/159779-irgc-claims-four-tankers-destroyed-by-mines-in-strait-of-hormuz/" },
+          { label: "Al Jazeera", url: "https://www.aljazeera.com/news/2026/11/4/iran-says-us-reply-to-hormuz-plan-unconvincing-trump-confirms-strikes" }] },
+  { date: "2026-11-03", title: "Tanker's engine room hit off Limah, Oman", type: "naval", conflict: "Iran war",
+    lat: 26.10, lon: 56.45,
+    d: "UKMTO said a tanker's engine room was struck by two unknown projectiles about 14 nautical miles northeast of Limah, one of two attacks it reported in the strait that day; no casualties were reported.",
+    src: [{ label: "Al Jazeera", url: "https://www.aljazeera.com/news/2026/11/4/iran-says-us-reply-to-hormuz-plan-unconvincing-trump-confirms-strikes" },
+          { label: "Demócrata", url: "https://www.democrata.es/en/international/attack-with-two-unknown-projectiles-against-an-oil-tanker-in-the-strait-of-hormuz-off-oman/" }] },
   { date: "2026-11-02", title: "Iran offers to reopen Hormuz in two days on its terms", type: "diplomacy", conflict: "Iran war",
     lat: 35.69, lon: 51.39,
     d: "Iran said it could reopen the strait within two days if the US unfreezes assets, ends its naval blockade, lifts sanctions and ends the war on all fronts; its security chief said he had received a letter from Vice President Vance. Trump said the war would end 'very soon, one way or the other.'",
@@ -101,6 +121,12 @@ window.FF_EVENTS = [
           { label: "Iran International", url: "https://www.iranintl.com/en/202610236428" }] },
 
   // ---------------- Russia–Ukraine ----------------
+  { date: "2026-11-04", title: "310 drones overnight; shopping centre ablaze in Odesa", type: "drone", conflict: "Russia–Ukraine",
+    lat: 46.48, lon: 30.72,
+    d: "Ukraine's Air Force said Russia launched 310 drones, 81 of them jet-powered, and 272 were downed; strikes hit 19 locations, setting a shopping centre in Odesa on fire and injuring two in Dnipro. Energy sites in the west, including Ternopil, were also hit.",
+    src: [{ label: "Kyiv Post", url: "https://www.kyivpost.com/post/89068" },
+          { label: "Ukrinform", url: "https://www.ukrinform.net/amp/rubric-ato/4181220-air-defense-neutralizes-272-of-310-drones-launched-by-russia-against-ukraine-overnight.html" },
+          { label: "NV", url: "https://english.nv.ua/nation/russian-drone-swarm-strikes-19-locations-across-ukraine-50656110.html" }] },
   { date: "2026-11-03", title: "Massive overnight barrage targets Ukraine's power grid", type: "missile", conflict: "Russia–Ukraine",
     lat: 49.00, lon: 31.50,
     d: "Zelensky said Russia launched 289 drones, 17 ballistic and 59 cruise missiles overnight, mainly at power plants and substations in several regions, causing emergency outages. Point shows central Ukraine generally.",
@@ -122,6 +148,16 @@ window.FF_EVENTS = [
     lat: 44.95, lon: 34.10,
     d: "Russian-installed authorities said power cuts were imposed in at least five Crimean cities after attacks on the regional grid.",
     src: [{ label: "The Moscow Times", url: "https://www.themoscowtimes.com/2026/11/03/ukrainian-drones-hit-yaroslavl-oil-refinery-trigger-power-outages-in-crimea-a94162" }] },
+  { date: "2026-11-03", title: "208 clashes; 160 guided bombs dropped", type: "ground", conflict: "Russia–Ukraine",
+    lat: 48.53, lon: 37.71,
+    d: "Ukraine's General Staff reported 208 combat clashes, with 24 Russian attacks on the Kostiantynivka front and 15 near Pokrovsk, plus 50 airstrikes dropping 160 guided bombs.",
+    src: [{ label: "Yahoo News (General Staff)", url: "https://www.yahoo.com/news/world/articles/ukraines-general-staff-reports-208-070300042.html" },
+          { label: "Ukrinform", url: "https://www.ukrinform.net/rubric-ato/4181141-war-update-201-clashes-on-front-lines-ukrainian-forces-repel-24-russian-attacks-in-kostiantynivka-sector.html" }] },
+  { date: "2026-11-03", title: "Melania Trump to host Russian and Ukrainian envoys", type: "diplomacy", conflict: "Russia–Ukraine",
+    lat: 38.90, lon: -77.04,
+    d: "The First Lady's office said she will host Russian and Ukrainian representatives at the White House on Nov. 5 to discuss the Oleshky ceasefire; the Kremlin said it knew nothing about it. Separate talks are planned in Abu Dhabi on Nov. 10–11.",
+    src: [{ label: "CNN", url: "https://www.cnn.com/2026/11/03/politics/melania-trump-russia-ukraine" },
+          { label: "CNBC", url: "https://www.cnbc.com/2026/11/03/russia-ukraine-peace-talks-abu-dhabi-trump-putin-xi.html" }] },
   { date: "2026-11-02", title: "Overnight drone attack kills one in Sloviansk", type: "drone", conflict: "Russia–Ukraine",
     lat: 48.85, lon: 37.60,
     d: "Ukraine's Air Force said Russia launched 193 drones overnight and 154 were downed; Donetsk's governor said one person was killed in Sloviansk, and energy strikes caused outages in 10 regions.",
@@ -133,9 +169,10 @@ window.FF_EVENTS = [
     src: [{ label: "Kyiv Post", url: "https://www.kyivpost.com/post/88850" }] },
   { date: "2026-11-02", title: "Drones hit Transneft oil hub in Samara region", type: "drone", conflict: "Russia–Ukraine",
     lat: 53.30, lon: 50.50,
-    d: "Independent Russian media reported drones struck a Transneft pumping and blending station near Prosvet that blends Urals export crude; local authorities confirmed an attack without giving details, and Ukraine had not claimed it.",
+    d: "Independent Russian media reported drones struck a Transneft pumping and blending station near Prosvet that blends Urals export crude; local authorities confirmed an attack without giving details, and Ukraine had not claimed it. Kyiv Post reported the fire was still burning a day later.",
     src: [{ label: "The Moscow Times", url: "https://themoscowtimes.com/2026/11/02/ukrainian-drones-hit-major-oil-transport-hub-in-samara-region-a94149" },
-          { label: "Euromaidan Press", url: "https://euromaidanpress.com/2026/11/02/drones-hit-russias-samara-oil-hub-that-blends-urals-export-crude-first-strike-there-since-11-october/" }] },
+          { label: "Euromaidan Press", url: "https://euromaidanpress.com/2026/11/02/drones-hit-russias-samara-oil-hub-that-blends-urals-export-crude-first-strike-there-since-11-october/" },
+          { label: "Kyiv Post: fire burns a second day", url: "https://kyivpost.com/post/89091" }] },
   { date: "2026-11-02", title: "Guided bombs hit aid centre in Komyshuvakha, killing 33", type: "strike", conflict: "Russia–Ukraine",
     lat: 47.53, lon: 35.47,
     d: "At least nine Russian guided bombs hit a school used for aid distribution and its shelter; Zelensky put the toll at 33 with more possibly under rubble, and the region declared three days of mourning. Russia's Defence Ministry said it targeted Ukrainian military units.",
@@ -315,6 +352,11 @@ window.FF_EVENTS = [
     src: [{ label: "NPR", url: "https://www.npr.org/2026/10/15/g-s1-148194/russia-ukraine-war" }] },
 
   // ---------------- Israel – Gaza / Lebanon ----------------
+  { date: "2026-11-03", title: "Israeli strikes kill four in Gaza, including a teenager", type: "strike", conflict: "Israel–Gaza",
+    lat: 31.36, lon: 34.30,
+    d: "AFP reported Israeli strikes near Khan Younis and Gaza City killed at least four, including a 17-year-old girl; Israel's military said it struck militants in al-Mawasi.",
+    src: [{ label: "L'Orient Today (AFP)", url: "https://today.lorientlejour.com/article/1553181/israeli-strikes-kill-4-palestinians-in-gaza.html" },
+          { label: "Arab News", url: "https://www.arabnews.com/middle-east/israeli-strikes-kill-four-people-in-gaza-medics-say-3009383" }] },
   { date: "2026-11-02", title: "Israeli air raids on Kfar Tibnit and Qsair", type: "strike", conflict: "Israel–Lebanon",
     lat: 33.37, lon: 35.53,
     d: "L'Orient Today reported intense Israeli air raids and artillery fire on southern Lebanon overnight into Monday, including Kfar Tibnit and Qsair near Nabatieh.",
@@ -356,6 +398,11 @@ window.FF_EVENTS = [
     src: [{ label: "Antiwar.com", url: "https://news.antiwar.com/2026/10/25/israel-steps-up-lebanon-strikes-masses-troops-along-border/" }] },
 
   // ---------------- Yemen / Saudi Arabia ----------------
+  { date: "2026-11-03", title: "Coalition downs three drones; Houthis claim Asir strikes", type: "drone", conflict: "Yemen–Saudi Arabia",
+    lat: 18.30, lon: 42.80,
+    d: "The coalition said it intercepted three drones, one over the Mecca region. A Houthi spokesman claimed strikes on Abha airport and King Khalid Air Base in Khamis Mushait, then said the group had not attacked Saudi territory that day.",
+    src: [{ label: "Express Tribune", url: "https://tribune.com.pk/story/2638425/irans-foreign-minister-says-talks-with-saudi-arabia-are-ongoing" },
+          { label: "China Daily Asia", url: "https://www.chinadailyasia.com/hk/article/642226" }] },
   { date: "2026-11-02", title: "Houthi ballistic missile intercepted over southern Saudi Arabia", type: "missile", conflict: "Yemen–Saudi Arabia",
     lat: 18.30, lon: 42.73,
     d: "The coalition said it destroyed a Houthi ballistic missile fired toward the south; civil defence issued alerts for Khamis Mushait, Abha, Taif and Najran before sounding the all-clear.",
@@ -400,16 +447,6 @@ window.FF_EVENTS = [
     lat: 24.71, lon: 46.68,
     d: "The Saudi-led coalition said it intercepted a Houthi missile launched toward Riyadh.",
     src: [{ label: "Al Jazeera", url: "https://www.aljazeera.com/news/2026/10/14/saudi-led-coalition-intercepts-houthi-missile-launched-towards-riyadh" }] },
-  { date: "2026-10-13", title: "Coalition strikes Houthi oil sites in Sanaa", type: "strike", conflict: "Yemen–Saudi Arabia",
-    lat: 15.37, lon: 44.19,
-    d: "The Saudi-led coalition said it struck oil sites across western Yemen, including Sanaa and Hodeidah province, in response to the Riyadh airport attack.",
-    src: [{ label: "CBS News live updates", url: "https://www.cbsnews.com/live-updates/iran-war-us-trump-saudi-arabia-houthi/" },
-          { label: "Al Jazeera", url: "https://www.aljazeera.com/news/2026/10/13/houthis-threaten-saudi-arabias-aramco-facilities-and-airports" }] },
-  { date: "2026-10-13", title: "Houthis claim strike on Aramco headquarters", type: "missile", conflict: "Yemen–Saudi Arabia",
-    lat: 26.30, lon: 50.13,
-    d: "The Houthis claimed a strike on Saudi Aramco's headquarters in Dhahran hours after coalition strikes on Sanaa.",
-    src: [{ label: "CNN", url: "https://www.cnn.com/2026/10/13/middleeast/saudi-strikes-houthi-fuel-depot-latam-intl" },
-          { label: "Al Jazeera", url: "https://www.aljazeera.com/news/2026/10/13/houthis-threaten-saudi-arabias-aramco-facilities-and-airports" }] },
 
   // ---------------- Sudan ----------------
   { date: "2026-11-01", title: "RSF drones knock out Al Dabbah and Abu Hamad power stations", type: "drone", conflict: "Sudan civil war",

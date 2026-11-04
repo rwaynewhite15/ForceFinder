@@ -8,8 +8,9 @@
 //             low    = not covered by recent reporting; shown at homeport/yard
 // The uncertainty ring drawn on the globe scales with confidence.
 // w = Wikipedia article title, used to fetch the ship's photo.
-window.FF_NAVAL_AS_OF = "2026-11-02";
+window.FF_NAVAL_AS_OF = "2026-11-04";
 window.FF_NAVAL_SOURCES = [
+  { label: "Defence Blog: satellite imagery of Theodore Roosevelt CSG (Nov. 4, 2026)", url: "https://defence-blog.com/chinese-satellites-track-u-s-carrier-group-crossing-south-china-sea/" },
   { label: "USNI News Fleet & Marine Tracker (Nov. 2, 2026)", url: "https://news.usni.org/2026/11/02/usni-news-fleet-and-marine-tracker-nov-2-2026" },
   { label: "USNI News Fleet & Marine Tracker (Oct. 26, 2026)", url: "https://news.usni.org/2026/10/26/usni-news-fleet-and-marine-tracker-oct-26-2026" },
   { label: "TWZ: Where Are The Aircraft Carriers? (Oct. 27, 2026)", url: "https://www.twz.com/sea/where-are-the-aircraft-carriers-october-27-2026" },
@@ -29,7 +30,7 @@ window.FF_NAVAL = [
   { n: "USS Carl Vinson (CVN-70)", w: "USS Carl Vinson", t: "carrier", lat: 32.699, lon: -117.215, conf: "low", status: "Not in recent reporting", area: "Homeport: NAS North Island, San Diego",
     d: "Shown at homeport; no current location found in recent public reporting." },
   { n: "USS Theodore Roosevelt (CVN-71)", w: "USS Theodore Roosevelt (CVN-71)", t: "carrier", lat: 14.0, lon: 114.0, conf: "medium", status: "Deployed — transiting", area: "South China Sea",
-    d: "Underway in the South China Sea after exercise Keen Sword 27, with Carrier Air Wing 11 and USS Chosin (CG-65), per the Nov. 2 USNI tracker. Fox News reported, citing US officials, that the group is bound for the Middle East." },
+    d: "Underway in the South China Sea after exercise Keen Sword 27, with Carrier Air Wing 11 and USS Chosin (CG-65), per the Nov. 2 USNI tracker; Chinese commercial satellite imagery published Nov. 4 also showed the group there. The Navy hasn't said when it will enter the Indian Ocean. Fox News reported, citing US officials, that the group is bound for the Middle East." },
   { n: "USS Abraham Lincoln (CVN-72)", w: "USS Abraham Lincoln (CVN-72)", t: "carrier", lat: 32.699, lon: -117.215, conf: "high", status: "In port — post-deployment", area: "San Diego, CA",
     d: "Returned Oct. 8 from a 321-day deployment. Expected homeport shift to Bremerton, WA, for overhaul." },
   { n: "USS George Washington (CVN-73)", w: "USS George Washington (CVN-73)", t: "carrier", lat: 19.5, lon: 62.5, conf: "medium", status: "Deployed — Middle East operations", area: "Arabian Sea",
