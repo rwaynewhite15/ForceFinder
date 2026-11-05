@@ -10,7 +10,7 @@
 // Status: stronghold = group holds or dominates the area; contested = another
 //         force occupies or disputes it; degraded = group pushed back or heavily
 //         struck, with a residual presence.
-window.FF_GROUPS_AS_OF = "2026-11-04";
+window.FF_GROUPS_AS_OF = "2026-11-05";
 
 window.FF_GROUP_INFO = {
   "Hezbollah": { full: "Hezbollah (Lebanon)", fto: "US-designated Foreign Terrorist Organization (1997)",
