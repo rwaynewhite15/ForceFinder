@@ -1,5 +1,60 @@
 [
   {
+    "date": "2026-11-06",
+    "title": "Is a US–Iran deal getting closer? Plus a deadly tanker strike off Qatar",
+    "summary": "Bloomberg reports the US and Iran edging toward a deal with Iran's nuclear programme back on the table, a seafarer killed on the tanker Velos Sapphire north of Qatar and another blast off Khasab, a reported strike on the Afipsky refinery, the latest front-line numbers, and a Houthi missile aimed at Medina.",
+    "audio": "podcast/episodes/2026-11-06.mp3",
+    "script": "podcast/scripts/2026-11-06.json",
+    "duration": 315,
+    "bytes": 1888942,
+    "sources": [
+      {
+        "label": "Bloomberg: US and Iran edge closer to a deal",
+        "url": "https://www.bloomberg.com/news/articles/2026-11-06/us-and-iran-edge-closer-to-deal-with-nuclear-issue-back-in-play"
+      },
+      {
+        "label": "Arab News: potential breakthrough",
+        "url": "https://www.arabnews.com/middle-east/us-and-iran-edge-closer-to-potential-breakthrough-in-talks-to-end-war-bloomberg-3010128"
+      },
+      {
+        "label": "CBS News: Trump on new strikes",
+        "url": "https://www.cbsnews.com/live-updates/iran-war-trump-us-strait-hormuz-persian-gulf/"
+      },
+      {
+        "label": "Lloyd's List: seafarer killed",
+        "url": "https://lloydslist.com/LL1158929/Seafarer-killed-as-tanker-attack-underscores-widening-Middle-East-Gulf-threat"
+      },
+      {
+        "label": "Riviera: Velos Sapphire attack",
+        "url": "https://www.rivieramm.com/news-content-hub/seafarer-killed-in-attack-on-greek-owned-tanker-in-middle-east-gulf-90497"
+      },
+      {
+        "label": "Arab News: explosion off Khasab",
+        "url": "https://www.arabnews.com/middle-east/tanker-reports-explosion-near-omans-khasab-while-transiting-strait-of-hormuz-ukmto-says-3010151"
+      },
+      {
+        "label": "Kyiv Post: Afipsky refinery",
+        "url": "https://kyivpost.com/post/89302"
+      },
+      {
+        "label": "Mezha: 188 clashes",
+        "url": "https://mezha.net/eng/news/mezha-fad66d54cfb0b43b46de226f"
+      },
+      {
+        "label": "AP via KIRO 7: Gaza, Medina missile",
+        "url": "https://www.kiro7.com/news/business/israeli-strike-kills/RVYTKG3KBI5KNGJEQMH5UFLPH4/"
+      },
+      {
+        "label": "Middle East Eye: south Lebanon strikes",
+        "url": "https://middleeasteye.net/live-blog/live-blog-update/israeli-air-strikes-target-lebanons-nabatieh-tyre-districts"
+      },
+      {
+        "label": "Misbar: Roosevelt heading west",
+        "url": "https://www.misbar.com/en/editorial/2026/11/05/satellite-images-show-uss-roosevelt-transiting-southeast-asia-middle-east"
+      }
+    ]
+  },
+  {
     "date": "2026-11-05",
     "title": "A White House meeting, a tanker off Qatar, and drones over Ryazan",
     "summary": "Melania Trump hosts Russian and Ukrainian envoys as talks open in Brussels and the Komyshuvakha toll rises to forty, mediators push a blockade-for-Hormuz framework after a tanker is hit north of Qatar, Ukraine hits Ryazan and an Ozon warehouse, and the Theodore Roosevelt heads west.",
