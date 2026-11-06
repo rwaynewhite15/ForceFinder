@@ -6,16 +6,27 @@
 //         src = [{ label, url }], from = optional [lat, lon] approximate launch
 //         direction drawn as an arc.
 // Types: strike, missile, drone, naval, ground, exercise, diplomacy
-window.FF_EVENTS_AS_OF = "2026-11-05";
+window.FF_EVENTS_AS_OF = "2026-11-06";
 
 window.FF_EVENTS = [
   // ---------------- Iran war / Strait of Hormuz ----------------
+  { date: "2026-11-06", title: "Bloomberg: US and Iran edge closer to a deal", type: "diplomacy", conflict: "Iran war",
+    lat: 25.29, lon: 51.53,
+    d: "Bloomberg reported Iran is weighing Qatari proposals on its nuclear program, an issue it had previously excluded; an Iranian official told Reuters those talks depend on the US meeting seven demands first. Trump spoke with Qatar's emir and said he had no immediate plans for new strikes.",
+    src: [{ label: "Bloomberg", url: "https://www.bloomberg.com/news/articles/2026-11-06/us-and-iran-edge-closer-to-deal-with-nuclear-issue-back-in-play" },
+          { label: "Arab News", url: "https://www.arabnews.com/middle-east/us-and-iran-edge-closer-to-potential-breakthrough-in-talks-to-end-war-bloomberg-3010128" },
+          { label: "CBS News live updates", url: "https://www.cbsnews.com/live-updates/iran-war-trump-us-strait-hormuz-persian-gulf/" }] },
   { date: "2026-11-05", title: "Mediators push blockade-for-Hormuz framework; no deal yet", type: "diplomacy", conflict: "Iran war",
     lat: 25.29, lon: 51.53,
     d: "Officials said Qatari mediators are advancing a framework under which Iran would stop attacks in the strait in return for the US lifting its blockade of Iranian ports; Iran says Hormuz stays shut until its demands are met. Reports say senior US officials are split between strikes and continued economic pressure.",
     src: [{ label: "Gulf News", url: "https://gulfnews.com/world/mena/usisrael-iran-standoff-what-uae-residents-should-know-this-evening-1.500737389" },
           { label: "investingLive", url: "https://investinglive.com/commodities/update-iran-says-hormuz-stays-shut-until-demands-met-as-us-deal-remains-far-off" },
           { label: "The Globe and Mail", url: "https://www.theglobeandmail.com/world/article-us-iran-doha-talks-strait-of-hormuz/" }] },
+  { date: "2026-11-05", title: "Tanker reports explosion off Khasab, Oman", type: "naval", conflict: "Iran war",
+    lat: 26.20, lon: 56.55,
+    d: "UKMTO said an outbound tanker reported a blast on its port side near the waterline about 16 nautical miles east of Khasab; it continued under its own power and all crew were safe.",
+    src: [{ label: "Arab News", url: "https://www.arabnews.com/middle-east/tanker-reports-explosion-near-omans-khasab-while-transiting-strait-of-hormuz-ukmto-says-3010151" },
+          { label: "Devdiscourse", url: "https://www.devdiscourse.com/article/international/4002744-tanker-reports-explosion-near-omans-khasab-while-transiting-strait-of-hormuz-ukmto-says" }] },
   { date: "2026-11-04", title: "Iran calls US reply 'unconvincing' as Doha talks stall", type: "diplomacy", conflict: "Iran war",
     lat: 25.29, lon: 51.53,
     d: "Iran said the US response to its conditions for reopening Hormuz was 'unconvincing', and indirect talks in Doha ended without a breakthrough; Qatar said both sides remain committed to negotiating. Trump confirmed the Qeshm strikes.",
@@ -31,11 +42,13 @@ window.FF_EVENTS = [
     d: "The IRGC said four tankers were destroyed by mines in a prohibited lane south of the strait and two other vessels were detained; it could not be verified whether these were linked to UKMTO-reported incidents.",
     src: [{ label: "IranWire", url: "https://iranwire.com/en/news/159779-irgc-claims-four-tankers-destroyed-by-mines-in-strait-of-hormuz/" },
           { label: "Al Jazeera", url: "https://www.aljazeera.com/news/2026/11/4/iran-says-us-reply-to-hormuz-plan-unconvincing-trump-confirms-strikes" }] },
-  { date: "2026-11-04", title: "Tanker hit by two projectiles north of Qatar", type: "naval", conflict: "Iran war",
+  { date: "2026-11-04", title: "Seafarer killed as tanker Velos Sapphire hit north of Qatar", type: "naval", conflict: "Iran war",
     lat: 26.95, lon: 51.25,
-    d: "UKMTO said a tanker was struck by two unidentified projectiles about 50 nautical miles north of Madinat ash Shamal late on Nov. 4; the crew's condition and the damage were unconfirmed.",
+    d: "UKMTO said a tanker was struck by two unidentified projectiles about 50 nautical miles north of Madinat ash Shamal late on Nov. 4 (early Nov. 5 local time). Operator Velos Tankers said one crew member of the empty Marshall Islands-flagged Velos Sapphire was killed; the IMO counts 25 seafarer deaths in 129 regional incidents.",
     src: [{ label: "Dawn", url: "https://www.dawn.com/news/2042327/tanker-struck-by-2-unidentified-projectiles-north-of-qatar-crew-status-unconfirmed-ukmto-says" },
-          { label: "Anadolu Agency", url: "https://www.aa.com.tr/en/middle-east/tanker-struck-by-2-unidentified-projectiles-off-qatar-coast-uk-maritime-agency/4112416" }] },
+          { label: "Anadolu Agency", url: "https://www.aa.com.tr/en/middle-east/tanker-struck-by-2-unidentified-projectiles-off-qatar-coast-uk-maritime-agency/4112416" },
+          { label: "Lloyd's List", url: "https://lloydslist.com/LL1158929/Seafarer-killed-as-tanker-attack-underscores-widening-Middle-East-Gulf-threat" },
+          { label: "Riviera", url: "https://www.rivieramm.com/news-content-hub/seafarer-killed-in-attack-on-greek-owned-tanker-in-middle-east-gulf-90497" }] },
   { date: "2026-11-03", title: "Tanker's engine room hit off Limah, Oman", type: "naval", conflict: "Iran war",
     lat: 26.10, lon: 56.45,
     d: "UKMTO said a tanker's engine room was struck by two unknown projectiles about 14 nautical miles northeast of Limah, one of two attacks it reported in the strait that day; no casualties were reported.",
@@ -132,6 +145,10 @@ window.FF_EVENTS = [
           { label: "Iran International", url: "https://www.iranintl.com/en/202610236428" }] },
 
   // ---------------- Russia–Ukraine ----------------
+  { date: "2026-11-06", title: "Drones reportedly hit Afipsky refinery", type: "drone", conflict: "Russia–Ukraine",
+    lat: 44.90, lon: 38.45,
+    d: "Kyiv Post reported a drone attack on the Afipsky refinery in Krasnodar Krai; Russia said 142 drones were downed overnight. Damage was not confirmed by officials.",
+    src: [{ label: "Kyiv Post", url: "https://kyivpost.com/post/89302" }] },
   { date: "2026-11-05", title: "Melania Trump hosts Russian and Ukrainian envoys", type: "diplomacy", conflict: "Russia–Ukraine",
     lat: 38.897, lon: -77.037,
     d: "The First Lady hosted Russian and Ukrainian representatives at the White House and praised both for choosing 'humanity over war' in the Oleshky truce; Trump said nearly 800 people were evacuated. Trilateral talks are due in the UAE next week.",
@@ -151,6 +168,11 @@ window.FF_EVENTS = [
     d: "Ukraine said Russia launched 128 drones and two Kh-35 missiles, with 105 drones downed; strikes injured three in Dnipro and Samar, set a logistics site in Kyiv region ablaze, and Kyiv Post reported a woman killed.",
     src: [{ label: "Kyiv Post", url: "https://www.kyivpost.com/post/89205" },
           { label: "Washington Times", url: "https://www.washingtontimes.com/news/2026/nov/5/russia-ukraine-trade-missile-drone-strikes-technical-talks-begin/" }] },
+  { date: "2026-11-05", title: "188 clashes; 235 guided bombs dropped", type: "ground", conflict: "Russia–Ukraine",
+    lat: 48.40, lon: 37.40,
+    d: "Ukraine's General Staff reported 188 combat clashes, most on the Pokrovsk (16 attacks) and Kostiantynivka (11) axes, with 79 Russian airstrikes dropping 235 guided bombs.",
+    src: [{ label: "Mezha", url: "https://mezha.net/eng/news/mezha-fad66d54cfb0b43b46de226f" },
+          { label: "112.ua", url: "https://112.ua/en/167-boiv-5-listopada-na-fronti-aktivnist-na-pokrovskomu-konstantinivskomu-ta-gulajpolskomu-napramkah-196227" }] },
   { date: "2026-11-04", title: "310 drones overnight; shopping centre ablaze in Odesa", type: "drone", conflict: "Russia–Ukraine",
     lat: 46.48, lon: 30.72,
     d: "Ukraine's Air Force said Russia launched 310 drones, 81 of them jet-powered, and 272 were downed; strikes hit 19 locations, setting a shopping centre in Odesa on fire and injuring two in Dnipro. Energy sites in the west, including Ternopil, were also hit.",
@@ -386,12 +408,16 @@ window.FF_EVENTS = [
     lat: 55.75, lon: 37.62, from: [51.5, 32.0],
     d: "Hundreds of Ukrainian drones targeted Moscow and St. Petersburg despite pressure from President Trump.",
     src: [{ label: "CNN", url: "https://www.cnn.com/2026/10/18/europe/ukraine-russia-drone-attack-trump-intl" }] },
-  { date: "2026-10-15", title: "Ukraine resumes refinery strikes on Ryazan after brief truce", type: "drone", conflict: "Russia–Ukraine",
-    lat: 54.58, lon: 39.73,
-    d: "Ukrainian drones attacked a refinery in Russia's Ryazan region hours after Zelenskyy said a brief truce spurned by Moscow was over.",
-    src: [{ label: "NPR", url: "https://www.npr.org/2026/10/15/g-s1-148194/russia-ukraine-war" }] },
 
   // ---------------- Israel – Gaza / Lebanon ----------------
+  { date: "2026-11-05", title: "Israeli strikes kill five in Gaza, including a boy", type: "strike", conflict: "Israel–Gaza",
+    lat: 31.45, lon: 34.40,
+    d: "Rescue services said Israeli strikes and gunfire killed five people across Gaza, including a woman and a 12-year-old boy.",
+    src: [{ label: "AP via KIRO 7", url: "https://www.kiro7.com/news/business/israeli-strike-kills/RVYTKG3KBI5KNGJEQMH5UFLPH4/" }] },
+  { date: "2026-11-05", title: "Israeli strikes on Kfar Tebnit and al-Mansouri", type: "strike", conflict: "Israel–Lebanon",
+    lat: 33.37, lon: 35.53,
+    d: "Al Jazeera and Lebanon's NNA reported Israeli strikes on Kfar Tebnit in Nabatieh district and al-Mansouri in Tyre district.",
+    src: [{ label: "Middle East Eye live blog", url: "https://middleeasteye.net/live-blog/live-blog-update/israeli-air-strikes-target-lebanons-nabatieh-tyre-districts" }] },
   { date: "2026-11-03", title: "Israeli strikes kill four in Gaza, including a teenager", type: "strike", conflict: "Israel–Gaza",
     lat: 31.36, lon: 34.30,
     d: "AFP reported Israeli strikes near Khan Younis and Gaza City killed at least four, including a 17-year-old girl; Israel's military said it struck militants in al-Mawasi.",
@@ -438,6 +464,10 @@ window.FF_EVENTS = [
     src: [{ label: "Antiwar.com", url: "https://news.antiwar.com/2026/10/25/israel-steps-up-lebanon-strikes-masses-troops-along-border/" }] },
 
   // ---------------- Yemen / Saudi Arabia ----------------
+  { date: "2026-11-05", title: "Coalition destroys Houthi missile aimed at Medina", type: "missile", conflict: "Yemen–Saudi Arabia",
+    lat: 24.47, lon: 39.61,
+    d: "The Saudi-led coalition said it destroyed a missile launched by the Houthis toward Medina; the Houthis had not claimed an attack.",
+    src: [{ label: "AP via KIRO 7", url: "https://www.kiro7.com/news/business/israeli-strike-kills/RVYTKG3KBI5KNGJEQMH5UFLPH4/" }] },
   { date: "2026-11-03", title: "Coalition downs three drones; Houthis claim Asir strikes", type: "drone", conflict: "Yemen–Saudi Arabia",
     lat: 18.30, lon: 42.80,
     d: "The coalition said it intercepted three drones, one over the Mecca region. A Houthi spokesman claimed strikes on Abha airport and King Khalid Air Base in Khamis Mushait, then said the group had not attacked Saudi territory that day.",
@@ -483,10 +513,6 @@ window.FF_EVENTS = [
     lat: 26.43, lon: 50.10,
     d: "The coalition said it intercepted three ballistic missiles fired toward the Eastern Region and four drones toward the south.",
     src: [{ label: "Al Jazeera", url: "https://www.aljazeera.com/news/2026/10/27/saudi-led-coalition-destroys-four-houthi-drones" }] },
-  { date: "2026-10-15", title: "Houthi missile attack on Aden presidential palace kills five", type: "missile", conflict: "Yemen–Saudi Arabia",
-    lat: 12.78, lon: 45.04,
-    d: "Yemen's health minister said five people were killed and 16 injured when Houthi missiles targeted the al-Maashiq palace.",
-    src: [{ label: "Al Jazeera", url: "https://www.aljazeera.com/news/2026/10/15/houthis-target-yemens-presidential-palace-in-aden-with-missiles" }] },
 
   // ---------------- Sudan ----------------
   { date: "2026-11-04", title: "Ethiopia expels Sudanese diplomats over drone complaint", type: "diplomacy", conflict: "Sudan civil war",
