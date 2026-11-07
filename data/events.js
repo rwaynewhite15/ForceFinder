@@ -6,16 +6,28 @@
 //         src = [{ label, url }], from = optional [lat, lon] approximate launch
 //         direction drawn as an arc.
 // Types: strike, missile, drone, naval, ground, exercise, diplomacy
-window.FF_EVENTS_AS_OF = "2026-11-06";
+window.FF_EVENTS_AS_OF = "2026-11-07";
 
 window.FF_EVENTS = [
   // ---------------- Iran war / Strait of Hormuz ----------------
+  { date: "2026-11-07", title: "CENTCOM launches Task Force Iron Gate against Iran's land routes", type: "diplomacy", conflict: "Iran war",
+    lat: 27.85, lon: -82.50,
+    d: "Central Command set up a roughly 20-person task force in Tampa to disrupt Iran's overland and Caspian Sea routes for weapons and banned goods, extending the naval blockade; CENTCOM also offered up to $20 million for information on Iran's nuclear program.",
+    src: [{ label: "Washington Post", url: "https://www.washingtonpost.com/national-security/2026/11/07/us-military-seeks-disrupt-irans-land-routes-expanding-naval-blockade/" },
+          { label: "Khaleej Times", url: "https://www.khaleejtimes.com/world/mena/us-to-set-up-new-team-against-iran-land-commerce-task-force-iron-gate" },
+          { label: "CNN", url: "https://www.cnn.com/2026/11/07/middleeast/trump-reward-intelligence-iran-nuclear-program-intl" }] },
   { date: "2026-11-06", title: "Bloomberg: US and Iran edge closer to a deal", type: "diplomacy", conflict: "Iran war",
     lat: 25.29, lon: 51.53,
     d: "Bloomberg reported Iran is weighing Qatari proposals on its nuclear program, an issue it had previously excluded; an Iranian official told Reuters those talks depend on the US meeting seven demands first. Trump spoke with Qatar's emir and said he had no immediate plans for new strikes.",
     src: [{ label: "Bloomberg", url: "https://www.bloomberg.com/news/articles/2026-11-06/us-and-iran-edge-closer-to-deal-with-nuclear-issue-back-in-play" },
           { label: "Arab News", url: "https://www.arabnews.com/middle-east/us-and-iran-edge-closer-to-potential-breakthrough-in-talks-to-end-war-bloomberg-3010128" },
           { label: "CBS News live updates", url: "https://www.cbsnews.com/live-updates/iran-war-trump-us-strait-hormuz-persian-gulf/" }] },
+  { date: "2026-11-06", title: "Trump announces 'minor' strikes on Iranian air defences", type: "strike", conflict: "Iran war",
+    lat: 26.85, lon: 55.90,
+    d: "Trump said the US carried out 'minor strikes' on Iran's air defences; Iranian media reported missiles hitting Qeshm Island, though Trump did not explicitly link the two. Iran called the US reply to its latest proposal 'not convincing'.",
+    src: [{ label: "CNBC", url: "https://www.cnbc.com/2026/11/07/trump-us-minor-strikes-iran-qeshm-island.html" },
+          { label: "The Hill", url: "https://thehill.com/policy/defense/6205977-trump-launches-iran-limited-strikes/" },
+          { label: "Al Jazeera", url: "https://www.aljazeera.com/news/2026/11/7/trump-confirms-new-us-strikes-on-irans-qeshm-island" }] },
   { date: "2026-11-05", title: "Mediators push blockade-for-Hormuz framework; no deal yet", type: "diplomacy", conflict: "Iran war",
     lat: 25.29, lon: 51.53,
     d: "Officials said Qatari mediators are advancing a framework under which Iran would stop attacks in the strait in return for the US lifting its blockade of Iranian ports; Iran says Hormuz stays shut until its demands are met. Reports say senior US officials are split between strikes and continued economic pressure.",
@@ -145,10 +157,25 @@ window.FF_EVENTS = [
           { label: "Iran International", url: "https://www.iranintl.com/en/202610236428" }] },
 
   // ---------------- Russia–Ukraine ----------------
-  { date: "2026-11-06", title: "Drones reportedly hit Afipsky refinery", type: "drone", conflict: "Russia–Ukraine",
+  { date: "2026-11-07", title: "Missiles hit Kyiv's Northern Bridge and energy sites", type: "missile", conflict: "Russia–Ukraine",
+    lat: 50.49, lon: 30.54,
+    d: "Officials said Russia launched 172 drones and 36 ballistic missiles; several missiles hit Kyiv's Northern Bridge over the Dnipro, closing it, and one person was killed and eight wounded in the Kyiv area, plus one killed in Dnipropetrovsk region. Russia said the bridge carried military supplies.",
+    src: [{ label: "France 24", url: "https://france24.com/en/europe/20261107-moscow-strikes-kyiv-as-ukraine-prepares-for-talks-with-russia-and-the-us" },
+          { label: "RFE/RL", url: "https://www.rferl.org/a/russia-strikes-kyiv-ukraine-trilateral-talks/33892815.html" },
+          { label: "Times of Israel liveblog", url: "https://www.timesofisrael.com/liveblog_entry/russia-strikes-kyiv-killing-one-and-damaging-major-bridge-energy-infrastructure-officials-say" }] },
+  { date: "2026-11-07", title: "Drones strike Saratov refinery", type: "drone", conflict: "Russia–Ukraine",
+    lat: 51.50, lon: 46.07,
+    d: "Several fires broke out at the Saratov refinery after a drone attack overnight; no official damage assessment had been published.",
+    src: [{ label: "UkrMedia", url: "https://ukrmedia.news/en/world/saratovskyi-npz-ataka-7-lystopada-2026/" }] },
+  { date: "2026-11-06", title: "Drones set fire at Afipsky refinery", type: "drone", conflict: "Russia–Ukraine",
     lat: 44.90, lon: 38.45,
-    d: "Kyiv Post reported a drone attack on the Afipsky refinery in Krasnodar Krai; Russia said 142 drones were downed overnight. Damage was not confirmed by officials.",
-    src: [{ label: "Kyiv Post", url: "https://kyivpost.com/post/89302" }] },
+    d: "Drones set off a large fire at the Afipsky refinery in Krasnodar Krai; regional authorities blamed drone debris, and Militarnyi reported a primary processing unit was damaged. Russia said 142 drones were downed overnight.",
+    src: [{ label: "Kyiv Post", url: "https://kyivpost.com/post/89302" },
+          { label: "Militarnyi", url: "https://militarnyi.com/en/news/ukrainian-drone-strike-sparks-fire-at-afipsky-oil-refinery-in-russia/" }] },
+  { date: "2026-11-06", title: "180 clashes; 170 guided bombs dropped", type: "ground", conflict: "Russia–Ukraine",
+    lat: 48.40, lon: 37.40,
+    d: "Ukraine's General Staff reported 180 combat clashes and 53 Russian airstrikes dropping 170 guided bombs; attacks near Pokrovsk eased to four.",
+    src: [{ label: "Mezha", url: "https://mezha.net/eng/news/mezha-c6729808a9c6e3f2fccc9eb1_general_staff-_180/" }] },
   { date: "2026-11-05", title: "Melania Trump hosts Russian and Ukrainian envoys", type: "diplomacy", conflict: "Russia–Ukraine",
     lat: 38.897, lon: -77.037,
     d: "The First Lady hosted Russian and Ukrainian representatives at the White House and praised both for choosing 'humanity over war' in the Oleshky truce; Trump said nearly 800 people were evacuated. Trilateral talks are due in the UAE next week.",
@@ -410,6 +437,10 @@ window.FF_EVENTS = [
     src: [{ label: "CNN", url: "https://www.cnn.com/2026/10/18/europe/ukraine-russia-drone-attack-trump-intl" }] },
 
   // ---------------- Israel – Gaza / Lebanon ----------------
+  { date: "2026-11-07", title: "Israeli shelling and demolition in Bani Haiyyan", type: "strike", conflict: "Israel–Lebanon",
+    lat: 33.23, lon: 35.53,
+    d: "The Israeli army carried out artillery shelling and a demolition in the southern Lebanese village of Bani Haiyyan; no casualties were reported.",
+    src: [{ label: "Dawn live blog", url: "https://www.dawn.com/live/iran-israel-war" }] },
   { date: "2026-11-05", title: "Israeli strikes kill five in Gaza, including a boy", type: "strike", conflict: "Israel–Gaza",
     lat: 31.45, lon: 34.40,
     d: "Rescue services said Israeli strikes and gunfire killed five people across Gaza, including a woman and a 12-year-old boy.",
@@ -464,6 +495,10 @@ window.FF_EVENTS = [
     src: [{ label: "Antiwar.com", url: "https://news.antiwar.com/2026/10/25/israel-steps-up-lebanon-strikes-masses-troops-along-border/" }] },
 
   // ---------------- Yemen / Saudi Arabia ----------------
+  { date: "2026-11-07", title: "Houthi media: Saudi strike in Sanaa province kills 22", type: "strike", conflict: "Yemen–Saudi Arabia",
+    lat: 15.35, lon: 44.21,
+    d: "Houthi-affiliated media said the death toll from a Saudi strike in Sanaa province rose to 22; the figure has not been independently verified.",
+    src: [{ label: "Dawn live blog", url: "https://www.dawn.com/live/iran-israel-war" }] },
   { date: "2026-11-05", title: "Coalition destroys Houthi missile aimed at Medina", type: "missile", conflict: "Yemen–Saudi Arabia",
     lat: 24.47, lon: 39.61,
     d: "The Saudi-led coalition said it destroyed a missile launched by the Houthis toward Medina; the Houthis had not claimed an attack.",
