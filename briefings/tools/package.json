@@ -1,0 +1,10 @@
+{
+  "name": "forcefinder-briefing-tools",
+  "private": true,
+  "description": "Renders ForceFinder video briefings (map frames + narration).",
+  "dependencies": {
+    "d3-geo": "^3.1.2",
+    "topojson-client": "^3.1.0",
+    "world-atlas": "^2.0.2"
+  }
+}

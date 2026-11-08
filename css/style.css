@@ -105,3 +105,17 @@ section.foot { border-bottom: 0; }
   :root { --panel-w: 88vw; }
   #details { top: auto; bottom: 30px; }
 }
+
+/* video briefings */
+.list.videos li { align-items: center; }
+.list.videos .thumb { width: 72px; height: 40px; object-fit: cover; border-radius: 4px; flex: 0 0 auto; }
+#video-modal { position: fixed; inset: 0; z-index: 10; background: rgba(0,0,0,.72); display: flex; align-items: center; justify-content: center; padding: 16px; }
+#video-modal[hidden] { display: none; }
+.vm-box { position: relative; width: min(960px, 100%); max-height: calc(100vh - 32px); overflow-y: auto; background: var(--bg); border: 1px solid var(--line); border-radius: 10px; padding: 14px; }
+.vm-box video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #000; border-radius: 6px; }
+.vm-box h3 { margin: 10px 32px 2px 0; font-size: 17px; }
+.vm-box p { margin: 6px 0; }
+.vm-box details summary { cursor: pointer; color: var(--accent); margin: 6px 0; }
+.vm-box .fact-src { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 12px; }
+.vm-box .fact-src a { color: var(--accent); }
+#vm-close { position: absolute; top: 6px; right: 10px; background: none; border: 0; color: var(--fg); font-size: 24px; cursor: pointer; z-index: 1; }
