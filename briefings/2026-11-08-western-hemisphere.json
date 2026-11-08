@@ -1,0 +1,715 @@
+{
+  "date": "2026-11-08",
+  "slug": "western-hemisphere",
+  "title": "Western Hemisphere Briefing: cartels, gangs and governments under pressure",
+  "summary": "Mexico's cartels after El Mencho, El Salvador's state of exception, the crisis in Haiti and El Salvador's intervention there, Venezuela after Maduro, Cuba's energy crisis, repression in Nicaragua, armed groups in Colombia and Ecuador, and US strikes on alleged drug boats.",
+  "sourcesCard": [
+    "US State Department: Foreign Terrorist Organizations list",
+    "Wikipedia: 2026 Jalisco operation; Joint Interagency Task Force-Counter Cartel",
+    "Rio Times: Navolato clash; El General killed (Nov 2026)",
+    "UPI (Oct 14, 2026); Amnesty via InSight Crime; Démocrata (mass trial)",
+    "Wikipedia: Salvadoran military intervention in Haiti; Viv Ansanm",
+    "International Crisis Group: Haiti",
+    "Al Jazeera (Nov 3, 2026); House of Commons Library: Venezuela",
+    "Al Jazeera, Local 10 (May 2026): Cuba crisis",
+    "NPR (Jul 2026); OHCHR (Sep 2026); HRW World Report 2026: Nicaragua",
+    "Semana (Nov 6, 2026); ACLED: Ecuador",
+    "Stars and Stripes; Al Jazeera (Oct 27, 2026): boat strikes"
+  ],
+  "sources": [
+    {
+      "label": "US State Department: Foreign Terrorist Organizations",
+      "url": "https://www.state.gov/foreign-terrorist-organizations"
+    },
+    {
+      "label": "2026 Jalisco operation (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/2026_Jalisco_operation"
+    },
+    {
+      "label": "Joint Interagency Task Force-Counter Cartel (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Joint_Interagency_Task_Force-Counter_Cartel"
+    },
+    {
+      "label": "Rio Times: troops kill three near Navolato",
+      "url": "https://riotimesonline.com/mexican-troops-kill-three-armed-men-navolato-sinaloa-2026"
+    },
+    {
+      "label": "Rio Times: 'El General' killed",
+      "url": "https://riotimesonline.com/the-big-read-mexico-6-november-2026"
+    },
+    {
+      "label": "UPI: Bukele weighs conditional releases (Oct 14)",
+      "url": "https://www.upi.com/Top_News/World-News/2026/10/14/latam/7711791993508/"
+    },
+    {
+      "label": "InSight Crime: Bukele's war on gangs",
+      "url": "https://insightcrime.org/news/how-bukele-war-gangs-transformed-el-salvador/"
+    },
+    {
+      "label": "Demócrata: CECOT mass trial",
+      "url": "https://www.democrata.es/en/international/bukele-cecot-in-salvador-begins-macro-trial-of-hundreds-of-prisoners-with-doubts-about-their-guarantees/"
+    },
+    {
+      "label": "Salvadoran military intervention in Haiti (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Salvadoran_military_intervention_in_Haiti"
+    },
+    {
+      "label": "Viv Ansanm (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Viv_Ansanm"
+    },
+    {
+      "label": "International Crisis Group: Haiti",
+      "url": "https://www.crisisgroup.org/latin-america-caribbean/caribbean/haiti"
+    },
+    {
+      "label": "Rio Times: Haiti says gang boss Mathias Saintil is dead",
+      "url": "https://www.riotimesonline.com/haiti-pm-announces-death-gang-leader-mathias-saintil-2026/"
+    },
+    {
+      "label": "Al Jazeera: US urges Venezuela to follow phased plan (Nov 3)",
+      "url": "https://aljazeera.com/news/2026/11/3/us-urges-venezuela-to-follow-phased-plan-for-democratic-transition"
+    },
+    {
+      "label": "House of Commons Library: Venezuela since Maduro's capture",
+      "url": "https://commonslibrary.parliament.uk/research-briefings/cbp-12211/"
+    },
+    {
+      "label": "Al Jazeera: Cuba blackouts and protests (May)",
+      "url": "https://www.aljazeera.com/news/2026/5/14/absolutely-no-fuel-cuba-hit-by-blackouts-protests-amid-power-outages"
+    },
+    {
+      "label": "Local 10: Cuba crisis deepens (May)",
+      "url": "https://www.local10.com/news/local/2026/05/17/cuba-crisis-deepens-as-blackouts-worsen-protests-grow-in-havana/"
+    },
+    {
+      "label": "NPR: Ortega says no more elections",
+      "url": "https://www.npr.org/2026/07/21/nx-s1-5902228/nicaragua-ortega-no-elections"
+    },
+    {
+      "label": "OHCHR: UN experts on Nicaragua (Sep)",
+      "url": "https://www.ohchr.org/en/press-releases/2026/09/nicaragua-wave-enforced-disappearances-and-deaths-custody-reveals-repression"
+    },
+    {
+      "label": "Human Rights Watch World Report 2026: Nicaragua",
+      "url": "https://www.hrw.org/world-report/2026/country-chapters/nicaragua"
+    },
+    {
+      "label": "Semana: operation against Clan del Golfo in Cesar",
+      "url": "https://semana.com/nacion/articulo/golpe-al-clan-del-golfo-en-cesar-tres-muertos-un-capturado-y-un-poderoso-arsenal-incautado-durante-operacion-agamenon/202658"
+    },
+    {
+      "label": "ACLED: Ecuador gang violence",
+      "url": "https://acleddata.com/report/pressure-rises-ecuadors-government-rein-escalating-gang-violence"
+    },
+    {
+      "label": "Stars and Stripes: strike in Eastern Pacific kills 5 (Oct 27)",
+      "url": "https://www.stripes.com/theaters/americas/2026-10-27/us-strike-pacific-kills-5-23278633.html"
+    },
+    {
+      "label": "Al Jazeera: US says it killed five in boat strike",
+      "url": "https://www.aljazeera.com/news/2026/10/27/us-says-it-killed-five-people-in-strike-on-alleged-drug-boat"
+    }
+  ],
+  "scenes": {
+    "intro": {
+      "title": "Western Hemisphere",
+      "kicker": "Cartels, gangs and governments under pressure",
+      "bbox": [
+        [
+          -118,
+          33
+        ],
+        [
+          -55,
+          -5
+        ]
+      ],
+      "focus": [
+        "484",
+        "222",
+        "332",
+        "862",
+        "192",
+        "558",
+        "170",
+        "218"
+      ],
+      "markers": [],
+      "facts": [
+        "US now designates many cartels and gangs as Foreign Terrorist Organizations",
+        "El Salvador has had troops in Haiti since Oct 21",
+        "Venezuela under a US-backed interim government since Maduro's capture",
+        "US strikes on alleged drug boats continue at sea"
+      ]
+    },
+    "mexico": {
+      "title": "Mexico",
+      "kicker": "Cartels designated as terrorist organizations",
+      "bbox": [
+        [
+          -117.5,
+          32.8
+        ],
+        [
+          -86.5,
+          14.3
+        ]
+      ],
+      "focus": [
+        "484"
+      ],
+      "markers": [
+        {
+          "name": "Culiacán / Navolato (Sinaloa Cartel)",
+          "lat": 24.8,
+          "lon": -107.39,
+          "kind": "group"
+        },
+        {
+          "name": "Tapalpa, Jalisco: El Mencho killed (Feb)",
+          "lat": 19.94,
+          "lon": -103.76,
+          "kind": "event",
+          "lab": [
+            -12,
+            24,
+            "end"
+          ]
+        },
+        {
+          "name": "Guadalajara (CJNG)",
+          "lat": 20.67,
+          "lon": -103.35,
+          "kind": "group",
+          "lab": [
+            -12,
+            -10,
+            "end"
+          ]
+        },
+        {
+          "name": "Naucalpan: 'El General' killed",
+          "lat": 19.48,
+          "lon": -99.24,
+          "kind": "event",
+          "lab": [
+            12,
+            6,
+            "start"
+          ]
+        },
+        {
+          "name": "Tucson: US counter-cartel task force",
+          "lat": 32.22,
+          "lon": -110.97,
+          "kind": "us"
+        }
+      ],
+      "facts": [
+        "Sinaloa Cartel and CJNG among Mexican groups on the US FTO list",
+        "CJNG leader El Mencho killed in Tapalpa in Feb; US intel helped (Mexico's defence ministry)",
+        "US Joint Interagency Task Force-Counter Cartel set up in Jan, based in Tucson",
+        "Sheinbaum rejects US military action in Mexico; no confirmed US strike there"
+      ]
+    },
+    "elsalvador": {
+      "title": "El Salvador",
+      "kicker": "State of exception, since March 2022",
+      "bbox": [
+        [
+          -90.4,
+          14.6
+        ],
+        [
+          -87.5,
+          13.0
+        ]
+      ],
+      "focus": [
+        "222"
+      ],
+      "markers": [
+        {
+          "name": "San Salvador",
+          "lat": 13.69,
+          "lon": -89.22,
+          "kind": "event",
+          "lab": [
+            -12,
+            -10,
+            "end"
+          ]
+        },
+        {
+          "name": "CECOT mega-prison, Tecoluca",
+          "lat": 13.6,
+          "lon": -88.79,
+          "kind": "group",
+          "lab": [
+            12,
+            22,
+            "start"
+          ]
+        }
+      ],
+      "facts": [
+        "92,000+ arrested under the state of exception",
+        "Government cites a sharp fall in homicides; MS-13 is a US-designated FTO",
+        "Amnesty: at least 470 deaths in state custody",
+        "Oct: Bukele weighs conditional release for about half of gang-collaborator detainees"
+      ]
+    },
+    "haiti": {
+      "title": "Haiti",
+      "kicker": "Gangs, a UN-backed force and Salvadoran troops",
+      "bbox": [
+        [
+          -74.6,
+          20.2
+        ],
+        [
+          -71.5,
+          17.9
+        ]
+      ],
+      "focus": [
+        "332"
+      ],
+      "markers": [
+        {
+          "name": "Port-au-Prince: est. 85–90% gang-controlled",
+          "lat": 18.54,
+          "lon": -72.34,
+          "kind": "group",
+          "lab": [
+            -14,
+            34,
+            "end"
+          ]
+        },
+        {
+          "name": "Cité Soleil",
+          "lat": 18.58,
+          "lon": -72.33,
+          "kind": "group",
+          "lab": [
+            -14,
+            -16,
+            "end"
+          ]
+        },
+        {
+          "name": "Cul-de-Sac plain: protests (Nov 2)",
+          "lat": 18.62,
+          "lon": -72.12,
+          "kind": "event",
+          "lab": [
+            -10,
+            -36,
+            "end"
+          ]
+        }
+      ],
+      "facts": [
+        "Viv Ansanm and Gran Grif designated as FTOs by the US in 2025",
+        "UN Gang Suppression Force mandate extended to Mar 31, 2027",
+        "Oct 18: four Salvadoran technicians with the force kidnapped in an ambush",
+        "Since Oct 21: Salvadoran intervention, reportedly ~2,000 troops"
+      ]
+    },
+    "venezuela": {
+      "title": "Venezuela",
+      "kicker": "Interim government after Maduro's capture",
+      "bbox": [
+        [
+          -73.5,
+          12.5
+        ],
+        [
+          -59.5,
+          0.5
+        ]
+      ],
+      "focus": [
+        "862"
+      ],
+      "markers": [
+        {
+          "name": "Caracas: interim gov't of Delcy Rodríguez",
+          "lat": 10.49,
+          "lon": -66.88,
+          "kind": "event"
+        }
+      ],
+      "facts": [
+        "Jan 3: US operation captured Maduro; trial in New York set for June 2027",
+        "Nov 2: Rubio presses three-phase plan ending in democratic transition",
+        "NYT: US negotiating a status of forces agreement",
+        "UN mission: limited rights improvement; 87+ political detentions since January"
+      ]
+    },
+    "cuba": {
+      "title": "Cuba",
+      "kicker": "Deepest crisis in decades",
+      "bbox": [
+        [
+          -85.2,
+          23.5
+        ],
+        [
+          -74.0,
+          19.7
+        ]
+      ],
+      "focus": [
+        "192"
+      ],
+      "markers": [
+        {
+          "name": "Havana: blackouts and protests (May)",
+          "lat": 23.11,
+          "lon": -82.37,
+          "kind": "event"
+        }
+      ],
+      "facts": [
+        "Venezuelan oil supplies halted; island ran out of fuel in May (energy minister)",
+        "Long blackouts, hospital surgeries suspended, rare protests",
+        "Government blames US sanctions",
+        "US offered $100M in aid via the Catholic Church (latest detailed reporting: May)"
+      ]
+    },
+    "nicaragua": {
+      "title": "Nicaragua",
+      "kicker": "Ortega–Murillo co-presidency",
+      "bbox": [
+        [
+          -88.0,
+          15.2
+        ],
+        [
+          -82.5,
+          9.6
+        ]
+      ],
+      "focus": [
+        "558"
+      ],
+      "markers": [
+        {
+          "name": "Managua",
+          "lat": 12.11,
+          "lon": -86.24,
+          "kind": "event"
+        },
+        {
+          "name": "San José, Costa Rica: exiled critic killed (Jun)",
+          "lat": 9.93,
+          "lon": -84.08,
+          "kind": "event",
+          "lab": [
+            -12,
+            6,
+            "end"
+          ]
+        }
+      ],
+      "facts": [
+        "Jul: Ortega says no more competitive elections (NPR)",
+        "Sep: UN experts cite 8 deaths in custody, 'weaponised' enforced disappearance",
+        "HRW: at least 77 political prisoners as of October",
+        "5,000+ organizations shut since 2018"
+      ]
+    },
+    "andes": {
+      "title": "Colombia & Ecuador",
+      "kicker": "Armed groups on the US terrorist list",
+      "bbox": [
+        [
+          -81.5,
+          12.0
+        ],
+        [
+          -66.5,
+          -5.2
+        ]
+      ],
+      "focus": [
+        "170",
+        "218"
+      ],
+      "markers": [
+        {
+          "name": "Cesar: op vs Clan del Golfo (Nov 6)",
+          "lat": 7.99,
+          "lon": -73.51,
+          "kind": "event",
+          "lab": [
+            -12,
+            -10,
+            "end"
+          ]
+        },
+        {
+          "name": "Guayaquil: Los Lobos vs Los Choneros",
+          "lat": -2.19,
+          "lon": -79.89,
+          "kind": "group"
+        }
+      ],
+      "facts": [
+        "Clan del Golfo designated an FTO in Dec 2025",
+        "Nov 6: police operation in Cesar leaves three dead",
+        "Ecuador: Los Lobos and Los Choneros designated in 2025",
+        "ACLED: their turf war is a key driver of Ecuador's violence"
+      ]
+    },
+    "boats": {
+      "title": "Strikes at sea",
+      "kicker": "US campaign against alleged drug boats",
+      "bbox": [
+        [
+          -100,
+          20
+        ],
+        [
+          -60,
+          -2
+        ]
+      ],
+      "focus": [],
+      "markers": [
+        {
+          "name": "Eastern Pacific: 5 killed (Oct 27)",
+          "lat": 8.0,
+          "lon": -92.0,
+          "kind": "event"
+        },
+        {
+          "name": "Caribbean Sea",
+          "lat": 15.0,
+          "lon": -73.0,
+          "kind": "event"
+        }
+      ],
+      "facts": [
+        "Latest confirmed strike: Oct 27, Eastern Pacific, 5 killed (SOUTHCOM)",
+        "WOLA count: 238+ killed in 68 strikes",
+        "Critics question the campaign's legality and effectiveness"
+      ]
+    },
+    "outro": {
+      "title": "What to watch",
+      "kicker": "Western Hemisphere briefing",
+      "bbox": [
+        [
+          -118,
+          33
+        ],
+        [
+          -55,
+          -5
+        ]
+      ],
+      "focus": [
+        "484",
+        "222",
+        "332",
+        "862",
+        "192",
+        "558",
+        "170",
+        "218"
+      ],
+      "markers": [],
+      "facts": [
+        "The four kidnapped Salvadoran technicians in Haiti",
+        "A possible US–Venezuela status of forces agreement",
+        "Whether Mexico's cartels splinter after El Mencho",
+        "Whether US action against cartels moves from sea to land"
+      ]
+    }
+  },
+  "segments": [
+    {
+      "scene": "intro",
+      "speaker": "Avery",
+      "text": "Welcome to a special ForceFinder briefing. I'm Avery."
+    },
+    {
+      "scene": "intro",
+      "speaker": "Cole",
+      "text": "And I'm Cole. Today we're leaving the Middle East and Ukraine aside and looking at our own hemisphere. As always, this is generated automatically from public, open-source reporting, and the sources are listed at the end."
+    },
+    {
+      "scene": "intro",
+      "speaker": "Avery",
+      "text": "We'll cover Mexico's cartels, El Salvador's gang crackdown, the crisis in Haiti, and the governments in Venezuela, Cuba and Nicaragua. Then Colombia and Ecuador, and the US strikes on drug boats at sea."
+    },
+    {
+      "scene": "intro",
+      "speaker": "Cole",
+      "text": "And one thread ties a lot of it together. Since last year, the US government has designated many of these criminal groups as foreign terrorist organisations. That changes how Washington treats them, militarily and legally."
+    },
+    {
+      "scene": "mexico",
+      "speaker": "Avery",
+      "text": "Let's start with Mexico. The State Department lists the Sinaloa Cartel and the Jalisco New Generation Cartel, known as C J N G, as foreign terrorist organisations, along with several other Mexican groups."
+    },
+    {
+      "scene": "mexico",
+      "speaker": "Cole",
+      "text": "The biggest event this year was in February. In an operation in Tapalpa, in Jalisco state, Mexican forces killed the C J N G's leader, Nemesio Oseguera, known as El Mencho. Mexico's defence ministry says US intelligence helped locate him."
+    },
+    {
+      "scene": "mexico",
+      "speaker": "Avery",
+      "text": "But US government assessments say the cartel hasn't broken apart without him. And the Sinaloa Cartel and C J N G factions are still fighting over smuggling routes."
+    },
+    {
+      "scene": "mexico",
+      "speaker": "Cole",
+      "text": "The US also set up a Joint Interagency Task Force, Counter Cartel, in January, based in Tucson, Arizona. Its job is to identify and dismantle cartel operations along the border. Reuters reports it helped in the hunt for El Mencho."
+    },
+    {
+      "scene": "mexico",
+      "speaker": "Avery",
+      "text": "Mexico's President Sheinbaum, though, rejects any US military action on Mexican soil. And we haven't seen a confirmed US strike inside Mexico."
+    },
+    {
+      "scene": "mexico",
+      "speaker": "Cole",
+      "text": "The fighting goes on day to day. On November fifth, soldiers killed three armed men near Navolato, in Sinaloa, after coming under fire. And federal forces killed a man known as El General near Mexico City. The US Treasury had sanctioned him last year."
+    },
+    {
+      "scene": "elsalvador",
+      "speaker": "Avery",
+      "text": "Next, El Salvador. President Nayib Bukele's state of exception has been in place since March twenty twenty-two. More than ninety-two thousand people have been arrested under it."
+    },
+    {
+      "scene": "elsalvador",
+      "speaker": "Cole",
+      "text": "The government says homicides have fallen dramatically, and the gangs, including M S thirteen, which the US also designates as a terrorist organisation, have been badly weakened."
+    },
+    {
+      "scene": "elsalvador",
+      "speaker": "Avery",
+      "text": "But rights groups point to the cost. Amnesty International documented at least four hundred and seventy deaths in state custody under the state of exception. And in April, prosecutors opened a mass trial of four hundred and eighty-six alleged M S thirteen members."
+    },
+    {
+      "scene": "elsalvador",
+      "speaker": "Cole",
+      "text": "In October, Bukele said the government is weighing early, conditional release for roughly half of those held for collaborating with gangs. A commission is reviewing the cases. No timeline yet."
+    },
+    {
+      "scene": "haiti",
+      "speaker": "Avery",
+      "text": "And that brings us to Haiti, where El Salvador is now directly involved."
+    },
+    {
+      "scene": "haiti",
+      "speaker": "Cole",
+      "text": "Right. Gang coalitions, mainly Viv Ansanm, control an estimated eighty-five to ninety percent of the capital, Port-au-Prince. The US designated Viv Ansanm and another gang, Gran Grif, as terrorist organisations last year."
+    },
+    {
+      "scene": "haiti",
+      "speaker": "Avery",
+      "text": "A UN-authorised Gang Suppression Force is there. In September, the Security Council extended its mandate to the end of March twenty twenty-seven. Estimates of its size range from under a thousand to about fifteen hundred troops."
+    },
+    {
+      "scene": "haiti",
+      "speaker": "Cole",
+      "text": "Then, on October eighteenth, gangs ambushed and kidnapped four Salvadoran aviation technicians serving with that force. Three days later, El Salvador launched its own military intervention. Reports say about two thousand Salvadoran troops have deployed."
+    },
+    {
+      "scene": "haiti",
+      "speaker": "Avery",
+      "text": "The fate of the four technicians is still unclear. On November second, residents of the Plaine du Cul-de-Sac protested against the Salvadoran operation, reportedly under death threats from Viv Ansanm. And Crisis Group warns the rapid deployment, without a clear chain of command, could fuel more clashes."
+    },
+    {
+      "scene": "haiti",
+      "speaker": "Cole",
+      "text": "Haiti's government also says Mathias Saintil, who led a gang in Cité Soleil, is dead. That hasn't been independently confirmed."
+    },
+    {
+      "scene": "venezuela",
+      "speaker": "Avery",
+      "text": "Let's turn to the governments. Venezuela has changed dramatically this year. On January third, a US military operation captured Nicolás Maduro. He's jailed in New York, with a trial set for June twenty twenty-seven."
+    },
+    {
+      "scene": "venezuela",
+      "speaker": "Cole",
+      "text": "His former vice president, Delcy Rodríguez, now leads an interim government. On November second, Secretary of State Rubio met Venezuela's foreign minister and pushed a three-phase plan: stabilisation, economic recovery, then a democratic transition."
+    },
+    {
+      "scene": "venezuela",
+      "speaker": "Avery",
+      "text": "The New York Times reports the US is negotiating a status of forces agreement, which could allow a long-term US military presence. And a UN fact-finding mission found only limited improvement in human rights, with at least eighty-seven people detained for political reasons since Maduro's capture."
+    },
+    {
+      "scene": "cuba",
+      "speaker": "Cole",
+      "text": "Cuba is in what analysts call its worst crisis in decades, after Venezuelan oil stopped arriving. Our latest detailed reporting is from May, so this part is a few months old."
+    },
+    {
+      "scene": "cuba",
+      "speaker": "Avery",
+      "text": "At that point Cuba's energy minister said the island had run out of fuel. There were long blackouts, hospitals suspending surgeries, and rare protests in Havana. President Díaz-Canel blames US sanctions."
+    },
+    {
+      "scene": "cuba",
+      "speaker": "Cole",
+      "text": "Secretary Rubio has offered a hundred million dollars in aid, on condition it goes through the Catholic Church rather than the government. And there were reports the Justice Department was preparing an indictment of former president Raúl Castro."
+    },
+    {
+      "scene": "nicaragua",
+      "speaker": "Avery",
+      "text": "Nicaragua is where the human-rights reporting is starkest. In July, President Daniel Ortega said there would be no more competitive elections, extending his rule of nearly twenty years alongside his wife and co-president, Rosario Murillo."
+    },
+    {
+      "scene": "nicaragua",
+      "speaker": "Cole",
+      "text": "In September, UN experts said the government was responsible for the deaths in custody of eight political detainees, and had, in their words, weaponised enforced disappearance. Human Rights Watch counted at least seventy-seven political prisoners as of October."
+    },
+    {
+      "scene": "nicaragua",
+      "speaker": "Avery",
+      "text": "And the pressure reaches beyond its borders. In June, Roberto Samcam, a retired army major and Ortega critic, was killed in exile in Costa Rica. Costa Rican authorities detained four people."
+    },
+    {
+      "scene": "andes",
+      "speaker": "Cole",
+      "text": "Quickly to the Andes. In Colombia, the US designated the Clan del Golfo as a terrorist organisation last December. On November sixth, a police operation against it in San Martín, in Cesar department, left three dead."
+    },
+    {
+      "scene": "andes",
+      "speaker": "Avery",
+      "text": "In Ecuador, the rival gangs Los Lobos and Los Choneros were designated last year. The monitoring group ACLED says their turf war is a key driver of Ecuador's violence."
+    },
+    {
+      "scene": "boats",
+      "speaker": "Cole",
+      "text": "And finally, at sea. The US military has carried out a long campaign of strikes on boats it says are smuggling drugs, in the Caribbean and the Eastern Pacific."
+    },
+    {
+      "scene": "boats",
+      "speaker": "Avery",
+      "text": "The latest confirmed strike was on October twenty-seventh, in the Eastern Pacific. Southern Command says five people were killed. The Washington Office on Latin America counts at least two hundred and thirty-eight people killed in sixty-eight strikes, and critics question whether the campaign is legal or effective."
+    },
+    {
+      "scene": "outro",
+      "speaker": "Cole",
+      "text": "So, what to watch. Whether the four Salvadoran technicians are found, and whether El Salvador's operation in Haiti changes the fight against the gangs."
+    },
+    {
+      "scene": "outro",
+      "speaker": "Avery",
+      "text": "Whether the US and Venezuela sign that military agreement. Whether Mexico's cartels splinter further after El Mencho. And whether Washington takes its fight against designated cartels from the sea onto land."
+    },
+    {
+      "scene": "outro",
+      "speaker": "Cole",
+      "text": "That's the Western Hemisphere briefing. Thanks for watching."
+    }
+  ]
+}

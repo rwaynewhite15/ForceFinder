@@ -820,7 +820,9 @@
     });
     audio.addEventListener("play", () => { try { localStorage.removeItem("ff-briefing-autoplay"); } catch { /* ignore */ } });
     if (optOut) return;
-    const startOnGesture = () => {
+    const startOnGesture = (e) => {
+      // Don't start the podcast when the visitor is opening or using a video briefing.
+      if (e && e.target && e.target.closest && e.target.closest("#videos, #video-modal")) return;
       for (const t of ["pointerdown", "keydown"]) document.removeEventListener(t, startOnGesture, true);
       if (audio.paused && !audio.currentTime) audio.play().catch(() => {});
     };
@@ -829,6 +831,43 @@
     } catch {
       for (const t of ["pointerdown", "keydown"]) document.addEventListener(t, startOnGesture, true);
     }
+  }
+
+  // ---------------------------------------------------------------- video briefings
+  // briefings/index.json lists special video briefings (built by briefings/tools/build.py), newest first.
+  async function loadVideos() {
+    let videos;
+    try {
+      const res = await fetch("briefings/index.json", { cache: "no-cache" });
+      if (!res.ok) return;
+      videos = await res.json();
+    } catch { return; }
+    if (!videos.length) return;
+    const fmtDur = (s) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`;
+    const modal = $("video-modal"), video = $("vm-video");
+    const close = () => { video.pause(); modal.hidden = true; };
+    const open = (v) => {
+      $("briefing-audio").pause();
+      $("vm-title").textContent = v.title;
+      $("vm-meta").textContent = `${fmtDate(v.date)} · ${fmtDur(v.duration)}`;
+      $("vm-summary").textContent = v.summary;
+      $("vm-sources").replaceChildren(...(v.sources || []).map((s) =>
+        el("a", { href: s.url, target: "_blank", rel: "noopener" }, `${s.label} ↗`)));
+      video.poster = v.poster || "";
+      video.src = v.video;
+      modal.hidden = false;
+      video.play().catch(() => {});
+    };
+    $("vm-close").addEventListener("click", close);
+    modal.addEventListener("click", (e) => { if (e.target === modal) close(); });
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !modal.hidden) close(); });
+    const list = $("video-list");
+    for (const v of videos) {
+      list.append(el("li", { onclick: () => open(v), title: v.summary },
+        v.poster ? el("img", { src: v.poster, alt: "", class: "thumb" }) : null,
+        el("div", {}, v.title, el("div", { class: "meta" }, `${fmtDate(v.date)} · ${fmtDur(v.duration)} · video`))));
+    }
+    $("videos").hidden = false;
   }
 
   // ---------------------------------------------------------------- photos
@@ -1163,6 +1202,7 @@
   // ---------------------------------------------------------------- go
   buildControls();
   loadBriefing();
+  loadVideos();
   applyFilters();
   window.ForceFinder = { viewer, baseDS, navalDS, airDS, eventDS, state, applyFilters, refreshAircraft };
 })();

@@ -72,6 +72,24 @@ python3 podcast/make_episode.py podcast/scripts/2026-11-01.json
 If your Pages URL isn't `https://rwaynewhite15.github.io/ForceFinder/`, change `SITE_URL` in
 `podcast/make_episode.py` so the feed links resolve.
 
+## Video briefings
+
+Occasional special video briefings (for example, the Western Hemisphere briefing) appear under
+"Video briefings" in the sidebar and open in a player with a summary and source links.
+
+- `briefings/index.json`: the list the app reads (newest first).
+- `briefings/YYYY-MM-DD-<slug>.json`: the briefing script: scenes (map extent, highlighted countries,
+  markers, key facts), the two-host narration and sources.
+- `briefings/tools/build.py`: renders the JSON into `<same name>.mp4` and a `.jpg` poster, using the
+  podcast's Kokoro voices, map frames drawn with d3-geo and Playwright, and ffmpeg.
+
+```sh
+(cd briefings/tools && npm install)
+python3 briefings/tools/build.py briefings/2026-11-08-western-hemisphere.json
+```
+
+Then add an entry for the new video to `briefings/index.json`.
+
 ## Disclaimer
 
 All data comes from publicly available reporting and is approximate. Ships at sea are placed at

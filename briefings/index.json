@@ -1,0 +1,105 @@
+[
+  {
+    "date": "2026-11-08",
+    "title": "Western Hemisphere Briefing: cartels, gangs and governments under pressure",
+    "summary": "Mexico's cartels after El Mencho, El Salvador's state of exception, the crisis in Haiti and El Salvador's intervention there, Venezuela after Maduro, Cuba's energy crisis, repression in Nicaragua, armed groups in Colombia and Ecuador, and US strikes on alleged drug boats.",
+    "video": "briefings/2026-11-08-western-hemisphere.mp4",
+    "poster": "briefings/2026-11-08-western-hemisphere.jpg",
+    "script": "briefings/2026-11-08-western-hemisphere.json",
+    "duration": 502,
+    "sources": [
+      {
+        "label": "US State Department: Foreign Terrorist Organizations",
+        "url": "https://www.state.gov/foreign-terrorist-organizations"
+      },
+      {
+        "label": "2026 Jalisco operation (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/2026_Jalisco_operation"
+      },
+      {
+        "label": "Joint Interagency Task Force-Counter Cartel (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Joint_Interagency_Task_Force-Counter_Cartel"
+      },
+      {
+        "label": "Rio Times: troops kill three near Navolato",
+        "url": "https://riotimesonline.com/mexican-troops-kill-three-armed-men-navolato-sinaloa-2026"
+      },
+      {
+        "label": "Rio Times: 'El General' killed",
+        "url": "https://riotimesonline.com/the-big-read-mexico-6-november-2026"
+      },
+      {
+        "label": "UPI: Bukele weighs conditional releases (Oct 14)",
+        "url": "https://www.upi.com/Top_News/World-News/2026/10/14/latam/7711791993508/"
+      },
+      {
+        "label": "InSight Crime: Bukele's war on gangs",
+        "url": "https://insightcrime.org/news/how-bukele-war-gangs-transformed-el-salvador/"
+      },
+      {
+        "label": "Demócrata: CECOT mass trial",
+        "url": "https://www.democrata.es/en/international/bukele-cecot-in-salvador-begins-macro-trial-of-hundreds-of-prisoners-with-doubts-about-their-guarantees/"
+      },
+      {
+        "label": "Salvadoran military intervention in Haiti (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Salvadoran_military_intervention_in_Haiti"
+      },
+      {
+        "label": "Viv Ansanm (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Viv_Ansanm"
+      },
+      {
+        "label": "International Crisis Group: Haiti",
+        "url": "https://www.crisisgroup.org/latin-america-caribbean/caribbean/haiti"
+      },
+      {
+        "label": "Rio Times: Haiti says gang boss Mathias Saintil is dead",
+        "url": "https://www.riotimesonline.com/haiti-pm-announces-death-gang-leader-mathias-saintil-2026/"
+      },
+      {
+        "label": "Al Jazeera: US urges Venezuela to follow phased plan (Nov 3)",
+        "url": "https://aljazeera.com/news/2026/11/3/us-urges-venezuela-to-follow-phased-plan-for-democratic-transition"
+      },
+      {
+        "label": "House of Commons Library: Venezuela since Maduro's capture",
+        "url": "https://commonslibrary.parliament.uk/research-briefings/cbp-12211/"
+      },
+      {
+        "label": "Al Jazeera: Cuba blackouts and protests (May)",
+        "url": "https://www.aljazeera.com/news/2026/5/14/absolutely-no-fuel-cuba-hit-by-blackouts-protests-amid-power-outages"
+      },
+      {
+        "label": "Local 10: Cuba crisis deepens (May)",
+        "url": "https://www.local10.com/news/local/2026/05/17/cuba-crisis-deepens-as-blackouts-worsen-protests-grow-in-havana/"
+      },
+      {
+        "label": "NPR: Ortega says no more elections",
+        "url": "https://www.npr.org/2026/07/21/nx-s1-5902228/nicaragua-ortega-no-elections"
+      },
+      {
+        "label": "OHCHR: UN experts on Nicaragua (Sep)",
+        "url": "https://www.ohchr.org/en/press-releases/2026/09/nicaragua-wave-enforced-disappearances-and-deaths-custody-reveals-repression"
+      },
+      {
+        "label": "Human Rights Watch World Report 2026: Nicaragua",
+        "url": "https://www.hrw.org/world-report/2026/country-chapters/nicaragua"
+      },
+      {
+        "label": "Semana: operation against Clan del Golfo in Cesar",
+        "url": "https://semana.com/nacion/articulo/golpe-al-clan-del-golfo-en-cesar-tres-muertos-un-capturado-y-un-poderoso-arsenal-incautado-durante-operacion-agamenon/202658"
+      },
+      {
+        "label": "ACLED: Ecuador gang violence",
+        "url": "https://acleddata.com/report/pressure-rises-ecuadors-government-rein-escalating-gang-violence"
+      },
+      {
+        "label": "Stars and Stripes: strike in Eastern Pacific kills 5 (Oct 27)",
+        "url": "https://www.stripes.com/theaters/americas/2026-10-27/us-strike-pacific-kills-5-23278633.html"
+      },
+      {
+        "label": "Al Jazeera: US says it killed five in boat strike",
+        "url": "https://www.aljazeera.com/news/2026/10/27/us-says-it-killed-five-people-in-strike-on-alleged-drug-boat"
+      }
+    ]
+  }
+]

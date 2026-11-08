@@ -33,6 +33,11 @@
       <p class="disclaimer">AI-generated audio summary of the map's open-source reporting. Check the linked sources.</p>
     </section>
 
+    <section id="videos" hidden>
+      <h2>Video briefings</h2>
+      <ul id="video-list" class="list videos"></ul>
+    </section>
+
     <section>
       <input id="search" type="search" placeholder="Search bases, ships, countries…" autocomplete="off">
     </section>
@@ -117,6 +122,18 @@
   </div>
 
   <div id="tooltip" hidden></div>
+
+  <div id="video-modal" hidden>
+    <div class="vm-box" role="dialog" aria-modal="true" aria-labelledby="vm-title">
+      <button id="vm-close" aria-label="Close">×</button>
+      <video id="vm-video" controls playsinline preload="metadata"></video>
+      <h3 id="vm-title"></h3>
+      <div id="vm-meta" class="meta"></div>
+      <p id="vm-summary"></p>
+      <details><summary>Sources</summary><div id="vm-sources" class="fact-src"></div></details>
+      <p class="disclaimer">AI-generated video briefing from public open-source reporting; claims are attributed as reported. Not for operational use.</p>
+    </div>
+  </div>
 
   <script src="data/bases.js"></script>
   <script src="data/naval.js"></script>
