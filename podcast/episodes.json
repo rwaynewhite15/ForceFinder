@@ -1,5 +1,88 @@
 [
   {
+    "date": "2026-11-08",
+    "title": "A blockade runner disabled, tankers burning off Khasab, and missiles over Riyadh",
+    "summary": "US forces disable the bulk carrier Huda as it tries to run the blockade, a tanker's crew abandons ship off Khasab and Iran claims three more tankers ablaze, Iran waves off Task Force Iron Gate, Russia hits Ukraine's grid and claims strikes on cargo ships near Odesa, Ukraine hits Oryol, and missile debris damages an Aramco building in Riyadh.",
+    "audio": "podcast/episodes/2026-11-08.mp3",
+    "script": "podcast/scripts/2026-11-08.json",
+    "duration": 413,
+    "bytes": 2478485,
+    "sources": [
+      {
+        "label": "Seatrade Maritime: Huda disabled; crew abandon tanker",
+        "url": "https://seatrade-maritime.com/security/crew-abandon-tanker-in-hormuz-us-strikes-bulker-in-gulf-of-oman"
+      },
+      {
+        "label": "Arab News: Gulf of Oman incident",
+        "url": "https://arabnews.pk/middle-east/bulk-carrier-military-forces-involved-in-latest-gulf-of-oman-incident-ukmto-says-3006417"
+      },
+      {
+        "label": "Gulf News: Iran says three tankers on fire",
+        "url": "https://gulfnews.com/world/mena/iran-says-3-tankers-caught-fire-in-hormuz-1.500740005"
+      },
+      {
+        "label": "Gulf News: UKMTO warns attacks rising",
+        "url": "https://gulfnews.com/business/energy/hormuz-attacks-rise-as-iran-steps-up-pressure-on-shipping-ukmto-warns-1.500737866"
+      },
+      {
+        "label": "Al Jazeera: Task Force Iron Gate",
+        "url": "https://www.aljazeera.com/news/2026/11/8/us-launches-task-force-to-disrupt-irans-land-based-supply-routes"
+      },
+      {
+        "label": "CBS News live updates",
+        "url": "https://www.cbsnews.com/live-updates/iran-war-trump-us-strait-hormuz-persian-gulf/"
+      },
+      {
+        "label": "The Moscow Times: substations and ships",
+        "url": "https://www.themoscowtimes.com/2026/11/08/russia-says-hit-power-substations-in-ukraine-and-3-ships-in-black-sea-a94203"
+      },
+      {
+        "label": "Deccan Herald: Russia's claimed Kyiv targets",
+        "url": "https://www.deccanherald.com/world/russia/russia-says-it-hit-targets-in-and-around-kyiv-in-massive-overnight-strike-4211135"
+      },
+      {
+        "label": "Kyiv Independent: Oryol and Saratov strikes",
+        "url": "https://kyivindependent.com/ukraine-strikes-saratov-oil-refinery-in-mass-attack-on-several-regions-reports-say/"
+      },
+      {
+        "label": "112.ua: 199 clashes",
+        "url": "https://112.ua/en/zvedenna-genstabu-zsu-8-listopada-2026-199-boiv-2290-vtrat-voroga-i-vidbiti-ataki-na-fronti-196724"
+      },
+      {
+        "label": "ISW/CTP: November 7 assessment",
+        "url": "https://www.criticalthreats.org/analysis/russian-offensive-campaign-assessment-november-7-2026-6aefc4cc503e5"
+      },
+      {
+        "label": "CNN: Aramco building damaged in Riyadh",
+        "url": "https://cnn.com/2026/11/08/middleeast/saudi-arabia-riyadh-missile-financial-intl"
+      },
+      {
+        "label": "Open the Magazine: Houthi claims",
+        "url": "https://openthemagazine.com/world/houthis-claim-six-strikes-on-saudi-oil-sites-riyadh-airport"
+      },
+      {
+        "label": "Dawn live blog: Israeli shelling and demolition in Bani Haiyyan",
+        "url": "https://www.dawn.com/live/iran-israel-war"
+      },
+      {
+        "label": "AP via KIRO 7: Israeli strikes kill five in Gaza, including a boy",
+        "url": "https://www.kiro7.com/news/business/israeli-strike-kills/RVYTKG3KBI5KNGJEQMH5UFLPH4/"
+      },
+      {
+        "label": "Middle East Eye live blog: Israeli strikes on Kfar Tebnit and al-Mansouri",
+        "url": "https://middleeasteye.net/live-blog/live-blog-update/israeli-air-strikes-target-lebanons-nabatieh-tyre-districts"
+      },
+      {
+        "label": "CFR Global Conflict Tracker: Ethiopia expels Sudanese diplomats over drone complaint",
+        "url": "https://www.cfr.org/global-conflict-tracker/conflict/power-struggle-sudan"
+      },
+      {
+        "label": "France 24: Kyiv attack",
+        "url": "https://france24.com/en/europe/20261107-moscow-strikes-kyiv-as-ukraine-prepares-for-talks-with-russia-and-the-us"
+      }
+    ]
+  },
+  {
     "date": "2026-11-07",
     "title": "'Minor strikes', a task force called Iron Gate, and missiles on Kyiv's Northern Bridge",
     "summary": "Trump announces 'minor' US strikes on Iranian air defences as Central Command sets up Task Force Iron Gate against Iran's land routes and offers a reward for nuclear intelligence, Russian missiles hit Kyiv's Northern Bridge ahead of the Abu Dhabi talks, Ukraine strikes the Saratov and Afipsky refineries, and reported strikes in Lebanon and Yemen.",
