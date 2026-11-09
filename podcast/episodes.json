@@ -1,5 +1,76 @@
 [
   {
+    "date": "2026-11-09",
+    "title": "Kirishi burns, Abu Dhabi talks loom, and the Roosevelt reaches Singapore",
+    "summary": "Ukrainian drones set Russia's Kirishi refinery ablaze while Russian strikes kill three in Odesa, the Komyshuvakha toll rises to fifty-five, the Kremlin rejects a European role in Tuesday's Abu Dhabi talks, Trump calls new Iran strikes highly unlikely as Rubio and Tehran trade barbs, Saudi Arabia details the missile attack on Riyadh, and the Theodore Roosevelt docks in Singapore on its way to the Middle East.",
+    "audio": "podcast/episodes/2026-11-09.mp3",
+    "script": "podcast/scripts/2026-11-09.json",
+    "duration": 422,
+    "bytes": 2535069,
+    "sources": [
+      {
+        "label": "ABC News (Australia): Kirishi refinery ablaze",
+        "url": "https://www.abc.net.au/news/2026-11-09/ukrainian-drone-attack-at-russia-kirishi-refinery-woman-dies/107365888"
+      },
+      {
+        "label": "Al Jazeera: Russia and Ukraine trade strikes",
+        "url": "https://www.aljazeera.com/news/2026/11/9/at-least-one-person-killed-as-russia-and-ukraine-trade-strikes-overnight"
+      },
+      {
+        "label": "Kyiv Independent: 28 injured",
+        "url": "https://kyivindependent.com/russian-attacks-injure-28-across-ukraine-over-past-day-as-russia-continues-strikes-on-energy-infrastructure"
+      },
+      {
+        "label": "AP via ABC News: Komyshuvakha emergency crews",
+        "url": "https://abcnews.com/International/wireStory/russia-targets-emergency-crews-site-deadly-strike-southern-137951536"
+      },
+      {
+        "label": "ISW/CTP: November 8 assessment",
+        "url": "https://www.criticalthreats.org/analysis/russian-offensive-campaign-assessment-november-8-2026"
+      },
+      {
+        "label": "NPR: Europe to join Abu Dhabi talks",
+        "url": "https://www.npr.org/2026/11/08/nx-s1-6034014/europe-join-us-brokered-ukraine-talks-abu-dhabi-russia"
+      },
+      {
+        "label": "The Moscow Times: Kremlin rejects European role",
+        "url": "https://www.themoscowtimes.com/2026/11/09/kremlin-rejects-european-role-in-upcoming-abu-dhabi-talks-a94207"
+      },
+      {
+        "label": "CNBC: Trump says new Iran strikes unlikely",
+        "url": "https://www.cnbc.com/2026/11/08/trump-iran-strikes-unlikely-talks-hormuz.html"
+      },
+      {
+        "label": "Times of Israel: Rubio on Iran's demands",
+        "url": "https://www.timesofisrael.com/liveblog_entry/rubio-says-iranians-making-outrageous-and-ridiculous-demands-during-negotiations/"
+      },
+      {
+        "label": "Jerusalem Post: Iran defends two-day offer",
+        "url": "http://www.jpost.com/middle-east/iran-news/article-914314"
+      },
+      {
+        "label": "Splash247: Hormuz weekend of fire",
+        "url": "https://splash247.com/hormuz-suffers-weekend-of-fire/"
+      },
+      {
+        "label": "The National: Riyadh interceptions",
+        "url": "https://www.thenationalnews.com/news/gulf/2026/11/08/saudi-led-coalition-intercepts-two-houthi-missiles-fired-towards-riyadh/"
+      },
+      {
+        "label": "Sudan Tribune: Iyal Bakhit",
+        "url": "https://sudantribune.com/article/320981"
+      },
+      {
+        "label": "Taipei Times: PLA may be simulating isolation",
+        "url": "https://www.taipeitimes.com/News/front/archives/2026/11/08/2003867351"
+      },
+      {
+        "label": "USNI News: Theodore Roosevelt in Singapore",
+        "url": "https://news.usni.org/2026/11/06/theodore-roosevelt-carrier-strike-group-pulls-into-singapore"
+      }
+    ]
+  },
+  {
     "date": "2026-11-08",
     "title": "A blockade runner disabled, tankers burning off Khasab, and missiles over Riyadh",
     "summary": "US forces disable the bulk carrier Huda as it tries to run the blockade, a tanker's crew abandons ship off Khasab and Iran claims three more tankers ablaze, Iran waves off Task Force Iron Gate, Russia hits Ukraine's grid and claims strikes on cargo ships near Odesa, Ukraine hits Oryol, and missile debris damages an Aramco building in Riyadh.",
