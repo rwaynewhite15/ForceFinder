@@ -8,8 +8,10 @@
 //             low    = not covered by recent reporting; shown at homeport/yard
 // The uncertainty ring drawn on the globe scales with confidence.
 // w = Wikipedia article title, used to fetch the ship's photo.
-window.FF_NAVAL_AS_OF = "2026-11-05";
+window.FF_NAVAL_AS_OF = "2026-11-06";
 window.FF_NAVAL_SOURCES = [
+  { label: "USNI News: Theodore Roosevelt CSG pulls into Singapore (Nov. 6, 2026)", url: "https://news.usni.org/2026/11/06/theodore-roosevelt-carrier-strike-group-pulls-into-singapore" },
+  { label: "TWZ: USS Theodore Roosevelt arrives in Singapore (Nov. 2026)", url: "https://www.twz.com/sea/uss-theodore-roosevelt-arrives-in-singapore-last-stop-before-third-strike-group-reaches-the-middle-east" },
   { label: "RANE: U.S. Naval Update Map (Nov. 5, 2026)", url: "https://worldview.ranenetwork.com/content/analysis/2026-11-04/u-s-naval-update-map-nov-5-2026/fff4e3015afc59f8" },
   { label: "Misbar: satellite images of USS Theodore Roosevelt transiting (Nov. 5, 2026)", url: "https://www.misbar.com/en/editorial/2026/11/05/satellite-images-show-uss-roosevelt-transiting-southeast-asia-middle-east" },
   { label: "Defence Blog: satellite imagery of Theodore Roosevelt CSG (Nov. 4, 2026)", url: "https://defence-blog.com/chinese-satellites-track-u-s-carrier-group-crossing-south-china-sea/" },
@@ -31,8 +33,8 @@ window.FF_NAVAL = [
     d: "Departed Naval Station Norfolk Oct. 24 for pre-deployment work-ups; listed underway in the Atlantic on RANE's Nov. 5 naval map." },
   { n: "USS Carl Vinson (CVN-70)", w: "USS Carl Vinson", t: "carrier", lat: 32.699, lon: -117.215, conf: "low", status: "Not in recent reporting", area: "Homeport: NAS North Island, San Diego",
     d: "Shown at homeport; no current location found in recent public reporting." },
-  { n: "USS Theodore Roosevelt (CVN-71)", w: "USS Theodore Roosevelt (CVN-71)", t: "carrier", lat: 14.0, lon: 114.0, conf: "medium", status: "Deployed — transiting", area: "South China Sea",
-    d: "Underway in the South China Sea after exercise Keen Sword 27, with Carrier Air Wing 11 and USS Chosin (CG-65), per the Nov. 2 USNI tracker; Chinese commercial satellite imagery published Nov. 4 also showed the group there, and analysts on Nov. 5 described it heading west toward the Middle East. The Navy hasn't said when it will enter the Indian Ocean. Fox News reported, citing US officials, that the group is bound for the Middle East." },
+  { n: "USS Theodore Roosevelt (CVN-71)", w: "USS Theodore Roosevelt (CVN-71)", t: "carrier", lat: 1.322, lon: 104.0, conf: "high", status: "Port visit — en route to Middle East", area: "Changi Naval Base, Singapore",
+    d: "USNI News reported the carrier, with USS Chosin and USS Paul Hamilton, docked at Changi Naval Base on Nov. 6 for a port visit (USS Decatur at Sembawang), after transiting the South China Sea. The group is expected to head to the Middle East to relieve the George Washington; a US official told Axios it would not enter Central Command's area before mid-November. Unconfirmed social-media reports on Nov. 9 said it had left heading west." },
   { n: "USS Abraham Lincoln (CVN-72)", w: "USS Abraham Lincoln (CVN-72)", t: "carrier", lat: 32.699, lon: -117.215, conf: "high", status: "In port — post-deployment", area: "San Diego, CA",
     d: "Returned Oct. 8 from a 321-day deployment. Expected homeport shift to Bremerton, WA, for overhaul." },
   { n: "USS George Washington (CVN-73)", w: "USS George Washington (CVN-73)", t: "carrier", lat: 19.5, lon: 62.5, conf: "medium", status: "Deployed — Middle East operations", area: "Arabian Sea",
