@@ -23,6 +23,12 @@ Built with [CesiumJS](https://cesium.com/platform/cesiumjs/). It has no build st
 - **Photos** in the details panel when you click an asset. Bases and ships use the lead image of
   the matching Wikipedia article. Live aircraft use a photo of that exact airframe (looked up by its
   transponder ID) from Planespotters.net. Each photo is credited and links to its source.
+- **Strike data:** a permanent archive of every strike and attack shown on the map, kept after
+  events age out. Each row records who fired, the target, weapon, outcome, reported killed and
+  injured, and the nearest major city with its distance. Open "Strike data" in the sidebar to build
+  charts (for example, cities with the most strikes, or reported deaths by who fired), filter the
+  table, and download the dataset as a `.csv`. Everything the panel needs is stored in `data/strikes.csv`; the
+  loaded dataset is also kept in the browser's `sessionStorage` under `ff-strike-dataset`.
 - Satellite, dark and light basemaps, marker clustering, search, branch filters, and click-for-details.
 
 ## Run it
@@ -44,11 +50,16 @@ To host it for free, enable GitHub Pages on this repo (Settings → Pages → de
 | `data/events.js` | Conflict events (`date`, `title`, `type`, `conflict`, `lat`/`lon`, `d` summary, `src` links, optional `from` launch area) and `FF_EVENTS_AS_OF` |
 | `data/conflicts.js` | Conflict overviews keyed by conflict name (`summary`, `facts` with sources, `reading` links, camera `view`, `asOf`) |
 | `data/naval.js` | Ship positions (`w` = Wikipedia article title for the photo), `FF_NAVAL_AS_OF` date, and source links |
+| `data/strikes.csv` | Strike archive and the single source for the Strike data panel: `id`, `date`, `conflict`, `weapon`, `fired_by`, `target`, `outcome`, `killed`, `injured`, `lat`/`lon`, nearest city columns, `title`, `summary`, `source_url`. Rows are never deleted |
+| `data/cities.js` | Major cities (`n`, `cc`, `lat`/`lon`, `pop`), used only by `tools/strikes_csv.js` to fill in the nearest-city columns |
 
 Ship positions change weekly. To refresh them, use the
 [USNI News Fleet & Marine Tracker](https://news.usni.org/category/fleet-tracker) (published on Mondays)
 or TWZ's "Where Are The Aircraft Carriers?" series. Update each ship's `lat`/`lon`, `status`, `area`,
 `conf`, and `FF_NAVAL_AS_OF`.
+
+To add strikes to the archive, append rows to `data/strikes.csv` (leave the four city columns empty),
+then run `node tools/strikes_csv.js` to fill them in and check the file.
 
 To add conflict events, append entries to `data/events.js` with at least one source link, then bump
 `FF_EVENTS_AS_OF`. The time filter and pulsing rings are measured from that date.

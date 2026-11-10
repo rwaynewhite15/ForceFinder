@@ -38,6 +38,13 @@
       <ul id="video-list" class="list videos"></ul>
     </section>
 
+    <section id="strikes" hidden>
+      <h2>Strike data</h2>
+      <div id="strikes-meta" class="meta"></div>
+      <button id="strikes-open" class="link-btn" type="button">Open charts &amp; table</button>
+      <button id="strikes-dl" class="link-btn" type="button">Download dataset (.csv)</button>
+    </section>
+
     <section>
       <input id="search" type="search" placeholder="Search bases, ships, countries…" autocomplete="off">
     </section>
@@ -135,6 +142,45 @@
     </div>
   </div>
 
+  <div id="strike-modal" hidden>
+    <div class="sm-box" role="dialog" aria-modal="true" aria-labelledby="sm-title">
+      <button id="sm-close" aria-label="Close">×</button>
+      <h3 id="sm-title">Strike data</h3>
+      <p id="sm-sub" class="meta"></p>
+      <div class="sm-controls">
+        <label>Show <select id="sm-measure"></select></label>
+        <label>by <select id="sm-group"></select></label>
+        <label id="sm-top-row">Limit <select id="sm-top"></select></label>
+        <label id="sm-radius-row">Within <select id="sm-radius"></select></label>
+      </div>
+      <div class="sm-controls">
+        <label>Conflict <select id="sm-conflict"></select></label>
+        <label>Fired by <select id="sm-by"></select></label>
+        <label>Weapon <select id="sm-weapon"></select></label>
+        <label>Outcome <select id="sm-outcome"></select></label>
+        <label>From <input type="date" id="sm-from"></label>
+        <label>To <input type="date" id="sm-to"></label>
+      </div>
+      <h4 id="sm-chart-title"></h4>
+      <div id="sm-chart"></div>
+      <p id="sm-note" class="disclaimer"></p>
+      <div class="sm-table-head">
+        <h4 id="sm-table-title"></h4>
+        <button id="sm-clear" class="sm-btn" type="button" hidden>Show all</button>
+        <button id="sm-dl-view" class="sm-btn" type="button"></button>
+        <button id="sm-dl-all" class="sm-btn" type="button">Download full dataset (.csv)</button>
+      </div>
+      <div class="sm-table-wrap">
+        <table class="sm-table">
+          <thead><tr><th>Date</th><th>Strike</th><th>Fired by</th><th>Target</th><th>Weapon</th><th>Outcome</th><th class="n">Killed</th><th class="n">Injured</th><th>Nearest city</th></tr></thead>
+          <tbody id="sm-rows"></tbody>
+        </table>
+      </div>
+      <p class="disclaimer">Compiled from public open-source reporting. Attribution and casualty figures are as reported and often unverified; "claimed" marks one side's unconfirmed claim. Not for operational use.</p>
+      <div id="sm-tip" hidden></div>
+    </div>
+  </div>
+
   <script src="data/bases.js"></script>
   <script src="data/naval.js"></script>
   <script src="data/events.js"></script>
@@ -142,5 +188,6 @@
   <script src="data/groups.js"></script>
   <script src="data/state_forces.js"></script>
   <script src="js/app.js"></script>
+  <script src="js/strikes.js"></script>
 </body>
 </html>
