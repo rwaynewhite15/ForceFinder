@@ -1,5 +1,72 @@
 [
   {
+    "date": "2026-11-10",
+    "title": "Talks open in Abu Dhabi, Trump calls the Iran war 'effectively over', and three carriers converge",
+    "summary": "Russia and Ukraine hold their first US-mediated talks since February, Trump says the Iran war is effectively over militarily while the blockade stays, Hegseth rejects an impeachment push, Hormuz traffic runs far below normal, strikes hit Sanaa, and the Theodore Roosevelt heads west from Singapore as the Makin Island group moves into the Sea of Japan.",
+    "audio": "podcast/episodes/2026-11-10.mp3",
+    "script": "podcast/scripts/2026-11-10.json",
+    "duration": 415,
+    "bytes": 2493190,
+    "sources": [
+      {
+        "label": "France 24: Abu Dhabi talks live",
+        "url": "https://www.france24.com/en/europe/20261110-live-ukraine-russia-and-us-to-resume-peace-talks-in-abu-dhabi"
+      },
+      {
+        "label": "AP via Military.com: nearly four hours of talks",
+        "url": "https://www.military.com/russia-and-ukraine-hold-nearly-4-hours-of-us-mediated-talks-in-abu-dhabi"
+      },
+      {
+        "label": "Ukrainska Pravda: overnight attack",
+        "url": "https://www.pravda.com.ua/eng/news/2026/11/10/8062064/"
+      },
+      {
+        "label": "Euronews: Kirishi refinery",
+        "url": "https://www.euronews.com/2026/11/09/ukraine-hits-russias-second-largest-refinery-as-fuel-rationing-spreads"
+      },
+      {
+        "label": "Kyiv Post: ISW November 9 assessment",
+        "url": "https://www.kyivpost.com/post/89623"
+      },
+      {
+        "label": "Al Jazeera: Trump calls Iran war effectively over",
+        "url": "https://www.aljazeera.com/news/2026/11/9/trump-calls-iran-war-effectively-over-after-talks-with-qatar-pm"
+      },
+      {
+        "label": "CNBC: Hegseth on impeachment",
+        "url": "https://www.cnbc.com/2026/11/10/pete-hegseth-impeachment-massie-iran.html"
+      },
+      {
+        "label": "Gulf News: Hormuz shipping below normal",
+        "url": "https://gulfnews.com/world/mena/hormuz-shipping-below-normal-but-not-stalled-ukmto-1.500741839"
+      },
+      {
+        "label": "AP via WGAU: Sanaa strikes",
+        "url": "https://www.wgauradio.com/news/world/overnight-strikes/SDTPP5OZOUZDVDWT23BYOLDJZY/"
+      },
+      {
+        "label": "Deccan Chronicle: Houthi toll claim",
+        "url": "https://www.deccanchronicle.com/world/saudi-strike-in-yemen-kills-44-houthi-media-reports-2002981"
+      },
+      {
+        "label": "Haaretz: Gaza",
+        "url": "https://www.haaretz.com/gaza/2026-11-10/ty-article/.premium/reports-from-gaza-child-among-three-killed-in-israeli-attacks/000001a1-c56d-dba2-a9f9-d57da0de0000"
+      },
+      {
+        "label": "Darfur24: drone strikes in Sudan",
+        "url": "https://darfur24.com/en/2026/11/06/drone-strikes-in-sudan-this-week/"
+      },
+      {
+        "label": "USNI News Fleet and Marine Tracker, Nov. 9",
+        "url": "https://news.usni.org/2026/11/09/usni-news-fleet-and-marine-tracker-nov-9-2026"
+      },
+      {
+        "label": "Maritime Executive: Roosevelt leaves Singapore",
+        "url": "https://maritime-executive.com/article/uss-theodore-roosevelt-csg-leaves-singapore-bound-for-the-gulf"
+      }
+    ]
+  },
+  {
     "date": "2026-11-09",
     "title": "Kirishi burns, Abu Dhabi talks loom, and the Roosevelt reaches Singapore",
     "summary": "Ukrainian drones set Russia's Kirishi refinery ablaze while Russian strikes kill three in Odesa, the Komyshuvakha toll rises to fifty-five, the Kremlin rejects a European role in Tuesday's Abu Dhabi talks, Trump calls new Iran strikes highly unlikely as Rubio and Tehran trade barbs, Saudi Arabia details the missile attack on Riyadh, and the Theodore Roosevelt docks in Singapore on its way to the Middle East.",
