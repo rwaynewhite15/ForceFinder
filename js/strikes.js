@@ -1,39 +1,47 @@
 /* ForceFinder — strike archive: nearest-city features, chart builder and CSV export. */
 (() => {
   "use strict";
-  const STRIKES = window.FF_STRIKES || [], CITIES = window.FF_CITIES || [];
   const $ = (id) => document.getElementById(id);
-  if (!STRIKES.length || !$("strike-modal")) return;
+  if (!$("strike-modal")) return;
 
+  // data/strikes.csv is the single source for this panel: every field it needs, including the
+  // nearest city and distance, is a column in that file (see tools/strikes_csv.js).
+  const CSV_URL = "data/strikes.csv";
   const DATA_KEY = "ff-strike-dataset", PREFS_KEY = "ff-strike-prefs";
   const NONE = "(not near a listed city)", AT_SEA = "Commercial shipping";
 
   // ------------------------------------------------------------ dataset
-  function km(aLat, aLon, bLat, bLon) {
-    const r = Math.PI / 180, dLat = (bLat - aLat) * r, dLon = (bLon - aLon) * r;
-    const h = Math.sin(dLat / 2) ** 2 + Math.cos(aLat * r) * Math.cos(bLat * r) * Math.sin(dLon / 2) ** 2;
-    return 12742 * Math.asin(Math.sqrt(h));
+  function parseCsv(text) {
+    const out = []; let row = [], cell = "", q = false;
+    for (let i = 0; i < text.length; i++) {
+      const c = text[i];
+      if (q) { if (c === '"') { if (text[i + 1] === '"') { cell += '"'; i++; } else q = false; } else cell += c; }
+      else if (c === '"') q = true;
+      else if (c === ",") { row.push(cell); cell = ""; }
+      else if (c === "\n") { row.push(cell); out.push(row); row = []; cell = ""; }
+      else if (c !== "\r") cell += c;
+    }
+    if (cell || row.length) { row.push(cell); out.push(row); }
+    return out;
   }
   function weekOf(iso) {  // Monday of that week
     const d = new Date(iso + "T00:00:00Z");
     d.setUTCDate(d.getUTCDate() - ((d.getUTCDay() + 6) % 7));
     return d.toISOString().slice(0, 10);
   }
-  const rows = STRIKES.map((s) => {
-    let best = null, bestKm = Infinity;
-    for (const c of CITIES) {
-      const d = km(s.lat, s.lon, c.lat, c.lon);
-      if (d < bestKm) { bestKm = d; best = c; }
-    }
-    return {
-      ...s,
-      week: weekOf(s.date),
-      city: best ? best.n : "", city_country: best ? best.cc : "", city_pop: best ? best.pop : null,
-      dist_km: best ? Math.round(bestKm) : null,
-    };
-  });
-  // Keep the enriched dataset in this browser session so other scripts or the console can use it.
-  try { sessionStorage.setItem(DATA_KEY, JSON.stringify({ asOf: window.FF_STRIKES_AS_OF, rows })); } catch { /* storage unavailable */ }
+  const num = (v) => (v === "" || v === undefined ? null : +v);
+  function toRows(text) {
+    const [head, ...body] = parseCsv(text.replace(/^\ufeff/, ""));
+    return body.filter((r) => r.length === head.length).map((r) => {
+      const o = Object.fromEntries(head.map((h, i) => [h, r[i]]));
+      return {
+        id: o.id, date: o.date, conflict: o.conflict, weapon: o.weapon, by: o.fired_by, target: o.target, outcome: o.outcome,
+        killed: num(o.killed), injured: num(o.injured), lat: +o.lat, lon: +o.lon,
+        city: o.nearest_city, city_country: o.city_country, city_pop: num(o.city_population), dist_km: num(o.distance_to_city_km),
+        title: o.title, d: o.summary, src: o.source_url, week: weekOf(o.date),
+      };
+    });
+  }
 
   const CSV_COLS = [
     ["id", "id"], ["date", "date"], ["conflict", "conflict"], ["weapon", "weapon"], ["fired_by", "by"],
@@ -57,6 +65,11 @@
     document.body.appendChild(a); a.click(); a.remove();
     setTimeout(() => URL.revokeObjectURL(url), 1000);
   }
+
+  function init(rows, csvText) {
+  const asOf = rows.reduce((m, r) => (r.date > m ? r.date : m), "");
+  // Keep the dataset in this browser session so other scripts or the console can use it.
+  try { sessionStorage.setItem(DATA_KEY, JSON.stringify({ asOf, csv: csvText, rows })); } catch { /* storage unavailable */ }
 
   // ------------------------------------------------------------ state
   const GROUPS = {
@@ -202,7 +215,7 @@
       : `${picked}: ${fmt(shown.length)} strikes · ${fmt(k)} reported killed`;
     $("sm-clear").hidden = picked === null;
     $("sm-dl-view").textContent = `Download these ${fmt(shown.length)} rows (.csv)`;
-    $("sm-dl-view").onclick = () => download(sorted, `forcefinder-strikes-filtered-${window.FF_STRIKES_AS_OF}.csv`);
+    $("sm-dl-view").onclick = () => download(sorted, `forcefinder-strikes-filtered-${asOf}.csv`);
   }
 
   function render() {
@@ -240,8 +253,8 @@
     inp.addEventListener("change", () => { prefs[key] = inp.value; picked = null; render(); });
   }
   $("sm-clear").addEventListener("click", () => { picked = null; render(); });
-  $("sm-dl-all").addEventListener("click", () => download(rows, `forcefinder-strikes-${window.FF_STRIKES_AS_OF}.csv`));
-  $("strikes-dl").addEventListener("click", () => download(rows, `forcefinder-strikes-${window.FF_STRIKES_AS_OF}.csv`));
+  $("sm-dl-all").addEventListener("click", () => download(rows, `forcefinder-strikes-${asOf}.csv`));
+  $("strikes-dl").addEventListener("click", () => download(rows, `forcefinder-strikes-${asOf}.csv`));
 
   const modal = $("strike-modal");
   const close = () => { modal.hidden = true; hideTip(); };
@@ -251,8 +264,14 @@
   document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !modal.hidden) close(); });
 
   const killed = rows.reduce((a, r) => a + (r.killed || 0), 0);
-  $("strikes-meta").textContent = `${fmt(rows.length)} strikes since ${fmtDay(first)} · ${fmt(killed)} reported killed · as of ${window.FF_STRIKES_AS_OF}`;
-  $("sm-sub").textContent = `${fmt(rows.length)} strikes and attacks from ${fmtDay(first)} to ${fmtDay(last)}, with the nearest of ${CITIES.length} listed cities worked out for each.`;
+  $("strikes-meta").textContent = `${fmt(rows.length)} strikes since ${fmtDay(first)} · ${fmt(killed)} reported killed · as of ${asOf}`;
+  $("sm-sub").textContent = `${fmt(rows.length)} strikes and attacks from ${fmtDay(first)} to ${fmtDay(last)}, each with its nearest major city.`;
   $("strikes").hidden = false;
   window.ForceFinderStrikes = { rows, toCsv };
+  }
+
+  fetch(CSV_URL, { cache: "no-cache" })
+    .then((res) => (res.ok ? res.text() : Promise.reject(new Error(res.status))))
+    .then((text) => { const rows = toRows(text); if (rows.length) init(rows, text); })
+    .catch(() => { /* no dataset: the Strike data section stays hidden */ });
 })();

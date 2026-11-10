@@ -1,5 +1,5 @@
 // Major cities in the regions the map covers, used to work out the nearest city to each
-// strike in data/strikes.js. Coordinates are city centres; populations are rounded,
+// strike in data/strikes.csv (see tools/strikes_csv.js). Coordinates are city centres; populations are rounded,
 // approximate recent figures (pre-war figures for cities in war zones) and are for
 // rough comparison only.
 window.FF_CITIES = [
