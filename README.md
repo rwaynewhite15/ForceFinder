@@ -23,6 +23,12 @@ Built with [CesiumJS](https://cesium.com/platform/cesiumjs/). It has no build st
 - **Photos** in the details panel when you click an asset. Bases and ships use the lead image of
   the matching Wikipedia article. Live aircraft use a photo of that exact airframe (looked up by its
   transponder ID) from Planespotters.net. Each photo is credited and links to its source.
+- **Strike data:** a permanent archive of every strike and attack shown on the map, kept after
+  events age out. Each row records who fired, the target, weapon, outcome, reported killed and
+  injured, and the nearest major city with its distance. Open "Strike data" in the sidebar to build
+  charts (for example, cities with the most strikes, or reported deaths by who fired), filter the
+  table, and download the dataset as a `.csv`. The dataset is also kept in the browser's
+  `sessionStorage` under `ff-strike-dataset`.
 - Satellite, dark and light basemaps, marker clustering, search, branch filters, and click-for-details.
 
 ## Run it
@@ -44,6 +50,8 @@ To host it for free, enable GitHub Pages on this repo (Settings → Pages → de
 | `data/events.js` | Conflict events (`date`, `title`, `type`, `conflict`, `lat`/`lon`, `d` summary, `src` links, optional `from` launch area) and `FF_EVENTS_AS_OF` |
 | `data/conflicts.js` | Conflict overviews keyed by conflict name (`summary`, `facts` with sources, `reading` links, camera `view`, `asOf`) |
 | `data/naval.js` | Ship positions (`w` = Wikipedia article title for the photo), `FF_NAVAL_AS_OF` date, and source links |
+| `data/strikes.js` | Strike archive (`id`, `date`, `conflict`, `weapon`, `by`, `target`, `outcome`, `killed`, `injured`, `lat`/`lon`, `title`, `d`, `src`) and `FF_STRIKES_AS_OF`. Rows are never deleted |
+| `data/cities.js` | Major cities (`n`, `cc`, `lat`/`lon`, `pop`) used to find the nearest city to each strike |
 
 Ship positions change weekly. To refresh them, use the
 [USNI News Fleet & Marine Tracker](https://news.usni.org/category/fleet-tracker) (published on Mondays)
