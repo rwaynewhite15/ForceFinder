@@ -1,5 +1,72 @@
 [
   {
+    "date": "2026-11-11",
+    "title": "A prisoner swap but no breakthrough in Abu Dhabi, Ust-Luga on fire, and more ships hit in the Gulf",
+    "summary": "The Abu Dhabi talks end with a prisoner exchange deal and no movement on a ceasefire, Ukrainian drones set Russia's Ust-Luga oil port ablaze while a Russian drone kills three at a market near Odesa, tankers are hit around the Strait of Hormuz and an ADNOC vessel is attacked in UAE waters, Iran denies it is talking to Washington, and Riyadh intercepts Houthi missiles for a second day.",
+    "audio": "podcast/episodes/2026-11-11.mp3",
+    "script": "podcast/scripts/2026-11-11.json",
+    "duration": 390,
+    "bytes": 2343431,
+    "sources": [
+      {
+        "label": "Euronews: Abu Dhabi talks end with prisoner exchange",
+        "url": "https://euronews.com/2026/11/11/abu-dhabi-peace-talks-end-with-prisoner-exchange-agreement-as-us-envoys-prepare-to-meet-pu"
+      },
+      {
+        "label": "ABC News: talks end without breakthrough",
+        "url": "https://abcnews.com/International/ukraine-russia-exchange-hundreds-drones-day-2-abu/story?id=138038984"
+      },
+      {
+        "label": "Kyiv Post: ISW November 10 assessment",
+        "url": "https://www.kyivpost.com/post/89747"
+      },
+      {
+        "label": "Euromaidan Press: Ust-Luga port",
+        "url": "https://euromaidanpress.com/2026/11/11/drones-hit-ust-luga-port-near-natos-border-starting-a-fire-and-injuring-three-workers/"
+      },
+      {
+        "label": "The Moscow Times: Smolensk region",
+        "url": "https://themoscowtimes.com/2026/11/11/ukrainian-drones-kill-2-in-western-smolensk-region-as-baltics-and-finland-issue-air-alerts-a94226"
+      },
+      {
+        "label": "Kyiv Post: Chornomorsk market",
+        "url": "https://www.kyivpost.com/post/89814"
+      },
+      {
+        "label": "Kyiv Independent: daily toll",
+        "url": "https://kyivindependent.com/russian-attacks-kill-9-injure-39-across-ukraine-over-past-day-as-2-russian-cruise-missiles-violate-moldovan-airspace"
+      },
+      {
+        "label": "Riviera: tankers hit in Hormuz",
+        "url": "https://www.rivieramm.com/news-content-hub/tankers-hit-by-projectiles-in-strait-of-hormuz-iran-reports-further-mine-strikes-90547"
+      },
+      {
+        "label": "Khaleej Times: ADNOC vessel",
+        "url": "https://www.khaleejtimes.com/business/energy/adnoc-vessel-damaged-attack-uae-waters-november-10-2026"
+      },
+      {
+        "label": "Arab News: Iran says tanker hit mine",
+        "url": "https://www.arabnews.com/middle-east/iran-says-oil-tanker-hit-mine-and-caught-fire-in-strait-of-hormuz-3011095"
+      },
+      {
+        "label": "Middle East Monitor: Iran denies talks",
+        "url": "https://middleeastmonitor.com/20261110-iran-denies-ongoing-talks-with-us-planned-meeting-in-qatar"
+      },
+      {
+        "label": "Gulf News: missiles intercepted near Riyadh",
+        "url": "https://gulfnews.com/world/gulf/saudi/saudi-coalition-says-intercepted-3-houthi-missiles-fired-at-riyadh-1.500744072"
+      },
+      {
+        "label": "Arab News (Reuters): Gaza strikes",
+        "url": "https://www.arabnews.com/middle-east/israeli-strikes-kill-three-people-including-two-brothers-in-gaza-medics-say-3011203"
+      },
+      {
+        "label": "Sudan Tribune: Blue Nile",
+        "url": "https://sudantribune.com/article/321074"
+      }
+    ]
+  },
+  {
     "date": "2026-11-10",
     "title": "Talks open in Abu Dhabi, Trump calls the Iran war 'effectively over', and three carriers converge",
     "summary": "Russia and Ukraine hold their first US-mediated talks since February, Trump says the Iran war is effectively over militarily while the blockade stays, Hegseth rejects an impeachment push, Hormuz traffic runs far below normal, strikes hit Sanaa, and the Theodore Roosevelt heads west from Singapore as the Makin Island group moves into the Sea of Japan.",
