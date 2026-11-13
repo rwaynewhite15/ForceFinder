@@ -8,7 +8,7 @@
 // Fields: n = name, c = country (key into the country colours in js/app.js),
 //         cat = naval | air | nuclear | hq | overseas, cc = location,
 //         lat/lon, d = notes, src = [{ label, url }]
-window.FF_STATE_FORCES_AS_OF = "2026-11-12";
+window.FF_STATE_FORCES_AS_OF = "2026-11-13";
 
 window.FF_STATE_FORCES = [
   // ---------------- Russia ----------------
