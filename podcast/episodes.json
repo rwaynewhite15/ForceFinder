@@ -1,5 +1,68 @@
 [
   {
+    "date": "2026-11-14",
+    "title": "Up to thirteen hundred prisoners each way, a rising toll in Zaporizhzhia, and Washington denies the Bahrain strike",
+    "summary": "Ukraine and Russia agree in principle to swap up to thirteen hundred prisoners each with Europe due at the next talks, the toll from Friday's strikes on Zaporizhzhia rises to two dead and fifty injured, US Central Command denies Iran's claim to have destroyed a radar in Bahrain as Trump says no deal with Iran is needed, another tanker is hit in Hormuz, and an Israeli drone strike kills two in Jabaliya.",
+    "audio": "podcast/episodes/2026-11-14.mp3",
+    "script": "podcast/scripts/2026-11-14.json",
+    "duration": 413,
+    "bytes": 2478375,
+    "sources": [
+      {
+        "label": "Kyiv Post: prisoner swap and Europe at the talks",
+        "url": "https://www.kyivpost.com/post/90125"
+      },
+      {
+        "label": "Meduza: three days of talks",
+        "url": "https://meduza.io/en/feature/2026/11/13/three-days-of-ukraine-peace-talks-from-abu-dhabi-to-moscow-to-dublin-who-met-with-whom-and-what-did-they-actually-agree-on"
+      },
+      {
+        "label": "The Moscow Times: largest prisoner exchange",
+        "url": "https://www.themoscowtimes.com/2026/11/13/kushner-says-us-working-toward-largest-prisoner-exchange-of-russias-war-in-ukraine-a94249"
+      },
+      {
+        "label": "ISW/CTP: November 13 assessment",
+        "url": "https://www.criticalthreats.org/analysis/russian-offensive-campaign-assessment-november-13-2026"
+      },
+      {
+        "label": "Kyiv Post: Zaporizhzhia toll",
+        "url": "https://www.kyivpost.com/post/90049"
+      },
+      {
+        "label": "Kyiv Independent: daily toll",
+        "url": "https://kyivindependent.com/at-least-7-killed-80-injured-in-russian-attacks-across-ukraine-zaporizhzhia-among-worst-hit/"
+      },
+      {
+        "label": "CNN: Iran targets US site in Gulf",
+        "url": "https://www.cnn.com/2026/11/13/middleeast/iran-targets-us-military-site-in-gulf-first-time-in-two-months-intl"
+      },
+      {
+        "label": "Middle East Monitor: CENTCOM denial",
+        "url": "https://www.middleeastmonitor.com/20261113-centcom-denies-iranian-claim-of-attack-on-us-radar-in-bahrain-says-2-drones-shot-down/"
+      },
+      {
+        "label": "CNBC: Trump says no deal needed",
+        "url": "https://www.cnbc.com/2026/11/12/trump-iran-deal-hormuz-strait.html"
+      },
+      {
+        "label": "NPR: Gulf in limbo",
+        "url": "https://www.npr.org/2026/11/13/g-s1-153578/whats-trumps-strategy-now-with-iran-to-keep-things-as-they-are"
+      },
+      {
+        "label": "News Beep: tanker fire in Hormuz",
+        "url": "https://www.newsbeep.com/809802/"
+      },
+      {
+        "label": "Arab News (AP): Jabaliya drone strike",
+        "url": "https://arabnews.com/middle-east/israeli-drone-strike-kills-2-palestinians-in-gaza-3011887"
+      },
+      {
+        "label": "Daijiworld: Houthi claims",
+        "url": "https://daijiworld.com/news/newsDisplay?newsID=1335277"
+      }
+    ]
+  },
+  {
     "date": "2026-11-13",
     "title": "Iran claims a hit on a US radar in Bahrain, Volgograd burns, and Europe gets a seat at the talks",
     "summary": "Iran's Revolutionary Guards claim they destroyed a US radar in Bahrain while Central Command says it shot down the drones, Trump warns he would strike Iran with no hesitation, a Ukrainian drone attack kills four workers in Volgograd as Russian strikes kill three in Odesa and Zaporizhzhia, Zelensky says Europe will join the next round of talks, and Israeli strikes continue in Gaza and southern Lebanon.",
