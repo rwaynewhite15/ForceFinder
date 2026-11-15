@@ -8,8 +8,10 @@
 //             low    = not covered by recent reporting; shown at homeport/yard
 // The uncertainty ring drawn on the globe scales with confidence.
 // w = Wikipedia article title, used to fetch the ship's photo.
-window.FF_NAVAL_AS_OF = "2026-11-09";
+window.FF_NAVAL_AS_OF = "2026-11-15";
 window.FF_NAVAL_SOURCES = [
+  { label: "APA, citing the New York Times: third carrier to join two others in the Middle East (Nov. 15, 2026)", url: "https://en.apa.az/america/another-us-aircraft-carrier-to-join-two-others-in-middle-east-tomorrow-536215" },
+  { label: "The Week: Theodore Roosevelt leaves Singapore for the Middle East (Nov. 9, 2026)", url: "https://www.theweek.in/news/middle-east/2026/11/09/uss-theodore-roosevelt-leaves-singapore-for-middle-east-as-centcom-prepares-for-renewed-war.html" },
   { label: "USNI News Fleet & Marine Tracker (Nov. 9, 2026)", url: "https://news.usni.org/2026/11/09/usni-news-fleet-and-marine-tracker-nov-9-2026" },
   { label: "Maritime Executive: Theodore Roosevelt CSG leaves Singapore (Nov. 2026)", url: "https://maritime-executive.com/article/uss-theodore-roosevelt-csg-leaves-singapore-bound-for-the-gulf" },
   { label: "Misbar: tracking Theodore Roosevelt from Singapore (Nov. 9, 2026)", url: "https://www.misbar.com/en/editorial/2026/11/09/misbar-tracks-uss-theodore-roosevelts-transit-singapore-toward-middle-east" },
@@ -36,8 +38,8 @@ window.FF_NAVAL = [
     d: "Departed Naval Station Norfolk Oct. 24 for pre-deployment work-ups; listed underway in the Atlantic on RANE's Nov. 5 naval map." },
   { n: "USS Carl Vinson (CVN-70)", w: "USS Carl Vinson", t: "carrier", lat: 32.699, lon: -117.215, conf: "low", status: "Not in recent reporting", area: "Homeport: NAS North Island, San Diego",
     d: "Shown at homeport; no current location found in recent public reporting." },
-  { n: "USS Theodore Roosevelt (CVN-71)", w: "USS Theodore Roosevelt (CVN-71)", t: "carrier", lat: 5.5, lon: 95.0, conf: "medium", status: "Deployed — transiting to Middle East", area: "Strait of Malacca / eastern Indian Ocean (est.)",
-    d: "After a Nov. 6 port visit at Changi Naval Base, Singapore, Maritime Executive and Misbar reported the strike group left Singapore heading west toward the Gulf; position shown is an estimate along that route. It is expected to relieve the George Washington; a US official told Axios it would not enter Central Command's area before mid-November." },
+  { n: "USS Theodore Roosevelt (CVN-71)", w: "USS Theodore Roosevelt (CVN-71)", t: "carrier", lat: 13.0, lon: 66.0, conf: "medium", status: "Deployed — arriving in Middle East", area: "Arabian Sea approaches (est.)",
+    d: "Left Singapore after a Nov. 6 port visit and crossed the Indian Ocean. APA, citing the New York Times, reported on Nov. 15 that the carrier would join the George H.W. Bush and George Washington in the Middle East the next day; the Navy has not confirmed its arrival, so the position shown is an estimate on the approach to the Arabian Sea. It is expected to relieve the George Washington." },
   { n: "USS Abraham Lincoln (CVN-72)", w: "USS Abraham Lincoln (CVN-72)", t: "carrier", lat: 32.699, lon: -117.215, conf: "high", status: "In port — post-deployment", area: "San Diego, CA",
     d: "Returned Oct. 8 from a 321-day deployment. Expected homeport shift to Bremerton, WA, for overhaul." },
   { n: "USS George Washington (CVN-73)", w: "USS George Washington (CVN-73)", t: "carrier", lat: 19.5, lon: 62.5, conf: "medium", status: "Deployed — Middle East operations", area: "Arabian Sea",

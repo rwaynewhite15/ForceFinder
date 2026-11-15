@@ -6,10 +6,22 @@
 //         src = [{ label, url }], from = optional [lat, lon] approximate launch
 //         direction drawn as an arc.
 // Types: strike, missile, drone, naval, ground, exercise, diplomacy
-window.FF_EVENTS_AS_OF = "2026-11-14";
+window.FF_EVENTS_AS_OF = "2026-11-15";
 
 window.FF_EVENTS = [
   // ---------------- Iran war / Strait of Hormuz ----------------
+  { date: "2026-11-15", title: "IRGC says six drones targeted US radar at Bahrain's Riffa base; Bahrain reports interception", type: "drone", conflict: "Iran war",
+    lat: 26.10, lon: 50.55,
+    d: "Iran's Revolutionary Guards said six drones targeted a US air-defence radar at Riffa Air Base, their second claimed strike in Bahrain in three days. The Bahrain Defence Force said air defences intercepted and destroyed the drones before they reached their targets; US Central Command had not confirmed any damage or casualties.",
+    src: [{ label: "Al Jazeera", url: "https://www.aljazeera.com/news/2026/11/15/iran-says-it-targets-us-radar-in-bahrain-what-do-we-know" },
+          { label: "AFP via Yahoo News", url: "https://www.yahoo.com/news/world/articles/iran-attacks-us-military-bahrain-144206998.html" },
+          { label: "Kurdistan24", url: "https://www.kurdistan24.net/en/story/953065/irgc-says-six-drones-targeted-us-air-defense-radar-at-bahrains-riffa-base" }] },
+  { date: "2026-11-15", title: "Tanker attacked in the Gulf west of Hormuz", type: "naval", conflict: "Iran war",
+    lat: 26.30, lon: 55.50,
+    d: "UKMTO, citing Indian shipping authorities, reported an attack on a tanker heading east through the Gulf toward the strait; the crew was reported safe and damage was unknown. Iran's Revolutionary Guards separately said two tankers were on fire after hitting mines, which has not been confirmed.",
+    src: [{ label: "Arab Times", url: "https://www.arabtimesonline.com/news/indian-shipping-authorities-report-tanker-attack-east-of-strait-of-hormuz/" },
+          { label: "The Hawk", url: "https://www.thehawk.in/news/world/middle-east/indian-shipping-authorities-report-attack-on-tanker-in-arabian-gulf-near-hormuz-crew-safe-ukmto" },
+          { label: "Shafaq News", url: "https://shafaq.com/en/World/Tanker-hit-in-Gulf-Iran-reports-mine-strikes" }] },
   { date: "2026-11-14", title: "Tanker hit by projectile in Hormuz; Iran reports another mine fire", type: "naval", conflict: "Iran war",
     lat: 26.50, lon: 56.60,
     d: "UKMTO reported a tanker in the strait was hit by an unknown projectile. Separately, Iran's navy said an oil tanker caught fire on Saturday morning after hitting a mine in the eastern strait; the mine claims have not been independently verified.",
@@ -269,6 +281,25 @@ window.FF_EVENTS = [
           { label: "Iran International", url: "https://www.iranintl.com/en/202610236428" }] },
 
   // ---------------- Russia–Ukraine ----------------
+  { date: "2026-11-15", title: "Overnight strike on Chornomorsk injures six, damages energy grid", type: "strike", conflict: "Russia–Ukraine",
+    lat: 46.30, lon: 30.66,
+    d: "Ukraine's State Emergency Service said a Russian overnight attack on Chornomorsk, Odesa region, injured six people, damaged energy infrastructure, wrecked a four-storey administrative building and ruptured a gas pipeline. Zelensky said Russia launched over 2,300 drones, 1,590 guided bombs and 15 missiles in the past week.",
+    src: [{ label: "Kyiv Post", url: "https://www.kyivpost.com/post/90157" },
+          { label: "Kyiv Post: weekly totals", url: "https://kyivpost.com/post/90168" }] },
+  { date: "2026-11-14", title: "Twelve guided bombs hit Zaporizhzhia, injuring six", type: "strike", conflict: "Russia–Ukraine",
+    lat: 47.84, lon: 35.14,
+    d: "Regional officials said Russian aircraft dropped 12 guided bombs on Zaporizhzhia on Saturday evening, wounding six civilians including a two-year-old, and traffic over the Dnipro hydroelectric dam was closed. Ukrenergo reported emergency power cuts in Zaporizhzhia and Dnipropetrovsk regions after damage to energy equipment.",
+    src: [{ label: "Kyiv Post", url: "https://www.kyivpost.com/post/90149" },
+          { label: "Ukrinform", url: "https://ukrinform.net/rubric-ato/4184884-enemy-strikes-energy-facility-triggering-emergency-power-outages-in-zaporizhzhia-and-dnipropetrovsk-regions.html" }] },
+  { date: "2026-11-14", title: "ISW: Ukrainian gains near Novopavlivka; Russian attacks stall", type: "ground", conflict: "Russia–Ukraine",
+    lat: 48.14, lon: 36.72,
+    d: "ISW assessed that Ukrainian forces recently advanced south of Novopavlivka and east of Oleksandrivka, while Russian attacks in northern Kharkiv region and toward Kupiansk, Borova and Dobropillia on Nov. 13-14 made no gains. It said the local ceasefire Russia seeks in Kostiantynivka would likely help it reinforce the southern flank of Ukraine's fortress belt.",
+    src: [{ label: "ISW/CTP assessment, Nov 14", url: "https://www.criticalthreats.org/analysis/russian-offensive-campaign-assessment-november-14-2026" },
+          { label: "Kyiv Post", url: "https://www.kyivpost.com/post/90142" }] },
+  { date: "2026-11-14", title: "Kushner: US working on direct Moscow-Europe contacts before next talks", type: "diplomacy", conflict: "Russia–Ukraine",
+    lat: 38.90, lon: -77.04,
+    d: "Kyiv Post reported Jared Kushner saying the US is working on direct engagement between Moscow and European governments ahead of the next round of talks; no date for that round has been announced.",
+    src: [{ label: "Kyiv Post", url: "https://kyivpost.com/post/90150" }] },
   { date: "2026-11-13", title: "Drone attack kills four workers in Volgograd industrial zone", type: "drone", conflict: "Russia–Ukraine",
     lat: 48.50, lon: 44.60,
     d: "Governor Andrei Bocharov said four workers were killed and two injured when Ukrainian drones attacked an industrial zone in Volgograd, blaming fires on falling debris. Ukraine said it struck Lukoil's Volgograd refinery; Russia's defence ministry said it downed 1,198 drones overnight.",
@@ -691,6 +722,12 @@ window.FF_EVENTS = [
     src: [{ label: "AP via Arab News", url: "https://arabnews.com/middle-east/israeli-drone-strike-kills-2-palestinians-in-gaza-3011887" },
           { label: "Times of Israel liveblog", url: "https://www.timesofisrael.com/liveblog-november-14-2026/" },
           { label: "AP via Washington Post", url: "https://www.washingtonpost.com/national/2026/11/14/mideast-news-israel-gaza-iran-november-14/da5d8e60-e032-11f1-912c-4fbb80d73f7f_story.html" }] },
+  { date: "2026-11-14", title: "Israeli strike kills Hamas Rafah Brigade commander in al-Mawasi", type: "drone", conflict: "Israel–Gaza",
+    lat: 31.33, lon: 34.24,
+    d: "Israel and Hamas both confirmed that Samir Abu Younis, commander of Hamas's Rafah Brigade, was killed in a strike in al-Mawasi, Khan Younis, just after midnight on Saturday. Nasser Medical Complex said the strike killed one person and wounded two; Al Jazeera reported it hit a tent sheltering displaced people. Gaza's Health Ministry counted 16 killed and 68 injured over 48 hours.",
+    src: [{ label: "Al Jazeera", url: "https://www.aljazeera.com/news/2026/11/15/israeli-air-strike-kills-senior-hamas-commander-in-gaza" },
+          { label: "Ynet", url: "https://www.ynetnews.com/article/bylzywirml" },
+          { label: "TheJournal.ie", url: "https://www.thejournal.ie/hamas-commander-samir-abu-younis-killed-7226908-Nov2026/" }] },
   { date: "2026-11-13", title: "Israeli strike on vehicle outside wedding hall kills one in Deir al-Balah", type: "strike", conflict: "Israel–Gaza",
     lat: 31.42, lon: 34.35,
     d: "Anadolu, via Middle East Monitor, reported an Israeli strike on a vehicle outside a wedding hall in central Gaza killed one Palestinian.",
@@ -783,6 +820,17 @@ window.FF_EVENTS = [
     src: [{ label: "Antiwar.com", url: "https://news.antiwar.com/2026/10/25/israel-steps-up-lebanon-strikes-masses-troops-along-border/" }] },
 
   // ---------------- Yemen / Saudi Arabia ----------------
+  { date: "2026-11-15", title: "Two ballistic missiles and drones intercepted over Riyadh and Eastern Province", type: "missile", conflict: "Yemen–Saudi Arabia",
+    lat: 24.71, lon: 46.68,
+    d: "The Saudi-led coalition said air defences destroyed two Houthi ballistic missiles aimed at Riyadh and drones over the Eastern Province; no damage or casualties were reported. Officials say at least 26 people have been killed in suspected Houthi attacks in Saudi Arabia since Sept. 23.",
+    src: [{ label: "Al Jazeera", url: "https://www.aljazeera.com/amp/news/2026/11/15/saudi-led-coalition-intercepts-two-missiles-two-drones-in-riyadh" },
+          { label: "Arab News", url: "https://www.arabnews.com/saudi-arabia/coalition-forces-intercept-2-houthi-missiles-6-drones-targeting-saudi-arabia-3011963" },
+          { label: "Saudi Gazette", url: "https://saudigazette.com.sa/article/666253/saudi-arabia/saudi-air-defenses-intercept-2-houthi-ballistic-missiles-drone-targeting-riyadh-and-eastern-regions" }] },
+  { date: "2026-11-15", title: "Saudi-backed forces pull back from Bab el-Mandeb to defend Aden", type: "ground", conflict: "Yemen–Saudi Arabia",
+    lat: 12.94, lon: 43.41,
+    d: "Reuters reported the Saudi-backed Southern Armed Forces withdrew from the Dhubab and Bab el-Mandeb area to al-Suqyah, about 150 km west of Aden, saying they would secure Aden and nearby governorates; it described this as the apparent end of a six-week counteroffensive against the Houthis. Neither the Houthis nor Saudi Arabia commented.",
+    src: [{ label: "Reuters via Al-Monitor", url: "https://www.al-monitor.com/originals/2026/11/anti-houthi-forces-retreat-yemen-iran-strikes-bahrain" },
+          { label: "Reuters via Yahoo News", url: "https://www.yahoo.com/news/articles/yemen-government-forces-withdraw-area-083355478.html" }] },
   { date: "2026-11-13", title: "Houthis claim drones on Riyadh airport and pipeline; coalition reports interceptions", type: "drone", conflict: "Yemen–Saudi Arabia",
     lat: 24.96, lon: 46.70,
     d: "The Houthis claimed drone attacks on King Khalid International Airport and an East-West pipeline pumping station, and missile fire at Saudi forces in Al-Tuwal, Jazan. The Saudi-led coalition said it intercepted drones in the Riyadh area and the Eastern Region and did not confirm any hits.",
