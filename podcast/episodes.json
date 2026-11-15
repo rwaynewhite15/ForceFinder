@@ -1,5 +1,68 @@
 [
   {
+    "date": "2026-11-15",
+    "title": "A second drone attack on Bahrain, a Hamas commander killed, and a retreat at the mouth of the Red Sea",
+    "summary": "Iran's Revolutionary Guards claim a second drone attack on a US radar in Bahrain and Bahrain says it shot the drones down, another tanker is attacked in the Gulf, Israel kills the commander of Hamas's Rafah Brigade, Saudi-backed forces in Yemen pull back from the Bab el-Mandeb strait, Russian strikes hit Chornomorsk and Zaporizhzhia, and the carrier Theodore Roosevelt is reported about to join two others in the Middle East.",
+    "audio": "podcast/episodes/2026-11-15.mp3",
+    "script": "podcast/scripts/2026-11-15.json",
+    "duration": 412,
+    "bytes": 2470442,
+    "sources": [
+      {
+        "label": "Al Jazeera: Iran says it targets US radar in Bahrain",
+        "url": "https://www.aljazeera.com/news/2026/11/15/iran-says-it-targets-us-radar-in-bahrain-what-do-we-know"
+      },
+      {
+        "label": "AFP via Yahoo News: Iran attacks US base in Bahrain",
+        "url": "https://www.yahoo.com/news/world/articles/iran-attacks-us-military-bahrain-144206998.html"
+      },
+      {
+        "label": "Arab Times: tanker attack reported",
+        "url": "https://www.arabtimesonline.com/news/indian-shipping-authorities-report-tanker-attack-east-of-strait-of-hormuz/"
+      },
+      {
+        "label": "Al Jazeera: Hamas commander killed",
+        "url": "https://www.aljazeera.com/news/2026/11/15/israeli-air-strike-kills-senior-hamas-commander-in-gaza"
+      },
+      {
+        "label": "Ynet: Rafah Brigade chief killed",
+        "url": "https://www.ynetnews.com/article/bylzywirml"
+      },
+      {
+        "label": "Reuters via Al-Monitor: anti-Houthi forces retreat",
+        "url": "https://www.al-monitor.com/originals/2026/11/anti-houthi-forces-retreat-yemen-iran-strikes-bahrain"
+      },
+      {
+        "label": "Al Jazeera: coalition intercepts missiles and drones",
+        "url": "https://www.aljazeera.com/amp/news/2026/11/15/saudi-led-coalition-intercepts-two-missiles-two-drones-in-riyadh"
+      },
+      {
+        "label": "Kyiv Post: Chornomorsk strike",
+        "url": "https://www.kyivpost.com/post/90157"
+      },
+      {
+        "label": "Kyiv Post: Zaporizhzhia guided bombs",
+        "url": "https://www.kyivpost.com/post/90149"
+      },
+      {
+        "label": "Kyiv Post: Zelensky's weekly totals",
+        "url": "https://kyivpost.com/post/90168"
+      },
+      {
+        "label": "ISW/CTP: November 14 assessment",
+        "url": "https://www.criticalthreats.org/analysis/russian-offensive-campaign-assessment-november-14-2026"
+      },
+      {
+        "label": "Kyiv Post: Kushner on Moscow-Europe contacts",
+        "url": "https://kyivpost.com/post/90150"
+      },
+      {
+        "label": "APA: third carrier to join two others",
+        "url": "https://en.apa.az/america/another-us-aircraft-carrier-to-join-two-others-in-middle-east-tomorrow-536215"
+      }
+    ]
+  },
+  {
     "date": "2026-11-14",
     "title": "Up to thirteen hundred prisoners each way, a rising toll in Zaporizhzhia, and Washington denies the Bahrain strike",
     "summary": "Ukraine and Russia agree in principle to swap up to thirteen hundred prisoners each with Europe due at the next talks, the toll from Friday's strikes on Zaporizhzhia rises to two dead and fifty injured, US Central Command denies Iran's claim to have destroyed a radar in Bahrain as Trump says no deal with Iran is needed, another tanker is hit in Hormuz, and an Israeli drone strike kills two in Jabaliya.",
@@ -858,7 +921,7 @@
     "date": "2026-11-01",
     "title": "Three refineries in three nights, and a fight over mines in Hormuz",
     "summary": "Ukraine's renewed refinery campaign, Russia's strikes on Dnipro and the power grid, the US–Iran standoff over Hormuz mine claims ahead of the midterms, Houthi attacks on Aden, and why a third US carrier may be heading to the Middle East.",
-    "audio": "podcast/episodes/2026-11-01.mp3",
+    "audio": null,
     "script": "podcast/scripts/2026-11-01.json",
     "duration": 470,
     "bytes": 2821767,
