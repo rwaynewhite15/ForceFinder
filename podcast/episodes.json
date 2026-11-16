@@ -1,5 +1,72 @@
 [
   {
+    "date": "2026-11-16",
+    "title": "Ukraine's biggest drone raid hits the Crimean Bridge, three US carriers gather, and the Houthis reach the strait",
+    "summary": "Russia says it shot down a record thirteen hundred Ukrainian drones in a raid that struck the Crimean Bridge and oil sites, the carrier Theodore Roosevelt is reported in the Middle East alongside two others, the Houthis move into the coast above the Bab el-Mandeb strait and close on Aden, Israel strikes a weapons shipment in Lebanon's Beqaa Valley, and Iran rules out nuclear inspections until the war ends.",
+    "audio": "podcast/episodes/2026-11-16.mp3",
+    "script": "podcast/scripts/2026-11-16.json",
+    "duration": 415,
+    "bytes": 2490613,
+    "sources": [
+      {
+        "label": "France 24: drones target Moscow, Crimea bridge struck",
+        "url": "https://www.france24.com/en/europe/20261116-live-600-ukrainian-drones-target-moscow-strike-crimea-bridge-halts-traffic"
+      },
+      {
+        "label": "Bloomberg: Ukraine hits Crimean Bridge in record strike",
+        "url": "https://www.bloomberg.com/news/articles/2026-11-16/ukraine-hits-crimean-bridge-in-record-drone-strike-on-russia"
+      },
+      {
+        "label": "PBS/AP: Russia says 1,300 drones intercepted",
+        "url": "https://www.pbs.org/newshour/world/russia-says-its-defenses-intercepted-over-1300-ukrainian-drones-in-a-major-attack"
+      },
+      {
+        "label": "Kyiv Post: refining capacity",
+        "url": "https://www.kyivpost.com/post/90263"
+      },
+      {
+        "label": "Meduza: fires in Azov",
+        "url": "https://meduza.io/en/news/2026/11/16/ukrainian-drone-attacks-spark-fires-in-russia-s-rostov-region-oil-depot-reportedly-burning-in-azov"
+      },
+      {
+        "label": "Kyiv Independent: Nizhnekamsk strikes",
+        "url": "https://kyivindependent.com/fire-reported-at-industrial-facility-in-russias-tatarstan-amid-drone-attack/"
+      },
+      {
+        "label": "ABC News: Russian drone attacks on Ukraine",
+        "url": "https://abcnews.com/International/ukraine-fires-1336-drones-russia-wars-largest-attacks/story?id=138171397"
+      },
+      {
+        "label": "ISW/CTP: November 15 assessment",
+        "url": "https://www.criticalthreats.org/analysis/russian-offensive-campaign-assessment-november-15-2026"
+      },
+      {
+        "label": "Stars and Stripes: Roosevelt joins two carriers",
+        "url": "https://www.stripes.com/branches/navy/2026-11-16/roosevelt-middle-east-iran-attacks-bahrain-23481485.html"
+      },
+      {
+        "label": "The National: Roosevelt arrives in Middle East",
+        "url": "https://www.thenationalnews.com/news/us/2026/11/16/uss-theodore-roosevelt-middle-east-centcom/"
+      },
+      {
+        "label": "CBS News live updates: Iran on inspections",
+        "url": "https://www.cbsnews.com/live-updates/iran-war-us-nuclear-oil-strait-of-hormuz/"
+      },
+      {
+        "label": "Al Jazeera: Houthis edge closer to Aden",
+        "url": "https://www.aljazeera.com/news/2026/11/16/houthis-edge-closer-to-aden-as-yemeni-forces-pull-out-of-bab-al-mandeb"
+      },
+      {
+        "label": "AFP via Yahoo News: Houthis seize coast",
+        "url": "https://ca.news.yahoo.com/houthis-seize-ground-yemens-southern-135402287.html"
+      },
+      {
+        "label": "Naharnet: strike on Janta",
+        "url": "https://www.naharnet.com/stories/en/323791-israeli-strike-targets-beqaa-s-janta-near-syrian-border"
+      }
+    ]
+  },
+  {
     "date": "2026-11-15",
     "title": "A second drone attack on Bahrain, a Hamas commander killed, and a retreat at the mouth of the Red Sea",
     "summary": "Iran's Revolutionary Guards claim a second drone attack on a US radar in Bahrain and Bahrain says it shot the drones down, another tanker is attacked in the Gulf, Israel kills the commander of Hamas's Rafah Brigade, Saudi-backed forces in Yemen pull back from the Bab el-Mandeb strait, Russian strikes hit Chornomorsk and Zaporizhzhia, and the carrier Theodore Roosevelt is reported about to join two others in the Middle East.",
@@ -854,7 +921,7 @@
     "date": "2026-11-02",
     "title": "Iran's two-day offer, a busy night at sea, and Ukraine's oil campaign widens",
     "summary": "Iran offers to reopen Hormuz within two days on its terms as three more vessels are hit around the Gulf, Ukraine strikes a major Russian oil hub after three refineries, Russia's overnight drone attacks, Sudan's power grid under fire, and China's coast guard patrols east of Taiwan.",
-    "audio": "podcast/episodes/2026-11-02.mp3",
+    "audio": null,
     "script": "podcast/scripts/2026-11-02.json",
     "duration": 430,
     "bytes": 2583601,
