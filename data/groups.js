@@ -10,7 +10,7 @@
 // Status: stronghold = group holds or dominates the area; contested = another
 //         force occupies or disputes it; degraded = group pushed back or heavily
 //         struck, with a residual presence.
-window.FF_GROUPS_AS_OF = "2026-11-14";
+window.FF_GROUPS_AS_OF = "2026-11-16";
 
 window.FF_GROUP_INFO = {
   "Hezbollah": { full: "Hezbollah (Lebanon)", fto: "US-designated Foreign Terrorist Organization (1997)",
@@ -73,6 +73,11 @@ window.FF_GROUPS = [
     d: "Yemen's main Red Sea port, held by the Houthis since 2014–15 and the gateway for most of the trade reaching Sanaa.",
     src: [{ label: "Al Jazeera: Yemen maps (Oct 2026)", url: "https://www.aljazeera.com/news/2026/10/20/yemen-maps-show-10-years-of-changing-control" },
           { label: "The National", url: "https://www.thenationalnews.com/world/mena/yemeni-forces-make-key-gain-in-campaign-to-retake-rebel-held-port-1.702748" }] },
+  { n: "Dhubab & Bab el-Mandeb coast", g: "Houthis", cc: "Yemen", lat: 12.94, lon: 43.41, r: 40, status: "contested",
+    d: "Coast overlooking the Bab el-Mandeb strait. Saudi-backed Southern forces withdrew on Nov. 15, 2026 to defend Aden, and Houthi sources said their fighters moved into the vacated positions; control is recent and still fluid.",
+    src: [{ label: "Al Jazeera (Nov 16, 2026)", url: "https://www.aljazeera.com/news/2026/11/16/houthis-edge-closer-to-aden-as-yemeni-forces-pull-out-of-bab-al-mandeb" },
+          { label: "NBC News", url: "https://www.nbcnews.com/world/yemen/yemen-forces-withdraw-area-bab-el-mandeb-strait-houthis-rcna609389" },
+          { label: "Reuters via Al-Monitor", url: "https://www.al-monitor.com/originals/2026/11/anti-houthi-forces-retreat-yemen-iran-strikes-bahrain" }] },
 
   // ---------------- Iraq ----------------
   { n: "Jurf al-Sakhar (Jurf al-Nasr)", g: "Kataib Hezbollah", cc: "Iraq", lat: 32.88, lon: 44.12, r: 10, status: "stronghold",
