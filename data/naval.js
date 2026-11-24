@@ -8,8 +8,11 @@
 //             low    = not covered by recent reporting; shown at homeport/yard
 // The uncertainty ring drawn on the globe scales with confidence.
 // w = Wikipedia article title, used to fetch the ship's photo.
-window.FF_NAVAL_AS_OF = "2026-11-16";
+window.FF_NAVAL_AS_OF = "2026-11-23";
 window.FF_NAVAL_SOURCES = [
+  { label: "USNI News Fleet & Marine Tracker (Nov. 23, 2026)", url: "https://news.usni.org/2026/11/23/usni-news-fleet-and-marine-tracker-nov-23-2026" },
+  { label: "USNI News: Carrier USS George Washington leaves Middle East after three months (Nov. 18, 2026)", url: "https://news.usni.org/2026/11/18/carrier-uss-george-washington-leaves-middle-east-after-three-months" },
+  { label: "Task & Purpose: George Washington leaves the Middle East after Theodore Roosevelt arrives (Nov. 2026)", url: "https://taskandpurpose.com/news/uss-george-washington-leaves-middle-east-iran/" },
   { label: "Stars and Stripes: Roosevelt joins 2 other carriers in Mideast (Nov. 16, 2026)", url: "https://www.stripes.com/branches/navy/2026-11-16/roosevelt-middle-east-iran-attacks-bahrain-23481485.html" },
   { label: "The National: USS Theodore Roosevelt arrives in Middle East (Nov. 16, 2026)", url: "https://www.thenationalnews.com/news/us/2026/11/16/uss-theodore-roosevelt-middle-east-centcom/" },
   { label: "APA, citing the New York Times: third carrier to join two others in the Middle East (Nov. 15, 2026)", url: "https://en.apa.az/america/another-us-aircraft-carrier-to-join-two-others-in-middle-east-tomorrow-536215" },
@@ -41,11 +44,11 @@ window.FF_NAVAL = [
   { n: "USS Carl Vinson (CVN-70)", w: "USS Carl Vinson", t: "carrier", lat: 32.699, lon: -117.215, conf: "low", status: "Not in recent reporting", area: "Homeport: NAS North Island, San Diego",
     d: "Shown at homeport; no current location found in recent public reporting." },
   { n: "USS Theodore Roosevelt (CVN-71)", w: "USS Theodore Roosevelt (CVN-71)", t: "carrier", lat: 17.5, lon: 64.5, conf: "medium", status: "Deployed — Middle East operations", area: "Arabian Sea",
-    d: "US officials told The National and Stars and Stripes that the carrier entered Central Command's area on Nov. 15, making three US carriers in the region; Central Command had not officially confirmed the arrival. It carries Carrier Air Wing 11 and is escorted by USS Chosin, USS Paul Hamilton and USS Decatur. It is unclear whether it will relieve the George Washington or operate alongside it." },
+    d: "Entered Central Command's area on Nov. 15, according to US officials, with Carrier Air Wing 11 and escorts USS Chosin, USS Paul Hamilton and USS Decatur. With the George Washington's departure on Nov. 18, USNI News reported the Roosevelt and George H.W. Bush as the two carriers in the Middle East; the Nov. 23 USNI tracker lists Destroyer Squadron 23 embarked." },
   { n: "USS Abraham Lincoln (CVN-72)", w: "USS Abraham Lincoln (CVN-72)", t: "carrier", lat: 32.699, lon: -117.215, conf: "high", status: "In port — post-deployment", area: "San Diego, CA",
     d: "Returned Oct. 8 from a 321-day deployment. Expected homeport shift to Bremerton, WA, for overhaul." },
-  { n: "USS George Washington (CVN-73)", w: "USS George Washington (CVN-73)", t: "carrier", lat: 19.5, lon: 62.5, conf: "medium", status: "Deployed — Middle East operations", area: "Arabian Sea",
-    d: "Forward-deployed (Yokosuka) carrier operating in the Arabian Sea with Carrier Air Wing 5 and USS Shoup (DDG-86), per the Nov. 9 USNI tracker. In the region since Aug. 19; press reports on Nov. 16 said it remains there for now after the Theodore Roosevelt's arrival." },
+  { n: "USS George Washington (CVN-73)", w: "USS George Washington (CVN-73)", t: "carrier", lat: 8.0, lon: 88.0, conf: "low", status: "Deployed — returning east", area: "7th Fleet area (est., Indian Ocean)",
+    d: "USNI News reported on Nov. 18 that the forward-deployed (Yokosuka) carrier left the Middle East after three months and is now in the US 7th Fleet area; a Pacific Fleet spokesperson said it is conducting routine operations. It is unclear whether it is heading to Japan or making a port call; position shown is an estimate." },
   { n: "USS John C. Stennis (CVN-74)", w: "USS John C. Stennis", t: "carrier", lat: 36.985, lon: -76.443, conf: "medium", status: "Refueling and complex overhaul", area: "Newport News Shipbuilding, VA",
     d: "Mid-life refueling and complex overhaul (RCOH)." },
   { n: "USS Harry S. Truman (CVN-75)", w: "USS Harry S. Truman", t: "carrier", lat: 36.990, lon: -76.450, conf: "high", status: "Refueling and complex overhaul", area: "Newport News Shipbuilding, VA",
@@ -53,13 +56,13 @@ window.FF_NAVAL = [
   { n: "USS Ronald Reagan (CVN-76)", w: "USS Ronald Reagan", t: "carrier", lat: 32.705, lon: -117.205, conf: "medium", status: "Carrier qualifications / in port", area: "San Diego, CA",
     d: "Completed Fleet Replacement Squadron carrier qualifications off Southern California; moored at NAS North Island Oct. 27." },
   { n: "USS George H.W. Bush (CVN-77)", w: "USS George H.W. Bush", t: "carrier", lat: 22.5, lon: 60.8, conf: "medium", status: "Deployed — Middle East operations", area: "Arabian Sea / Gulf of Oman",
-    d: "Listed in the Arabian Sea supporting US operations against Iran in the Nov. 9 USNI tracker." },
+    d: "In the region since April; USNI News reported on Nov. 18 that it and the Theodore Roosevelt are the two carriers remaining in the Middle East after the George Washington left." },
   { n: "USS Gerald R. Ford (CVN-78)", w: "USS Gerald R. Ford", t: "carrier", lat: 36.815, lon: -76.295, conf: "high", status: "Planned incremental availability", area: "Norfolk Naval Shipyard, Portsmouth, VA",
     d: "In a planned maintenance period at Norfolk Naval Shipyard since July, after a 326-day deployment that ended in May." },
 
   // ---------------- Amphibious assault ships ----------------
   { n: "USS Tripoli (LHA-7)", w: "USS Tripoli (LHA-7)", t: "amphib", lat: 33.160, lon: 129.716, conf: "medium", status: "Forward-deployed — in port", area: "Sasebo, Japan",
     d: "Forward-deployed amphibious assault ship; reported in port in Sasebo (Oct. 5 tracker)." },
-  { n: "USS Makin Island (LHD-8) ARG / 13th MEU", w: "USS Makin Island", t: "amphib", lat: 38.5, lon: 134.5, conf: "medium", status: "Deployed — underway", area: "Sea of Japan",
-    d: "The Nov. 9 USNI tracker said Makin Island left Yokosuka on Saturday (Nov. 7), according to ship spotters, and the group, including USS John P. Murtha with 13th MEU Marines, is operating in the Sea of Japan. Fox News earlier reported, citing US officials, that the group is bound for the Middle East." },
+  { n: "USS Makin Island (LHD-8) ARG / 13th MEU", w: "USS Makin Island", t: "amphib", lat: 38.5, lon: 134.5, conf: "low", status: "Deployed — position unconfirmed", area: "Last reported: Sea of Japan",
+    d: "The Nov. 9 USNI tracker placed the group in the Sea of Japan after Makin Island left Yokosuka on Nov. 7. The Nov. 23 tracker lists USS Anchorage, part of the group, at Yokosuka, but Makin Island's own position was not found in this week's reporting, so the last reported position is kept." },
 ];
