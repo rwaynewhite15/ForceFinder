@@ -1,5 +1,76 @@
 [
   {
+    "date": "2026-11-23",
+    "title": "Weekly briefing: the Crimean Bridge war, missiles in Poland, and Iran widens its targets",
+    "summary": "The first weekly edition covers November sixteenth to twenty-third: Ukraine's strikes cut the Crimean Bridge and Russia answers with a barrage of more than a hundred missiles, three of which land in Poland; Trump meets Putin in China; a drone kills eleven in Dymer; Ukraine hits a Russian warship in Libya; the US strikes Qeshm Island as Iran hits Bahrain and Kuwait; the George Washington leaves the Middle East; and the Houthis close in on Aden.",
+    "audio": "podcast/episodes/2026-11-23.mp3",
+    "script": "podcast/scripts/2026-11-23.json",
+    "duration": 550,
+    "bytes": 3300301,
+    "sources": [
+      {
+        "label": "Ukrainska Pravda: rail traffic halted on Crimean Bridge",
+        "url": "https://www.pravda.com.ua/eng/news/2026/11/19/8063561/"
+      },
+      {
+        "label": "AP via Washington Post: third strike in four days",
+        "url": "https://www.washingtonpost.com/national/2026/11/19/russia-ukraine-war-kerch-bridge-putin-crimea/0ebb8418-e3f9-11f1-a99e-b3e3805c6b8b_story.html"
+      },
+      {
+        "label": "UPI: Russia's retaliatory barrage",
+        "url": "https://www.upi.com/Top_News/World-News/2026/11/20/Ukraine-Russia-mounts-deadly-missile-drone-assault/8421795165920"
+      },
+      {
+        "label": "Washington Post: Russian missiles in Poland",
+        "url": "https://www.washingtonpost.com/world/2026/11/21/poland-says-russian-missiles-hit-its-territory-trump-calls-it-mistake/"
+      },
+      {
+        "label": "Bloomberg: Trump meets Putin",
+        "url": "https://www.bloomberg.com/news/articles/2026-11-19/trump-meets-with-russia-s-putin-for-first-time-in-over-a-year"
+      },
+      {
+        "label": "Meduza: Dymer strike",
+        "url": "https://meduza.io/en/news/2026/11/23/11-killed-in-russian-strike-on-ukraine-s-dymer-in-kyiv-region"
+      },
+      {
+        "label": "NPR: attack on Russian warship in Libya",
+        "url": "https://www.npr.org/2026/11/23/g-s1-155017/ukraine-attack-russian-warship-libya"
+      },
+      {
+        "label": "ISW/CTP: November 22 assessment",
+        "url": "https://www.criticalthreats.org/analysis/russian-offensive-campaign-assessment-november-22-2026"
+      },
+      {
+        "label": "The National: US strikes Qeshm Island",
+        "url": "https://www.thenationalnews.com/news/us/2026/11/17/us-jets-strike-irgc-missile-launch-site-on-irans-qeshm-island-in-self-defence/"
+      },
+      {
+        "label": "Al Jazeera: Kuwait and Bahrain attacked",
+        "url": "https://www.aljazeera.com/news/2026/11/18/kuwait-bahrain-face-new-iran-attacks-after-us-strike-on-qeshm-island"
+      },
+      {
+        "label": "Arab News: Bahrain industrial site hit",
+        "url": "https://arabnews.com/middle-east/bahrain-says-two-injured-in-iranian-attack-on-industrial-site-as-tankers-hit-in-hormuz-3013503"
+      },
+      {
+        "label": "USNI News: George Washington leaves Middle East",
+        "url": "https://news.usni.org/2026/11/18/carrier-uss-george-washington-leaves-middle-east-after-three-months"
+      },
+      {
+        "label": "Al-Monitor (Reuters): Houthis within 80 km of Aden",
+        "url": "https://www.al-monitor.com/originals/2026/11/yemens-houthis-advance-within-80-km-aden-sources-say"
+      },
+      {
+        "label": "Al Jazeera: coalition hits 60 Houthi sites",
+        "url": "https://www.aljazeera.com/news/2026/11/18/houthis-advance-on-aden-as-saudi-coalition-targets-military-sites"
+      },
+      {
+        "label": "Al Jazeera: UNRWA worker killed in Gaza",
+        "url": "https://www.aljazeera.com/news/2026/11/23/israeli-drone-strike-kills-unrwa-worker-in-gaza"
+      }
+    ]
+  },
+  {
     "date": "2026-11-16",
     "title": "Ukraine's biggest drone raid hits the Crimean Bridge, three US carriers gather, and the Houthis reach the strait",
     "summary": "Russia says it shot down a record thirteen hundred Ukrainian drones in a raid that struck the Crimean Bridge and oil sites, the carrier Theodore Roosevelt is reported in the Middle East alongside two others, the Houthis move into the coast above the Bab el-Mandeb strait and close on Aden, Israel strikes a weapons shipment in Lebanon's Beqaa Valley, and Iran rules out nuclear inspections until the war ends.",
@@ -858,7 +929,7 @@
     "date": "2026-11-03",
     "title": "US strikes Qeshm on the eve of the vote, and a deadly night for Ukraine",
     "summary": "Limited US strikes on Iran's Qeshm Island as Vance talks up a deal, one of the deadliest Russian strikes of the war at an aid centre in Komyshuvakha, a huge overnight barrage on Ukraine's grid and a Kharkiv hospital, Ukraine's strike on the Yaroslavl refinery, and the Theodore Roosevelt moving into the South China Sea.",
-    "audio": "podcast/episodes/2026-11-03.mp3",
+    "audio": null,
     "script": "podcast/scripts/2026-11-03.json",
     "duration": 382,
     "bytes": 2291420,
